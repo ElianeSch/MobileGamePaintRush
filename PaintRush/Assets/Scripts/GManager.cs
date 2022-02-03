@@ -6,7 +6,6 @@ public class GManager : MonoBehaviour
     public static GManager instance;
     public bool gameStarted = false;
     public GameObject tuto;
-    public bool test = true;
 
     private void Awake()
     {
