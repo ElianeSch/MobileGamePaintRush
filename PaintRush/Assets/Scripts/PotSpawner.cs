@@ -47,9 +47,9 @@ public class PotSpawner : MonoBehaviour
         {
             int potId = id[Random.Range(0, id.Length)]; // On choisit un id (et donc une couleur) au hasard parmi les id possibles
 
-            newPot = Instantiate(pot, pos[Random.Range(0, pos.Length)].position, Quaternion.identity); // On fait apparaître un pot à une position aléatoire
-
-            newPot.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.right);
+            newPot = Instantiate(pot, pos[Random.Range(0, pos.Length)].position, pot.transform.rotation); // On fait apparaître un pot à une position aléatoire
+            //int rotRandom = Random.Range(-180, 180);
+            //newPot.transform.rotation = Quaternion.AngleAxis(rotRandom, new Vector3(0,0,1));
             GameObject SeauCouleur = newPot.transform.GetChild(0).gameObject;
 
             newPot.potId = potId; // On assigne au pot son id qu'on vient de choisir aléatoirement

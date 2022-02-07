@@ -9,7 +9,13 @@ public class Pot : MonoBehaviour
     private void Update()
     {
         if (transform.tag == "Pot")
-            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed); //(0,0,-1) + calibration selon les fps de l'ordi utilisé, pour que la vitesse soit identique quel que soit l'ordi utilisé
+        {
+            transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed, Space.World);   //(0,0,-1) + calibration selon les fps de l'ordi utilisé, pour que la vitesse soit identique quel que soit l'ordi utilisé
+            transform.Rotate(Vector3.up, 100.0f * Time.deltaTime, Space.World);
+        }
+
+
+      
         else if (transform.tag == "PotEau")
             transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed);
     }

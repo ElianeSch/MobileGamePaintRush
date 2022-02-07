@@ -57,7 +57,10 @@ public class Pinceau : MonoBehaviour
     public GameObject[] imagesSplash;
     public TextMeshProUGUI[] textesSplash;
     public GameObject[] imagesPlus;
-    
+
+    public GameObject[] currentColorBarImages;
+
+    public int currentColorBar = 0;
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
@@ -124,6 +127,7 @@ public class Pinceau : MonoBehaviour
     private void Start()
     {
         ReinitialisationColorBars();
+        currentColorBarImages[0].SetActive(true);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -197,115 +201,130 @@ public class Pinceau : MonoBehaviour
 
             else
             {
-                PanelGoutteEau.SetActive(true);
-                boutonC.interactable = true;
-                boutonM.interactable = true;
-                boutonJ.interactable = true;
-                boutonN.interactable = true;
+                GoutteEau(currentColorBar);
+                //PanelGoutteEau.SetActive(true);
+                //boutonC.interactable = true;
+                //boutonM.interactable = true;
+                //boutonJ.interactable = true;
+                //boutonN.interactable = true;
                 Destroy(other.gameObject);
-                Time.timeScale = 0;
+                //Time.timeScale = 0;
             }
         }
     }
 
 
-    public void GoutteEau(int choice)
+    public void GoutteEau(int currentColorBar)
     {
-
-        if (numberPotsCyan > 0)
+        if (currentColorBar == 0)
         {
-            if (choice == 0) //cyan
+
+            if (numberPotsCyan > 0)
             {
-                clePot1 = clePot1 - 64;
-                numberPotsCyan = numberPotsCyan - 1;
-                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
-                ReinitialisationColorBars();
-                ReinitialisationSurlignage();
-                SurligneCurrentColor();
-                PanelGoutteEau.SetActive(false);
-                Time.timeScale = 1;
-                boutonC.interactable = false;
-                boutonM.interactable = false;
-                boutonJ.interactable = false;
-                boutonN.interactable = false;
-
-
-            }
-        }
-
-
-        if (numberPotsMagenta > 0)
-        {
-            if (choice == 1) // magenta
-
-            {
-                clePot1 = clePot1 - 16;
-                numberPotsMagenta = numberPotsMagenta - 1;
-                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
-                ReinitialisationColorBars();
-                ReinitialisationSurlignage();
-                SurligneCurrentColor();
-                PanelGoutteEau.SetActive(false);
-                Time.timeScale = 1;
-                boutonC.interactable = false;
-                boutonM.interactable = false;
-                boutonJ.interactable = false;
-                boutonN.interactable = false;
-            }
-        }
-
-        if (numberPotsJaune > 0)
-        {
-            if (choice == 2)
-            {
-                clePot1 = clePot1 - 4;
-                numberPotsJaune = numberPotsJaune - 1;
-                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
-                ReinitialisationColorBars();
-                ReinitialisationSurlignage();
-                SurligneCurrentColor();
-                PanelGoutteEau.SetActive(false);
-                Time.timeScale = 1;
-                boutonC.interactable = false;
-                boutonM.interactable = false;
-                boutonJ.interactable = false;
-                boutonN.interactable = false;
-            }
-        }
-
-        if (numberPotsNoir > 0)
-        {
-            if (choice == 3)
-            {
-                clePot1 = clePot1 - 1;
-                numberPotsNoir = numberPotsNoir - 1;
-                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
-                ReinitialisationColorBars();
-                ReinitialisationSurlignage();
-                SurligneCurrentColor();
-                PanelGoutteEau.SetActive(false);
-                Time.timeScale = 1;
-                boutonC.interactable = false;
-                boutonM.interactable = false;
-                boutonJ.interactable = false;
-                boutonN.interactable = false;
+                {
+                    clePot1 = clePot1 - 64;
+                    numberPotsCyan = numberPotsCyan - 1;
+                    gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
+                    ReinitialisationColorBars();
+                    ReinitialisationSurlignage();
+                    SurligneCurrentColor();
+                }
             }
 
         }
 
-
-        bool win = CheckIfWin();
-        if (win)
+        else if (currentColorBar == 1)
         {
-            print("Win !");
-            List<int> listeIndexOfPixels = FindIndexOfEveryPixelWithSameColor(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
-            StartCoroutine(UnveilPixelsOfSameColor(listeIndexOfPixels));
+
+            if (numberPotsMagenta > 0)
+            {
+                {
+                    clePot1 = clePot1 - 16;
+                    numberPotsMagenta = numberPotsMagenta - 1;
+                    gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
+                    ReinitialisationColorBars();
+                    ReinitialisationSurlignage();
+                    SurligneCurrentColor();
+                }
+            }
 
         }
 
+        else if (currentColorBar == 2)
+        {
 
+            if (numberPotsJaune > 0)
+            {
+                {
+                    clePot1 = clePot1 - 4;
+                    numberPotsJaune = numberPotsJaune - 1;
+                    gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
+                    ReinitialisationColorBars();
+                    ReinitialisationSurlignage();
+                    SurligneCurrentColor();
+                }
+            }
 
+        }
+
+        else
+        {
+
+            if (numberPotsNoir > 0)
+            {
+                {
+                    clePot1 = clePot1 - 1;
+                    numberPotsNoir= numberPotsNoir - 1;
+                    gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
+                    ReinitialisationColorBars();
+                    ReinitialisationSurlignage();
+                    SurligneCurrentColor();
+                }
+            }
+
+        }
     }
+
+    public void ChangeCurrentColorBarPlus()
+    {
+        if (currentColorBar > 2)
+        {
+            currentColorBar = 0;
+            currentColorBarImages[3].SetActive(false);
+            currentColorBarImages[currentColorBar].SetActive(true);
+
+        }
+
+        else
+        {
+            currentColorBar += 1;
+            currentColorBarImages[currentColorBar - 1].SetActive(false);
+            currentColorBarImages[currentColorBar].SetActive(true);
+        }
+            
+        print(currentColorBar);
+    }
+
+    public void ChangeCurrentColorBarMinus()
+    {
+        if (currentColorBar > 0)
+        {
+            currentColorBar = currentColorBar - 1;
+            currentColorBarImages[currentColorBar+1].SetActive(false);
+            currentColorBarImages[currentColorBar].SetActive(true);
+
+        }
+
+        else
+        {
+            currentColorBar = 3;
+            currentColorBarImages[0].SetActive(false);
+            currentColorBarImages[currentColorBar].SetActive(true);
+        }
+
+        print(currentColorBar);
+    }
+
 
     public void BonusPot()
     {
@@ -405,7 +424,6 @@ public class Pinceau : MonoBehaviour
         StartCoroutine(LauchRecette());
 
     }
-
 
     public int[] ConvertIndexIntoNumberOfPots(int indice)
     {
