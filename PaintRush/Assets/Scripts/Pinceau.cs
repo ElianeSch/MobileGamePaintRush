@@ -53,14 +53,27 @@ public class Pinceau : MonoBehaviour
 
     public static Pinceau instance;
 
-    public GameObject panelRecette;
-    public GameObject[] imagesSplash;
-    public TextMeshProUGUI[] textesSplash;
+    public GameObject panelRecette4;
+    public GameObject panelRecette3;
+    public GameObject panelRecette2;
+    public GameObject panelRecette1;
+
+    public Image[] imagesSplashPanel1;
+    public Image[] imagesSplashPanel2;
+    public Image[] imagesSplashPanel3;
+    public Image[] imagesSplashPanel4;
+
+    public TextMeshProUGUI[] textesSplash1;
+    public TextMeshProUGUI[] textesSplash2;
+    public TextMeshProUGUI[] textesSplash3;
+    public TextMeshProUGUI[] textesSplash4;
     public GameObject[] imagesPlus;
 
     public GameObject[] currentColorBarImages;
 
     public int currentColorBar = 0;
+
+    public bool unveil = false;
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
@@ -133,7 +146,7 @@ public class Pinceau : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
 
-        if (other.gameObject.tag == "Pot") // Si le pinceau touche un pot
+        if (other.gameObject.tag == "Pot" && unveil == false) // Si le pinceau touche un pot
         {
             //Destroy(other.gameObject);
             //ChangeTargetColor();
@@ -185,6 +198,7 @@ public class Pinceau : MonoBehaviour
                     print("Win !");
                     List<int> listeIndexOfPixels = FindIndexOfEveryPixelWithSameColor(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
                     StartCoroutine(UnveilPixelsOfSameColor(listeIndexOfPixels));
+                    CheckIfWin();
 
                 }
 
@@ -192,7 +206,7 @@ public class Pinceau : MonoBehaviour
             }
         }
 
-        else if (other.gameObject.tag == "PotEau")
+        else if (other.gameObject.tag == "PotEau" && unveil == false)
         {
             if (numberPotsMagenta == 0 & numberPotsJaune == 0 & numberPotsCyan == 0 & numberPotsNoir == 0)
             {
@@ -328,94 +342,191 @@ public class Pinceau : MonoBehaviour
 
     public void BonusPot()
     {
-        int[] listePotsNecessaires = ConvertIndexIntoNumberOfPots(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
-        if (numberPotsCyan < listePotsNecessaires[0])
+        if (unveil == false)
         {
-            numberPotsCyan += 1;
-            clePot1 = clePot1 + 64;
-
-        }
-
-        else if (numberPotsMagenta < listePotsNecessaires[1])
-        {
-            numberPotsMagenta += 1;
-            clePot1 = clePot1 + 16;
-        }
-
-        else if (numberPotsJaune < listePotsNecessaires[2])
-        {
-            numberPotsJaune += 1;
-            clePot1 = clePot1 + 4;
-        }
-
-        else if (numberPotsNoir < listePotsNecessaires[3])
-        {
-            numberPotsNoir += 1;
-            clePot1 = clePot1 + 1;
-        }
-
-        else
-        {
-            // On va enlever un pot
-            print("On enlève un pot");
-            if (numberPotsCyan > listePotsNecessaires[0])
+            int[] listePotsNecessaires = ConvertIndexIntoNumberOfPots(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
+            if (numberPotsCyan < listePotsNecessaires[0])
             {
-                numberPotsCyan -= 1;
-                clePot1 = clePot1 - 64;
+                numberPotsCyan += 1;
+                clePot1 = clePot1 + 64;
 
             }
 
-            else if (numberPotsMagenta > listePotsNecessaires[1])
+            else if (numberPotsMagenta < listePotsNecessaires[1])
             {
-                numberPotsMagenta -= 1;
-                clePot1 = clePot1 - 16;
+                numberPotsMagenta += 1;
+                clePot1 = clePot1 + 16;
             }
 
-            else if (numberPotsJaune > listePotsNecessaires[2])
+            else if (numberPotsJaune < listePotsNecessaires[2])
             {
-                numberPotsJaune -= 1;
-                clePot1 = clePot1 - 4;
+                numberPotsJaune += 1;
+                clePot1 = clePot1 + 4;
             }
 
-            else if (numberPotsNoir > listePotsNecessaires[3])
+            else if (numberPotsNoir < listePotsNecessaires[3])
             {
-                numberPotsNoir -= 1;
-                clePot1 = clePot1 - 1;
+                numberPotsNoir += 1;
+                clePot1 = clePot1 + 1;
             }
 
+            else
+            {
+                // On va enlever un pot
+                print("On enlève un pot");
+                if (numberPotsCyan > listePotsNecessaires[0])
+                {
+                    numberPotsCyan -= 1;
+                    clePot1 = clePot1 - 64;
+
+                }
+
+                else if (numberPotsMagenta > listePotsNecessaires[1])
+                {
+                    numberPotsMagenta -= 1;
+                    clePot1 = clePot1 - 16;
+                }
+
+                else if (numberPotsJaune > listePotsNecessaires[2])
+                {
+                    numberPotsJaune -= 1;
+                    clePot1 = clePot1 - 4;
+                }
+
+                else if (numberPotsNoir > listePotsNecessaires[3])
+                {
+                    numberPotsNoir -= 1;
+                    clePot1 = clePot1 - 1;
+                }
+
+            }
+
+            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
+            ReinitialisationColorBars();
+            SurligneCurrentColor();
+            bool win = CheckIfWin();
+            if (win)
+            {
+                print("Win !");
+                List<int> listeIndexOfPixels = FindIndexOfEveryPixelWithSameColor(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
+                StartCoroutine(UnveilPixelsOfSameColor(listeIndexOfPixels));
+
+            }
         }
-
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(paletteRGB[clePot1 - 1, 0], paletteRGB[clePot1 - 1, 1], paletteRGB[clePot1 - 1, 2]);
-        ReinitialisationColorBars();
-        SurligneCurrentColor();
-        bool win = CheckIfWin();
-        if (win)
-        {
-            print("Win !");
-            List<int> listeIndexOfPixels = FindIndexOfEveryPixelWithSameColor(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
-            StartCoroutine(UnveilPixelsOfSameColor(listeIndexOfPixels));
-
-        }
+        
 
     }
 
     public IEnumerator LauchRecette()
     {
-        panelRecette.SetActive(true);
+        bool onlyBlack = false;
         int[] listePotsNecessaires = ConvertIndexIntoNumberOfPots(CreatePainting.instance.listePixels[indexOfCurrentPixel]);
 
-        for (int i = 0; i < 4; i++)
+        if (listePotsNecessaires[3] == 3)
         {
-            if (listePotsNecessaires[i] != 0)
-            {
-                imagesSplash[i].SetActive(true);
-                textesSplash[i].text = "x " + listePotsNecessaires[i];
+            onlyBlack = true;
+        }
+        if (onlyBlack)
+        {
+            panelRecette1.SetActive(true);
+            imagesSplashPanel1[0].color = new Color(0, 0, 0);
+            textesSplash1[0].text = "x " + 3;
 
-            }
         }
 
-        yield return new WaitForSeconds(3f);
-        panelRecette.SetActive(false);
+
+        else
+        {
+            int nombrePotsDifferents = 4;
+            int nombrePotsCyan = listePotsNecessaires[0];
+            int nombrePotsMagenta = listePotsNecessaires[1];
+            int nombrePotsJaune = listePotsNecessaires[2];
+            int nombrePotsNoir = listePotsNecessaires[3];
+
+            Image[] imagesSplashPanel;
+            TextMeshProUGUI[] texteSplash;
+
+            int lastIndice = 0;
+            GameObject panelRecette;
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (listePotsNecessaires[i] == 0)
+                {
+                    nombrePotsDifferents -= 1;
+                }
+            }
+
+            if (nombrePotsDifferents == 1)
+            {
+                panelRecette = panelRecette1;
+                panelRecette1.SetActive(true);
+                imagesSplashPanel = imagesSplashPanel1;
+                texteSplash = textesSplash1;
+            }
+
+            else if (nombrePotsDifferents == 2)
+            {
+                panelRecette = panelRecette2;
+                panelRecette2.SetActive(true);
+                imagesSplashPanel = imagesSplashPanel2;
+                texteSplash = textesSplash2;
+            }
+
+            else if (nombrePotsDifferents == 3)
+            {
+                panelRecette = panelRecette3;
+                panelRecette3.SetActive(true);
+                imagesSplashPanel = imagesSplashPanel3;
+                texteSplash = textesSplash3;
+            }
+
+            else
+            {
+                panelRecette = panelRecette4;
+                panelRecette4.SetActive(true);
+                imagesSplashPanel = imagesSplashPanel4;
+                texteSplash = textesSplash4;
+            }
+
+
+
+            if (nombrePotsCyan > 0)
+            {
+                imagesSplashPanel[lastIndice].color = new Color(0, 255, 255);
+                texteSplash[lastIndice].text = "x " + nombrePotsCyan;
+                lastIndice += 1;
+            }
+
+
+            if (nombrePotsMagenta > 0)
+            {
+                imagesSplashPanel[lastIndice].color = new Color(255, 0, 255);
+                texteSplash[lastIndice].text = "x " + nombrePotsMagenta;
+                lastIndice += 1;
+            }
+
+            if (nombrePotsJaune > 0)
+            {
+                imagesSplashPanel[lastIndice].color = new Color(255, 255, 0);
+                texteSplash[lastIndice].text = "x " + nombrePotsJaune;
+                lastIndice += 1;
+            }
+
+            if (nombrePotsNoir > 0)
+            {
+                imagesSplashPanel[lastIndice].color = new Color(0, 0, 0);
+                texteSplash[lastIndice].text = "x " + nombrePotsNoir;
+                lastIndice += 1;
+            }
+
+
+            yield return new WaitForSeconds(2f);
+            panelRecette.SetActive(false);
+
+        }
+
+
     }
 
 
@@ -707,6 +818,7 @@ public class Pinceau : MonoBehaviour
 
     public IEnumerator UnveilPixelsOfSameColor(List<int> listeIndex)
     {
+        unveil = true;
         int ind = clePot1;
         for (int i=0;i<listeIndex.Count;i++)
         {
@@ -721,6 +833,8 @@ public class Pinceau : MonoBehaviour
         ChangeTargetColor();
         Reinitialisation();
         ReinitialisationColorBars();
+        yield return new WaitForSeconds(0.2f);
+        unveil = false;
     }
 
 }
