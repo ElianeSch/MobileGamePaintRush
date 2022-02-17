@@ -74,7 +74,7 @@ public class Pinceau : MonoBehaviour
     public int currentColorBar = 0;
 
     public bool unveil = false;
-
+    
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
     {170.8500f, 114.4695f, 170.8500f}, {86.7000f, 58.0890f, 86.7000f}, {0, 0, 0}, {255.0000f, 170.8500f, 170.8500f}, {170.8500f, 114.4695f, 114.4695f}, {86.7000f, 58.0890f, 58.0890f}, {0, 0, 0}, {255.0000f, 170.8500f, 86.7000f}, {170.8500f, 114.4695f, 58.0890f},
@@ -127,8 +127,8 @@ public class Pinceau : MonoBehaviour
 
 
         listeIndexOfPixelsHidden = Enumerable.Range(0, CreatePainting.instance.M * CreatePainting.instance.N).ToList();
-        //indexOfCurrentPixel = SelectPixelRandomlyFromPainting();
-        indexOfCurrentPixel = 0;
+        indexOfCurrentPixel = SelectPixelRandomlyFromPainting();
+        //indexOfCurrentPixel = 0;
 
         boutonC.interactable = false;
         boutonM.interactable = false;
@@ -148,9 +148,6 @@ public class Pinceau : MonoBehaviour
 
         if (other.gameObject.tag == "Pot" && unveil == false) // Si le pinceau touche un pot
         {
-            //Destroy(other.gameObject);
-            //ChangeTargetColor();
-
             bool perdu = false;
             slotsOccupes += 1;
                 
@@ -216,17 +213,10 @@ public class Pinceau : MonoBehaviour
             else
             {
                 GoutteEau(currentColorBar);
-                //PanelGoutteEau.SetActive(true);
-                //boutonC.interactable = true;
-                //boutonM.interactable = true;
-                //boutonJ.interactable = true;
-                //boutonN.interactable = true;
                 Destroy(other.gameObject);
-                //Time.timeScale = 0;
             }
         }
     }
-
 
     public void GoutteEau(int currentColorBar)
     {
@@ -431,6 +421,8 @@ public class Pinceau : MonoBehaviour
             panelRecette1.SetActive(true);
             imagesSplashPanel1[0].color = new Color(0, 0, 0);
             textesSplash1[0].text = "x " + 3;
+            yield return new WaitForSeconds(2f);
+            panelRecette1.SetActive(false);
 
         }
 

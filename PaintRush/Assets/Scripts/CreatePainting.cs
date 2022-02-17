@@ -7,7 +7,102 @@ public class CreatePainting : MonoBehaviour
 {
     public int N; // Nombre de colonnes
     public int M; // Nombre de lignes
-    public int[] listePixels; // On donne en entrée une liste d'entiers qui correspondent aux N*M couleurs (id) des pixels
+    public int[] listePixels;
+
+    private int[] tableauNH = new int[] {         106,
+
+    26,
+
+    22,
+        
+   106,
+
+    86,
+
+   170,
+
+   170,
+
+   170,
+
+   170,
+
+   170,
+
+    86,
+
+    86,
+
+   150,
+
+   150,
+
+    66,
+
+     6,
+
+    88,
+
+    88,
+
+   170,
+
+   170,
+
+    86,
+
+   150,
+
+   150,
+
+   150,
+
+    86,
+
+     5,
+
+    88,
+
+    66,
+
+    66,
+
+    66,
+
+   150,
+
+   170,
+
+   106,
+
+    22,
+
+    90,
+
+    26,
+
+    69,
+
+    69,
+
+    69,
+
+    70,
+
+    70,
+
+    66,
+
+   150,
+
+   170,
+   
+   170
+};
+
+
+
+
 
     public List<GameObject> listeImagesPixel = new List<GameObject>();
     public GridLayoutGroup grid;
@@ -18,6 +113,7 @@ public class CreatePainting : MonoBehaviour
 
     private void Awake()
     {
+
         instance = this;
 
         grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
@@ -30,10 +126,16 @@ public class CreatePainting : MonoBehaviour
             listeImagesPixel.Add(tempObj);
         }
 
+        listePixels = tableauNH;
+
+
     }
 
     void Start()
     {
+        print(listePixels[0]);
+        // Mettre ici la couleur des pixels récupérés sur l'image dans ReadImage
+
         int indice = listePixels[Pinceau.instance.indexOfCurrentPixel];
         Color targetColor = new Color(Pinceau.instance.paletteRGB[indice, 0], Pinceau.instance.paletteRGB[indice, 1], Pinceau.instance.paletteRGB[indice, 2]);
         Pinceau.instance.targetColor = targetColor;
