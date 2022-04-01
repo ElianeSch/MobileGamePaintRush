@@ -24,6 +24,7 @@ public class Brush : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Eau"))
         {
+            Destroy(collision.gameObject);
             MainManager.instance.ManageCollisionWithWater();
         }
 
@@ -35,17 +36,10 @@ public class Brush : MonoBehaviour
         string binColorKey = MainManager.instance.ToBin(colorKey, 8);
         string binCurrentColorKey = MainManager.instance.ToBin(currentColorKey, 8);
 
-        print(binCurrentColorKey);
-        print(binColorKey);
-
-
         Dictionary<string, int> dic = new Dictionary<string, int> { { "00", 0 }, { "01", 1 }, { "10", 2 }, { "11", 3 } };
         Dictionary<int, string> invDic = new Dictionary<int, string> { {0, "00"}, { 1,"01" }, { 2, "10" }, { 3,"11" } };
 
         char[] sortie = "00000000".ToCharArray();
-
-
-
 
 
         for (int i=0;i<4;i++)
@@ -57,7 +51,6 @@ public class Brush : MonoBehaviour
             
             if (somme > 3)
             {
-                print(somme);
                 MainManager.instance.IfLoose();
                 break; // Game Over
             }
@@ -86,16 +79,17 @@ public class Brush : MonoBehaviour
         Dictionary<string, int> dic = new Dictionary<string, int> { { "00", 0 }, { "01", 1 }, { "10", 2 }, { "11", 3 } };
         Dictionary<int, string> invDic = new Dictionary<int, string> { { 0, "00" }, { 1, "01" }, { 2, "10" }, { 3, "11" } };
 
-        char[] sortie = "00000000".ToCharArray();
-        
+        char[] sortie = binCurrentColorKey.ToCharArray();
         string subCurrentColorKey = binCurrentColorKey.Substring(2 * currentColorBar, 2);
-
+        print(subCurrentColorKey);
         int diff = Mathf.Max(dic[subCurrentColorKey] -1,0);
 
         sortie[2 * currentColorBar] = invDic[diff][0];
         sortie[2 * currentColorBar + 1] = invDic[diff][1];
 
-        string newBinColor = sortie.ToString();
+        string newBinColor = "";
+        foreach (char c in sortie)
+            newBinColor += c;
 
         currentColorKey = MainManager.instance.BinToInt(newBinColor);
         ChangeBrushColor(currentColorKey);

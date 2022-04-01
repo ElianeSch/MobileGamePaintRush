@@ -66,6 +66,7 @@ public class MainManager : MonoBehaviour
     private void Start()
     {
         canvasManager.UpdateColorBars(0);
+        canvasManager.UpdateSizeColorBar();
     }
 
     public Color GetColorFromKey(int colorKey)
@@ -101,13 +102,24 @@ public class MainManager : MonoBehaviour
     }
     public void ManageCollisionWithWater()
     {
+        print("coucou");
         // substract selcted color on jauge
+        if (canvasManager.indexSelectedColorBar != -1)
+        {
+            print("hey");
+            //ColorBar currentColorBar = canvasManager.listColorBar[canvasManager.indexSelectedColorBar];
+            brush.SubstractColor(canvasManager.indexSelectedColorBar);
+            CheckIfMatchingColors();
+            canvasManager.UpdateColorBars(brush.currentColorKey);
+        }
+
     }
 
     public void CheckIfMatchingColors()
     {
         if (brush.GetBrushColor() == paintingManager.GetPixelColor(paintingManager.pixelTarget))
         {
+            print("win");
             paintingManager.UnveilPixelsOfSameColor(paintingManager.GetPixelColor(paintingManager.pixelTarget));
             brush.ResetBrushColor();
             paintingManager.SelectTarget();

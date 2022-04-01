@@ -8,6 +8,7 @@ TagManager:
   - Pot
   - PotEau
   - Obstacle
+  - Eau
   layers:
   - Default
   - TransparentFX
