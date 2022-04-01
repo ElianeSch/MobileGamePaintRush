@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4727846585080062211}
-  - component: {fileID: -6165801792333420269}
   - component: {fileID: -3798118558892068928}
   - component: {fileID: 970727054069549918}
+  - component: {fileID: 617153933}
   m_Layer: 0
   m_Name: Drops
   m_TagString: PotEau
@@ -34,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6165801792333420269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5392919571920190393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd56d37329535a640b72d7c49e9037eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 35
-  potId: 2
 --- !u!54 &-3798118558892068928
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,6 +63,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &617153933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392919571920190393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edefb330e7c568478e80116e90e9369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 35
 --- !u!1 &8625284129297392547
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
@@ -528,111 +528,7 @@ public class Pinceau : MonoBehaviour
 
     }
 
-    public int[] ConvertIndexIntoNumberOfPots(int indice)
-    {
-        string binary = ToBin(indice, 8);
-        int numberM = 0;
-        int numberC = 0;
-        int numberJ = 0;
-        int numberN = 0;
-
-        
-
-        if (binary.Substring(0,2) == "00")
-        {
-            numberC = 0;
-        }
-
-        else if (binary.Substring(0, 2) == "01")
-        {
-            numberC = 1;
-        }
-
-        else if (binary.Substring(0, 2) == "10")
-        {
-            numberC = 2;
-        }
-
-        else if (binary.Substring(0, 2) == "11")
-        {
-            numberC = 3;
-        }
-
-
-
-        if (binary.Substring(2, 2) == "00")
-        {
-            numberM = 0;
-        }
-
-        else if (binary.Substring(2, 2) == "01")
-        {
-            numberM = 1;
-        }
-
-        else if (binary.Substring(2, 2) == "10")
-        {
-            numberM = 2;
-        }
-
-        else if (binary.Substring(2, 2) == "11")
-        {
-            numberM = 3;
-        }
-
-
-        if (binary.Substring(4, 2) == "00")
-        {
-            numberJ = 0;
-        }
-
-        else if (binary.Substring(4, 2) == "01")
-        {
-            numberJ = 1;
-        }
-
-        else if (binary.Substring(4, 2) == "10")
-        {
-            numberJ = 2;
-        }
-
-        else if (binary.Substring(4, 2) == "11")
-        {
-            numberJ = 3;
-        }
-
-
-        if (binary.Substring(6, 2) == "00")
-        {
-            numberN = 0;
-        }
-
-        else if (binary.Substring(6, 2) == "01")
-        {
-            numberN = 1;
-        }
-
-        else if (binary.Substring(6, 2) == "10")
-        {
-            numberN = 2;
-        }
-
-        else if (binary.Substring(6, 2) == "11")
-        {
-            numberN = 3;
-        }
-
-
-        return new int[]{numberC,numberM,numberJ,numberN};
-
-    }
-
-    public static string ToBin(int value, int len)
-    {
-        return (len > 1 ? ToBin(value >> 1, len - 1) : null) + "01"[value & 1];
-    }
-
-
+  
 
     public bool CheckIfWin()
     {
@@ -830,3 +726,4 @@ public class Pinceau : MonoBehaviour
     }
 
 }
+*/

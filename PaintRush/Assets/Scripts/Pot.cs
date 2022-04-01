@@ -2,27 +2,18 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
-
     public float speed;
-    public int potId = 2;
+    public int potId;
 
     private void Update()
     {
-        if (transform.tag == "Pot")
-        {
-            transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed, Space.World);   //(0,0,-1) + calibration selon les fps de l'ordi utilisé, pour que la vitesse soit identique quel que soit l'ordi utilisé
-            transform.Rotate(Vector3.up, 100.0f * Time.deltaTime, Space.World);
-        }
-
-
-      
-        else if (transform.tag == "PotEau")
-            transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed);
+        transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed, Space.World);   //(0,0,-1) + calibration selon les fps de l'ordi utilisé, pour que la vitesse soit identique quel que soit l'ordi utilisé
+        transform.Rotate(Vector3.up, 100.0f * Time.deltaTime, Space.World);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Out")
+        if (collision.gameObject.CompareTag("Out"))
         {
             Destroy(gameObject);
         }

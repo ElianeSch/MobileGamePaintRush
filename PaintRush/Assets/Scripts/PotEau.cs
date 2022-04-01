@@ -1,8 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-using System;
-using System.Collections;
 
 public class PotEau : MonoBehaviour
 {
@@ -23,8 +19,6 @@ public class PotEau : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
 
     }
 }
