@@ -36,12 +36,6 @@ public class PaintingManager : MonoBehaviour
         CreatePixels();
         SelectTarget();
   
-        
-
-
-
-
-
         //int indice = listePixels[BrushManager.instance.indexOfCurrentPixel];
         //Color targetColor = new Color(MainManager.instance.paletteRGB[indice, 0], MainManager.instance.paletteRGB[indice, 1], MainManager.instance.paletteRGB[indice, 2]);
         //Pinceau.instance.targetColor = targetColor;
@@ -81,6 +75,10 @@ public class PaintingManager : MonoBehaviour
     {
         grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         grid.constraintCount = M;
+        float a = grid.GetComponent<RectTransform>().rect.width / M;
+        grid.cellSize = new Vector2(a,a);
+        RectTransform rt = grid.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(grid.GetComponent<RectTransform>().rect.width, N * a);
 
         for (int i = 0; i < N * M; i++)
         {

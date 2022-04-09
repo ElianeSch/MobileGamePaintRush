@@ -65,6 +65,7 @@ public class MainManager : MonoBehaviour
     }
     private void Start()
     {
+ 
         canvasManager.UpdateColorBars(0);
         canvasManager.UpdateSizeColorBar();
     }

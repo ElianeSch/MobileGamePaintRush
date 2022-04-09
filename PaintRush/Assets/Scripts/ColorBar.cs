@@ -8,16 +8,19 @@ public class ColorBar : MonoBehaviour
 
     public List<Image> listZones = new List<Image>();
     public Image arrow;
+    public Image rainbow;
     public int mask;
     public int currentZone;
-    private RectTransform rectTransform;
+    private RectTransform arrowRectTransform;
+    private RectTransform rainbowRectTransform;
     public float offset;
     public int colorBarColorKey;
 
 
     private void Awake()
     {
-        rectTransform = arrow.GetComponent<RectTransform>();
+        arrowRectTransform = arrow.GetComponent<RectTransform>();
+        rainbowRectTransform = rainbow.GetComponent<RectTransform>();
         offset = listZones[0].GetComponent<RectTransform>().rect.height / 2;
         colorBarColorKey = (85 & mask);
 
@@ -38,6 +41,7 @@ public class ColorBar : MonoBehaviour
         }
 
         UpdateArrow();
+        UpdateRainbow(MainManager.instance.paintingManager.GetPixelColor(MainManager.instance.paintingManager.pixelTarget));
 
     }
 
@@ -45,9 +49,24 @@ public class ColorBar : MonoBehaviour
     public void UpdateArrow()
     {
         Vector2 newPos = new Vector2(listZones[currentZone].rectTransform.anchoredPosition.x, listZones[currentZone].rectTransform.anchoredPosition.y + offset);
-        rectTransform.anchoredPosition = newPos;
+        arrowRectTransform.anchoredPosition = newPos;
+    }
+
+    public void UpdateRainbow(Color targetColor)
+    {
+        rainbow.enabled = false;
+        for (int i = 0; i < 4; i++)
+        {
+            if(targetColor == listZones[i].color)
+            {
+                rainbow.enabled = true;
+                Vector2 newPos = new Vector2(listZones[i].rectTransform.anchoredPosition.x, listZones[i].rectTransform.anchoredPosition.y);
+                rainbowRectTransform.anchoredPosition = newPos;
+            }
+            
+        }
     }
 
 
+
 }
- 
