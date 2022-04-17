@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
     public List<ColorBar> listColorBar = new List<ColorBar>();
     public int indexSelectedColorBar=0;
+
+    public Image targetImage;
  
     public void UpdateColorBars(int currentColorKey)
     {
@@ -17,7 +20,6 @@ public class CanvasManager : MonoBehaviour
 
     public void SelectColorBar(int index)
     {
-        print(index);
         indexSelectedColorBar = index;
         UpdateSizeColorBar();
     }
@@ -38,4 +40,11 @@ public class CanvasManager : MonoBehaviour
             }
         }
     }
+
+    public void UpdateTargetImage(Color targetColor)
+    {
+        targetImage.color = targetColor;
+    }
+
+
 }

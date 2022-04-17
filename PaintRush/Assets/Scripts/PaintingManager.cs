@@ -17,61 +17,26 @@ public class PaintingManager : MonoBehaviour
     public GridLayoutGroup grid;
     public GameObject pixel; // L'image du pixel
 
-    public string filePath;
-
     public Dictionary<Color, List<GameObject>> dictPixelByColor = new Dictionary<Color, List<GameObject>>();
 
     public GameObject pixelTarget;
+    public PaintingsLibrary paintingsLibrary;
+
+    public string paintingName;
 
 
 
-    private void Awake()
+    public void ReadTableau(string name)
     {
-        ReadTableau(filePath);
 
+        List<int> painting = paintingsLibrary.paintingsDict[name];
+
+        N = painting[0];
+        M = painting[1];
+        listIndexColor = painting.GetRange(2,painting.Count-2);
     }
 
-    void Start()
-    {
-        CreatePixels();
-        SelectTarget();
-  
-        //int indice = listePixels[BrushManager.instance.indexOfCurrentPixel];
-        //Color targetColor = new Color(MainManager.instance.paletteRGB[indice, 0], MainManager.instance.paletteRGB[indice, 1], MainManager.instance.paletteRGB[indice, 2]);
-        //Pinceau.instance.targetColor = targetColor;
-        //listeImagesPixel[Pinceau.instance.indexOfCurrentPixel].GetComponent<Image>().color = targetColor;
-    }
-
-    void ReadTableau(string file_path)
-    {
-        StreamReader file = new StreamReader(file_path);
-        bool taille = false;
-        while (!file.EndOfStream)
-        {
-            string line = file.ReadLine();
-            string[] liste = line.Split('\t');
-
-            if(!taille)
-            {
-                N = int.Parse(liste[0]);
-                M = int.Parse(liste[1]);
-                taille = true;
-            }
-            else
-            {
-                foreach (string item in liste)
-                {
-                    int indexColor = int.Parse(item);
-                    listIndexColor.Add(indexColor);
-                }
-            }
-         
-        }
-
-        file.Close();
-    }
-
-    void CreatePixels()
+    public void CreatePixels()
     {
         grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         grid.constraintCount = M;
@@ -117,7 +82,7 @@ public class PaintingManager : MonoBehaviour
             pixelTarget = colorTarget[random.Next() % colorTarget.Count];
             UnveilPixel(pixelTarget);
         }
-        else print("Wiiiin");
+        
     }
 
     void UnveilPixel(GameObject pixel)
@@ -131,7 +96,7 @@ public class PaintingManager : MonoBehaviour
 
         if (dictPixelByColor.ContainsKey(color))
         {
-            print("ici");
+  
             foreach (GameObject pixel in dictPixelByColor[color])
             {
                 pixel.GetComponent<Image>().color = color;

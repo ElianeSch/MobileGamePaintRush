@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
@@ -65,9 +66,12 @@ public class MainManager : MonoBehaviour
     }
     private void Start()
     {
- 
+        paintingManager.ReadTableau(CurrentLevel.instance.currentLevel);
+        paintingManager.CreatePixels();
+        paintingManager.SelectTarget();
         canvasManager.UpdateColorBars(0);
         canvasManager.UpdateSizeColorBar();
+        canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
     }
 
     public Color GetColorFromKey(int colorKey)
@@ -89,7 +93,6 @@ public class MainManager : MonoBehaviour
 
     public void IfLoose()
     {
-        print("Loose !");
     }
 
     public void ManageCollisionWithPot(int potId)
@@ -103,11 +106,9 @@ public class MainManager : MonoBehaviour
     }
     public void ManageCollisionWithWater()
     {
-        print("coucou");
         // substract selcted color on jauge
         if (canvasManager.indexSelectedColorBar != -1)
         {
-            print("hey");
             //ColorBar currentColorBar = canvasManager.listColorBar[canvasManager.indexSelectedColorBar];
             brush.SubstractColor(canvasManager.indexSelectedColorBar);
             CheckIfMatchingColors();
@@ -120,10 +121,10 @@ public class MainManager : MonoBehaviour
     {
         if (brush.GetBrushColor() == paintingManager.GetPixelColor(paintingManager.pixelTarget))
         {
-            print("win");
             paintingManager.UnveilPixelsOfSameColor(paintingManager.GetPixelColor(paintingManager.pixelTarget));
             brush.ResetBrushColor();
             paintingManager.SelectTarget();
+            canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
         }
     }
 
