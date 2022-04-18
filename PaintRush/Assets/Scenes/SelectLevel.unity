@@ -147,6 +147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa98a6a45dbda194ea4a1b40cbc4e3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &299241525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 797245787483943404, guid: bd4858a33b440ad489b3d47940872d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 797245787010032576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &423777017
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +195,12 @@ MonoBehaviour:
     type: 3}
   listPanels: []
   indexLevel: 0
+  lockedSprite: {fileID: 21300000, guid: c19662dba2bb9b249affe2aa9c905423, type: 3}
+  questionSprite: {fileID: 21300000, guid: 38d557b4b17592b40ac906a91206852b, type: 3}
+  listButtons:
+  - {fileID: 2081822027}
+  - {fileID: 299241525}
+  - {fileID: 1168615281}
 --- !u!4 &423777019
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a38fe7a5a9434449724d01dffcafd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 
 --- !u!4 &963211035
 Transform:
   m_ObjectHideFlags: 0
@@ -692,6 +709,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082493005}
   m_CullTransparentMesh: 1
+--- !u!114 &1168615281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 797245786035073885, guid: bd4858a33b440ad489b3d47940872d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 797245787010032576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1440642223
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +886,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2081822027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 797245787280583888, guid: bd4858a33b440ad489b3d47940872d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 797245787010032576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2147008059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -864,82 +905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.data[3]
-      value: mondrian_Easy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.data[4]
-      value: mondrian_Medium
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.data[5]
-      value: mondrian_Hard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.data[6]
-      value: kanagawa_Easy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.data[7]
-      value: kanagawa_Medium
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: namesList.Array.data[8]
-      value: kanagawa_Hard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: ed00a771cf2276d44b8a7e895fe6184d,
-        type: 3}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 7604d02c5ada5bb4fbd11deb50c1e224,
-        type: 3}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: 3bdd597b77c01d74abc92ae487933784,
-        type: 3}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.data[6]
-      value: 
-      objectReference: {fileID: 21300000, guid: f55ef0e6f227a4e4ca205a9cca33cf72,
-        type: 3}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300000, guid: add28c27b6df678408318b9439e41193,
-        type: 3}
-    - target: {fileID: 6132089133776325424, guid: 80acd494647bafe44913cdad0f052197,
-        type: 3}
-      propertyPath: spritesList.Array.data[8]
-      value: 
-      objectReference: {fileID: 21300000, guid: 0b611f727d4865e4ea6daec2ee05ec94,
-        type: 3}
     - target: {fileID: 6132089133776325425, guid: 80acd494647bafe44913cdad0f052197,
         type: 3}
       propertyPath: m_Name

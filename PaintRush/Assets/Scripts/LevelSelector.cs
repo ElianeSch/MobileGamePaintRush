@@ -16,25 +16,57 @@ public class LevelSelector : MonoBehaviour
 
     public int indexLevel;
 
-    private void Awake()
+
+    public Sprite lockedSprite;
+    public Sprite questionSprite;
+
+    public List<Button> listButtons = new List<Button>();
+    List<int> difficultyUnlocked;
+
+
+
+    // Start is called before the first frame update
+    void Start()
     {
-        for (int i=0;i<PaintingsLibrary.spritesList.Count/3;i++)
+        difficultyUnlocked  = GameManager.instance.difficultyUnlocked;
+
+        for (int i = 0; i < PaintingsLibrary.spritesList.Count; i++)
         {
             int tmp = i;
             GameObject tempObj = Instantiate(panelLevel, Vector3.zero, Quaternion.identity);
             tempObj.transform.SetParent(content.transform, false);
-            tempObj.transform.GetChild(1).GetComponent<Image>().sprite = PaintingsLibrary.spritesList[3*i];
+
             tempObj.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { Bouton(tmp); });
             tempObj.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => { Bouton(tmp); });
+
+
+            if (difficultyUnlocked[i] == -1) // sprite locked
+            {
+                tempObj.transform.GetChild(1).GetComponent<Image>().sprite = lockedSprite;
+                tempObj.transform.GetChild(0).GetComponent<Button>().interactable = false;
+                tempObj.transform.GetChild(1).GetComponent<Button>().interactable = false;
+            }
+
+            else if (difficultyUnlocked[i] == 0)
+            {
+                tempObj.transform.GetChild(1).GetComponent<Image>().sprite = questionSprite;
+            }
+
+            else
+            {
+               // print(PaintingsLibrary.spritesList[i]);
+                //print(difficultyUnlocked[i - 1]);
+                tempObj.transform.GetChild(1).GetComponent<Image>().sprite = PaintingsLibrary.spritesList[i][difficultyUnlocked[i]-1];
+            }
+
+
+
+
+
             listPanels.Add(tempObj);
         }
 
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        InactivateButtons();
     }
 
     // Update is called once per frame
@@ -47,22 +79,44 @@ public class LevelSelector : MonoBehaviour
     public void Bouton(int index)
     {
         levelPreviewPanel.SetActive(true);
+        int maxDifficulty = difficultyUnlocked[index];
+
+        for (int i=0;i<3;i++)
+        {
+            if (i<=maxDifficulty)
+            {
+                listButtons[i].interactable = true;
+            }
+        }
+
         indexLevel = index;
+        GameManager.instance.currentLevel = PaintingsLibrary.namesList[indexLevel];
 
     }
 
     public void CloseLevelPreviewPanel()
     {
+        InactivateButtons();
         levelPreviewPanel.SetActive(false);
+
     }
 
 
     public void LauchLevel(int index)
     {
-        CurrentLevel.instance.currentLevel = PaintingsLibrary.namesList[indexLevel*3 + index];
-        SceneManager.LoadScene("Level01");
+        GameManager.instance.difficulty = index;
+        InactivateButtons();
+        GameManager.instance.LoadMainScene();
 
 
+    }
+
+    public void InactivateButtons()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+           listButtons[i].interactable = false;
+        }
     }
 
 

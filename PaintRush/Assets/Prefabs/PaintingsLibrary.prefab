@@ -43,11 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa98a6a45dbda194ea4a1b40cbc4e3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritesList:
-  - {fileID: 21300000, guid: 285b7bd81568dda428ab46f53b1a4204, type: 3}
-  - {fileID: 21300000, guid: 027a68d23cf55414cb0b1395289f1715, type: 3}
-  - {fileID: 21300000, guid: 2468d320f1adf2b4aadd03dd5d5b706b, type: 3}
   namesList:
-  - nuitEtoilee_Easy
-  - nuitEtoilee_Medium
-  - nuitEtoilee_Hard
+  - nuitEtoilee
+  - kanagawa
+  - mondrian

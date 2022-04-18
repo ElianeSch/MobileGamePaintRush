@@ -20,16 +20,31 @@ public class PaintingManager : MonoBehaviour
     public Dictionary<Color, List<GameObject>> dictPixelByColor = new Dictionary<Color, List<GameObject>>();
 
     public GameObject pixelTarget;
-    public PaintingsLibrary paintingsLibrary;
 
     public string paintingName;
 
 
 
-    public void ReadTableau(string name)
+    public void ReadTableau(string name, int difficulty)
     {
 
-        List<int> painting = paintingsLibrary.paintingsDict[name];
+        List<int> painting = new List<int>();
+        if (difficulty == 0)
+        {
+            painting = PaintingsLibrary.instance.paintingsDict[name].Easy;
+        }
+
+        else if (difficulty == 1)
+        {
+            painting = PaintingsLibrary.instance.paintingsDict[name].Medium;
+        }
+
+        else
+        {
+            painting = PaintingsLibrary.instance.paintingsDict[name].Hard;
+        }
+        
+       
 
         N = painting[0];
         M = painting[1];
@@ -81,6 +96,10 @@ public class PaintingManager : MonoBehaviour
             List<GameObject> colorTarget = dictPixelByColor.ElementAt(random.Next() % (dictPixelByColor.Count)).Value;
             pixelTarget = colorTarget[random.Next() % colorTarget.Count];
             UnveilPixel(pixelTarget);
+        }
+        else
+        {
+            MainManager.instance.Win(); //Bravo !
         }
         
     }

@@ -14,7 +14,7 @@ public class MainManager : MonoBehaviour
     public Canvas canvas;
     public PaintingManager paintingManager;
     public CanvasManager canvasManager;
-
+    public GameObject winPanel;
 
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
@@ -66,7 +66,9 @@ public class MainManager : MonoBehaviour
     }
     private void Start()
     {
-        paintingManager.ReadTableau(CurrentLevel.instance.currentLevel);
+        print(GameManager.instance.difficulty);
+        winPanel.SetActive(false);
+        paintingManager.ReadTableau(GameManager.instance.currentLevel, GameManager.instance.difficulty);
         paintingManager.CreatePixels();
         paintingManager.SelectTarget();
         canvasManager.UpdateColorBars(0);
@@ -128,7 +130,20 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    public void Win()
+    {
+        winPanel.SetActive(true);
 
+    }
+
+    public void LoadNext()
+    {
+        GameManager.instance.LoadNext();
+    }
+    public void LoadMainMenu()
+    {
+        GameManager.instance.LoadMenu();
+    }
 
 
 

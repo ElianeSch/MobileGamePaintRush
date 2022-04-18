@@ -81,7 +81,6 @@ public class Brush : MonoBehaviour
 
         char[] sortie = binCurrentColorKey.ToCharArray();
         string subCurrentColorKey = binCurrentColorKey.Substring(2 * currentColorBar, 2);
-        print(subCurrentColorKey);
         int diff = Mathf.Max(dic[subCurrentColorKey] -1,0);
 
         sortie[2 * currentColorBar] = invDic[diff][0];

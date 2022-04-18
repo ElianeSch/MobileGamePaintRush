@@ -14,7 +14,7 @@ public class PotSpawner : MonoBehaviour
     [SerializeField] private PotEau potEau; // Objet pot d'eau, pour réinitialiser les slots et le pinceau
     private PotEau newPotEau;
 
-    public int spawnDelay;
+    public float spawnDelay;
 
     [SerializeField] private Pot pot;
     private Pot newPot;
@@ -24,7 +24,7 @@ public class PotSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GManager.instance.gameStarted == true & !hasSpawned)
+        if (GameManager.instance.gameStarted == true & !hasSpawned)
         {
             hasSpawned = true;
             InvokeRepeating("Spawn", 0.5f, spawnDelay); // Appelle à l'infini la fonction Spawn toutes les y secondes à partir de la xème seconde de jeu
