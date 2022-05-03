@@ -29,6 +29,18 @@ public class LevelSelector : MonoBehaviour
     void Start()
     {
         difficultyUnlocked  = GameManager.instance.difficultyUnlocked;
+        if(difficultyUnlocked.Count == 0)
+        {
+            difficultyUnlocked = new List<int>();
+            foreach(string name in PaintingsLibrary.instance.namesList)
+             {
+                difficultyUnlocked.Add(0);
+            }
+            LoadAndSaveData.instance.unlocked.difficultyUnlocked = difficultyUnlocked;
+            LoadAndSaveData.instance.SaveToJson();
+
+            GameManager.instance.LoadData();
+        }
 
         for (int i = 0; i < PaintingsLibrary.spritesList.Count; i++)
         {
@@ -91,6 +103,7 @@ public class LevelSelector : MonoBehaviour
 
         indexLevel = index;
         GameManager.instance.currentLevel = PaintingsLibrary.namesList[indexLevel];
+        GameManager.instance.indexLevel = indexLevel;
 
     }
 

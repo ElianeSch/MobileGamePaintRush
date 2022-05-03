@@ -31,15 +31,6 @@ public class LoadAndSaveData : MonoBehaviour
 
     public UnlockedPaintings unlocked = new UnlockedPaintings();
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            LoadFromJson();
-        }
-
-
-    }
 
     public void SaveToJson()
     {
@@ -53,12 +44,15 @@ public class LoadAndSaveData : MonoBehaviour
 
     public void LoadFromJson()
     {
-        string filePath = Application.persistentDataPath + "/UnlockedData.json";
-        string unlockedData = System.IO.File.ReadAllText(filePath);
+        if (System.IO.File.Exists(Application.persistentDataPath + "/UnlockedData.json"))
+            {
+            string filePath = Application.persistentDataPath + "/UnlockedData.json";
+            string unlockedData = System.IO.File.ReadAllText(filePath);
 
-        unlocked = JsonUtility.FromJson<UnlockedPaintings>(unlockedData);
-        Debug.Log("Load data");
-
+            unlocked = JsonUtility.FromJson<UnlockedPaintings>(unlockedData);
+            Debug.Log("Load data");
+            }
+     
 
     }
 

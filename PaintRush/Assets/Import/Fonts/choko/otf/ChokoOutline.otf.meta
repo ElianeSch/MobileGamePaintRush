@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a2b80b3b5288e4b4083ddd2a89e430f1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Choko Outline
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5031992748408b24fabba928dfe60ea2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

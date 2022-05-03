@@ -133,7 +133,12 @@ public class MainManager : MonoBehaviour
     public void Win()
     {
         winPanel.SetActive(true);
-
+        if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] <= 2)
+        { 
+            LoadAndSaveData.instance.unlocked.difficultyUnlocked[GameManager.instance.indexLevel]++;
+        }
+        LoadAndSaveData.instance.SaveToJson();
+        GameManager.instance.LoadData();
     }
 
     public void LoadNext()

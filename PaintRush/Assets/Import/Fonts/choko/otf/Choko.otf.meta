@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6d21c1929492ce54ba3541c7cece5eea
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Choko
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b144355273b4b1546bf4df0a0ceff6dd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

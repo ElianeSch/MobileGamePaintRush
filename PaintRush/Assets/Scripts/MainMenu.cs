@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         GameManager.instance.LoadSelectLevel();
     }
 
+    public void Gallery()
+    {
+        GameManager.instance.LoadGalleryDoors();
+    }
+
     public void QuitGame()
     {
         Application.Quit();
