@@ -4,11 +4,17 @@ using UnityEngine.SceneManagement;
 public class PotSpawner : MonoBehaviour
 {
 
-    public Transform[] pos; // Les positions d'instantiation possibles pour les pots de peinture
+    public Transform[] posPot; // Les positions d'instantiation possibles pour les pots de peinture
+    public Transform[] posEau;
+    public Transform[] posGold;
+
+
+
     public int[] id; // La liste des id des pots, chaque id correspond à une couleur possible
 
 
     public float probabiliteSpawnEau;
+    public float probabiliteSpawnGold;
 
 
     [SerializeField] private PotEau potEau; // Objet pot d'eau, pour réinitialiser les slots et le pinceau
@@ -19,17 +25,29 @@ public class PotSpawner : MonoBehaviour
     [SerializeField] private Pot pot;
     private Pot newPot;
 
+    [SerializeField] private Gold gold;
+    private Gold newGold;
+
+
+
     private bool hasSpawned = false;
 
 
     private void Update()
     {
-        if (GameManager.instance.gameStarted == true & !hasSpawned)
+        /* if (GameManager.instance.gameStarted == true & !hasSpawned)
+         {
+             hasSpawned = true;
+             InvokeRepeating("Spawn", 0.5f, spawnDelay); // Appelle à l'infini la fonction Spawn toutes les y secondes à partir de la xème seconde de jeu
+
+         }*/
+        if (!hasSpawned)
         {
             hasSpawned = true;
             InvokeRepeating("Spawn", 0.5f, spawnDelay); // Appelle à l'infini la fonction Spawn toutes les y secondes à partir de la xème seconde de jeu
-
         }
+       // InvokeRepeating("Spawn", 0.5f, spawnDelay); // Appelle à l'infini la fonction Spawn toutes les y secondes à partir de la xème seconde de jeu
+
     }
 
     public void Spawn()
@@ -39,7 +57,7 @@ public class PotSpawner : MonoBehaviour
 
         if (proba > probabiliteSpawnEau)
         {
-            newPot = Instantiate(pot, pos[Random.Range(0, pos.Length)].position, pot.transform.rotation); // On fait apparaître un pot à une position aléatoire
+            newPot = Instantiate(pot, posPot[Random.Range(0, posPot.Length)].position, pot.transform.rotation); // On fait apparaître un pot à une position aléatoire
             GameObject SeauCouleur = newPot.transform.GetChild(0).gameObject;
 
             int potId = id[Random.Range(0, id.Length)]; // On choisit un id (et donc une couleur) au hasard parmi les id possibles
@@ -50,7 +68,17 @@ public class PotSpawner : MonoBehaviour
 
         else
         {
-            newPotEau = Instantiate(potEau, pos[Random.Range(0, pos.Length)].position, Quaternion.identity); // On fait apparaître un pot d'eau à une position aléatoire
+            if (proba > probabiliteSpawnGold)
+            {
+                newPotEau = Instantiate(potEau, posEau[Random.Range(0, posEau.Length)].position, Quaternion.identity); // On fait apparaître un pot d'eau à une position aléatoire
+            }
+
+            else
+            {
+                newGold = Instantiate(gold, posGold[Random.Range(0, posGold.Length)].position, gold.transform.rotation);
+            }
+               
+                
         }
     }
 

@@ -16,6 +16,7 @@ public class MainManager : MonoBehaviour
     public CanvasManager canvasManager;
     public GameObject winPanel;
 
+    public int goldCount = 0;
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
@@ -66,7 +67,6 @@ public class MainManager : MonoBehaviour
     }
     private void Start()
     {
-        print(GameManager.instance.difficulty);
         winPanel.SetActive(false);
         paintingManager.ReadTableau(GameManager.instance.currentLevel, GameManager.instance.difficulty);
         paintingManager.CreatePixels();
@@ -93,10 +93,6 @@ public class MainManager : MonoBehaviour
     }
 
 
-    public void IfLoose()
-    {
-    }
-
     public void ManageCollisionWithPot(int potId)
     {
         // Change canvas
@@ -119,6 +115,15 @@ public class MainManager : MonoBehaviour
 
     }
 
+
+    public void ManageCollisionWithGold()
+    {
+        goldCount += 1;
+        canvasManager.UpdateGoldCount(goldCount);
+    }
+
+
+
     public void CheckIfMatchingColors()
     {
         if (brush.GetBrushColor() == paintingManager.GetPixelColor(paintingManager.pixelTarget))
@@ -139,6 +144,11 @@ public class MainManager : MonoBehaviour
         }
         LoadAndSaveData.instance.SaveToJson();
         GameManager.instance.LoadData();
+    }
+
+    public void IfLoose()
+    {
+
     }
 
     public void LoadNext()

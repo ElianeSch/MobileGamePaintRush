@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class CanvasManager : MonoBehaviour
     public int indexSelectedColorBar=0;
 
     public Image targetImage;
+
+
+    public TextMeshProUGUI textGoldCount;
+
  
     public void UpdateColorBars(int currentColorKey)
     {
@@ -45,6 +50,13 @@ public class CanvasManager : MonoBehaviour
     {
         targetImage.color = targetColor;
     }
+
+
+    public void UpdateGoldCount(int goldCount)
+    {
+        textGoldCount.text = goldCount.ToString();
+    }
+
 
 
 }

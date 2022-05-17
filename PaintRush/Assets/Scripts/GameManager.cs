@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int difficulty;
     public int indexDoor;
     public List<int> difficultyUnlocked = new List<int>();
+    public GameObject pausePanel;
+
     private void Awake()
     {
         
@@ -31,11 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !gameStarted)
-        {
-            gameStarted = true;
-            //tuto.SetActive(false);
-        }
+       
     }
 
     public void LoadMenu()
@@ -80,5 +78,9 @@ public class GameManager : MonoBehaviour
     {
         LoadAndSaveData.instance.LoadFromJson();
         difficultyUnlocked = LoadAndSaveData.instance.unlocked.difficultyUnlocked;
+
     }
+
+
+
 }

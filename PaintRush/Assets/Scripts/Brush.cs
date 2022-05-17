@@ -6,10 +6,12 @@ public class Brush : MonoBehaviour
 {
 
     public int currentColorKey;
+    public LineRenderer trailEffect;
 
     private void Start()
     {
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f);
+        ResetBrushColor();
+
     }
 
 
@@ -26,6 +28,13 @@ public class Brush : MonoBehaviour
         {
             Destroy(collision.gameObject);
             MainManager.instance.ManageCollisionWithWater();
+        }
+
+
+        else if (collision.gameObject.CompareTag("Gold"))
+        {
+            Destroy(collision.gameObject);
+            MainManager.instance.ManageCollisionWithGold();
         }
 
     }
@@ -96,24 +105,81 @@ public class Brush : MonoBehaviour
 
     public void ChangeBrushColor(int colorKey)
     {
+        /*float alpha = 1.0f;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(MainManager.instance.GetColorFromKey(colorKey), 0.0f), new GradientColorKey(GetBrushColor(), 0.3f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+        );
+        trailEffect.colorGradient = gradient;*/
+
+
+        StartCoroutine(ChangeGradient(colorKey));
+        
         currentColorKey = colorKey;
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = MainManager.instance.GetColorFromKey(colorKey) ;
+        gameObject.transform.GetChild(2).GetComponent<Renderer>().material.color = MainManager.instance.GetColorFromKey(colorKey);
+        //trailEffect.material.color = GetBrushColor();
+
     }
 
     public void ChangeBrushColor(Color color)
     {
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = color;
+        /*float alpha = 1.0f;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(color, 0.0f), new GradientColorKey(GetBrushColor(), 0.3f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+        );
+        trailEffect.colorGradient = gradient;*/
+
+        StartCoroutine(ChangeGradient(color));
+
+        gameObject.transform.GetChild(2).GetComponent<Renderer>().material.color = color;
+        //trailEffect.material.color = GetBrushColor();
+
     }
 
 
     public Color GetBrushColor()
     {
-        return gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color;
+        return gameObject.transform.GetChild(2).GetComponent<Renderer>().material.color;
     }
 
     public void ResetBrushColor()
     {
         ChangeBrushColor(0);
     }
+
+    public IEnumerator ChangeGradient(Color color)
+    {
+        float elapsedTime = 0f;
+        float totalTime = 1f;
+
+        Color brushColor = GetBrushColor();
+
+        while (elapsedTime < totalTime)
+        {
+            elapsedTime += Time.deltaTime;
+            trailEffect.material.color = Color.Lerp(brushColor, color, elapsedTime / totalTime);
+            yield return null;
+        }
+    }
+
+    public IEnumerator ChangeGradient(int colorKey)
+    {
+        float elapsedTime = 0f;
+        float totalTime = 1f;
+
+        Color brushColor = GetBrushColor();
+
+        while (elapsedTime < totalTime)
+        {
+            elapsedTime += Time.deltaTime;
+            Color color = MainManager.instance.GetColorFromKey(colorKey);
+            trailEffect.material.color = Color.Lerp(brushColor, color, elapsedTime / totalTime);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
 
 }

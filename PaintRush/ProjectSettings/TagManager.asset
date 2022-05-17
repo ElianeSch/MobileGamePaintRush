@@ -9,6 +9,7 @@ TagManager:
   - PotEau
   - Obstacle
   - Eau
+  - Gold
   layers:
   - Default
   - TransparentFX

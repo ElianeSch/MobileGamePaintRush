@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0) // Si le joueur a au moins un doigt sur l'écran
+        transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * 1, Space.World);
+        transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * 1, Space.World);
+        if (Input.touchCount > 0 && PauseManager.gameIsPaused == false) // Si le joueur a au moins un doigt sur l'écran
         {
             touch = Input.GetTouch(0); // On récupère les infos du premier doigt posé sur l'écran
-
+            print("touch");
             if (touch.phase == TouchPhase.Moved) // On regarde l'état du doigt qui touche l'écran : est-ce qu'il a bougé
             {
                 // On bouge le cube en suivant le mouvement du doigt
