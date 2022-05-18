@@ -4820,6 +4820,7 @@ GameObject:
   - component: {fileID: 1660666089281727109}
   - component: {fileID: 1660666089281727111}
   - component: {fileID: 1660666089281727108}
+  - component: {fileID: 5202175871475633807}
   m_Layer: 0
   m_Name: GoldNum
   m_TagString: Untagged
@@ -4981,3 +4982,21 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &5202175871475633807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660666089281727162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366f82a75033d254eadd4f50ce6690aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 1
+  delayTime: 0
+  easeType: 31
+  loopType: 0
+  scaleAmount: {x: 1.2, y: 1.2, z: 1.2}
+  isDestroyOnComplete: 0

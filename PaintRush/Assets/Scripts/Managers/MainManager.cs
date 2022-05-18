@@ -121,7 +121,7 @@ public class MainManager : MonoBehaviour
     {
         goldCount += 1;
         canvasManager.UpdateGoldCount(goldCount);
-        Destroy(Instantiate(numGold, new Vector3(brush.transform.position.x, brush.transform.position.y, brush.transform.position.z - 1), Quaternion.identity), 1f);
+        Destroy(Instantiate(numGold, new Vector3(0,0,-2), Quaternion.identity), 1f);
 
     }
 
@@ -156,10 +156,12 @@ public class MainManager : MonoBehaviour
 
     public void LoadNext()
     {
+        StopAllCoroutines();
         GameManager.instance.LoadNext();
     }
     public void LoadMainMenu()
     {
+        StopAllCoroutines();
         GameManager.instance.LoadMenu();
     }
 

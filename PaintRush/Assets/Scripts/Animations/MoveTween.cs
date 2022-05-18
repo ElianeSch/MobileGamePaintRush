@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveTween : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float animationTime;
+    public float delayTime;
+
+    public iTween.EaseType easeType;
+    public iTween.LoopType loopType;
+
+
+    public Vector3 moveAmount;
+
+    public bool isDestroyOnComplete;
+
+    public void OnEnable()
     {
-        
+        iTween.MoveBy(gameObject, iTween.Hash("x", moveAmount.x, "y", moveAmount.y, "islocal", true, "time", animationTime, "looptype", loopType, "easetype", easeType, "oncomplete", "OnComplete"));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnComplete()
     {
-        
+        if (isDestroyOnComplete)
+            Destroy(gameObject);
     }
 }

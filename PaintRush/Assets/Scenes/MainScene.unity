@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 57082291}
   - component: {fileID: 57082293}
   - component: {fileID: 57082292}
+  - component: {fileID: 57082294}
   m_Layer: 5
   m_Name: YouWinTitle
   m_TagString: Untagged
@@ -249,6 +250,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57082290}
   m_CullTransparentMesh: 1
+--- !u!114 &57082294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57082290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366f82a75033d254eadd4f50ce6690aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 3
+  delayTime: 0
+  easeType: 12
+  loopType: 0
+  scaleAmount: {x: 1.5, y: 1, z: 1}
+  isDestroyOnComplete: 0
 --- !u!1 &80684135
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +392,7 @@ GameObject:
   - component: {fileID: 139911399}
   - component: {fileID: 139911398}
   - component: {fileID: 139911397}
+  - component: {fileID: 139911400}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -494,6 +514,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139911395}
   m_CullTransparentMesh: 1
+--- !u!114 &139911400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139911395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47dd3d3d7e8f254d9e82ad525360f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 2
+  delayTime: 0
+  easeType: 21
+  loopType: 2
+  scaleAmount: {x: 1.2, y: 1.2, z: 1.2}
+  isDestroyOnComplete: 0
 --- !u!1 &145220791
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +5690,8 @@ MonoBehaviour:
   goldPickedUpInThisLevel: 0
   totalGoldInLevel: 0
   numberGoldTextInLevel: {fileID: 349020094}
+  continueButton: {fileID: 139911397}
+  menuButton: {fileID: 1507957929}
 --- !u!1 &1427502837
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +5943,7 @@ GameObject:
   - component: {fileID: 1507957928}
   - component: {fileID: 1507957931}
   - component: {fileID: 1507957930}
+  - component: {fileID: 1507957932}
   - component: {fileID: 1507957929}
   m_Layer: 5
   m_Name: ReturnButton
@@ -6025,6 +6066,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507957927}
   m_CullTransparentMesh: 1
+--- !u!114 &1507957932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507957927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47dd3d3d7e8f254d9e82ad525360f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 2
+  delayTime: 0
+  easeType: 21
+  loopType: 2
+  scaleAmount: {x: 1.2, y: 1.2, z: 1.2}
+  isDestroyOnComplete: 0
 --- !u!1 &1545911156
 GameObject:
   m_ObjectHideFlags: 0
@@ -7605,6 +7664,9 @@ MonoBehaviour:
   animationTime: 3
   delayTime: 0
   easeType: 24
+  loopType: 0
+  scaleAmount: {x: 0, y: 0, z: 0}
+  isDestroyOnComplete: 0
 --- !u!1 &1886030549
 GameObject:
   m_ObjectHideFlags: 0

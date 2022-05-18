@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144b1c200665dfd4aba42225ee9939a4, type: 3}
+  m_Name: PinceauBleu
+  m_EditorClassIdentifier: 
+  title: Pinceau  bleu
+  description: Un pinceau bleu comme le ciel
+  sprite: {fileID: 21300000, guid: 68df3d14d63a38f4e9e2a122cb56ca07, type: 3}
+  cost: 3

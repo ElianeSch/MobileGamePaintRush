@@ -19,7 +19,6 @@ public class Win : MonoBehaviour
     public TextMeshProUGUI numberGoldTextInLevel;
 
 
-
     private void Start()
     {
         PauseManager.gameIsPaused = true;
@@ -67,7 +66,8 @@ public class Win : MonoBehaviour
 
             yield return new WaitForSeconds(animationTime);
             Destroy(coin);
-    }
+        }
+
 
 
     }
