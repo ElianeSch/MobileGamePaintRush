@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class FirstMenu : MonoBehaviour
 {
 
-
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -14,4 +13,6 @@ public class FirstMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }

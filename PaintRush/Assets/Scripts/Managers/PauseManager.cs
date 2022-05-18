@@ -28,7 +28,7 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         gameIsPaused = false;
         print("resume");
     }
@@ -36,7 +36,7 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         pausePanel.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         gameIsPaused = true;
     }
 

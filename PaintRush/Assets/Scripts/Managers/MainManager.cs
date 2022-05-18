@@ -17,6 +17,7 @@ public class MainManager : MonoBehaviour
     public GameObject winPanel;
 
     public int goldCount = 0;
+    public GameObject numGold;
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
@@ -116,10 +117,12 @@ public class MainManager : MonoBehaviour
     }
 
 
-    public void ManageCollisionWithGold()
+    public void ManageCollisionWithGold(GameObject other)
     {
         goldCount += 1;
         canvasManager.UpdateGoldCount(goldCount);
+        Destroy(Instantiate(numGold, new Vector3(brush.transform.position.x, brush.transform.position.y, brush.transform.position.z - 1), Quaternion.identity), 1f);
+
     }
 
 

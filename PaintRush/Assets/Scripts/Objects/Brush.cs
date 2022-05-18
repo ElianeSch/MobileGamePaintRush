@@ -33,8 +33,9 @@ public class Brush : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Gold"))
         {
+            
+            MainManager.instance.ManageCollisionWithGold(collision.gameObject);
             Destroy(collision.gameObject);
-            MainManager.instance.ManageCollisionWithGold();
         }
 
     }

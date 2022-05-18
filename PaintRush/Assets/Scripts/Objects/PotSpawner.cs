@@ -52,34 +52,37 @@ public class PotSpawner : MonoBehaviour
 
     public void Spawn()
     {
-
-        float proba = Random.value;
-
-        if (proba > probabiliteSpawnEau)
+        if (PauseManager.gameIsPaused == false)
         {
-            newPot = Instantiate(pot, posPot[Random.Range(0, posPot.Length)].position, pot.transform.rotation); // On fait apparaître un pot à une position aléatoire
-            GameObject SeauCouleur = newPot.transform.GetChild(0).gameObject;
+            float proba = Random.value;
 
-            int potId = id[Random.Range(0, id.Length)]; // On choisit un id (et donc une couleur) au hasard parmi les id possibles
-            newPot.potId = potId; // On assigne au pot son id qu'on vient de choisir aléatoirement
-            SeauCouleur.GetComponent<Renderer>().material.color = colorPot(potId);
-
-        }
-
-        else
-        {
-            if (proba > probabiliteSpawnGold)
+            if (proba > probabiliteSpawnEau)
             {
-                newPotEau = Instantiate(potEau, posEau[Random.Range(0, posEau.Length)].position, Quaternion.identity); // On fait apparaître un pot d'eau à une position aléatoire
+                newPot = Instantiate(pot, posPot[Random.Range(0, posPot.Length)].position, pot.transform.rotation); // On fait apparaître un pot à une position aléatoire
+                GameObject SeauCouleur = newPot.transform.GetChild(0).gameObject;
+
+                int potId = id[Random.Range(0, id.Length)]; // On choisit un id (et donc une couleur) au hasard parmi les id possibles
+                newPot.potId = potId; // On assigne au pot son id qu'on vient de choisir aléatoirement
+                SeauCouleur.GetComponent<Renderer>().material.color = colorPot(potId);
+
             }
 
             else
             {
-                newGold = Instantiate(gold, posGold[Random.Range(0, posGold.Length)].position, gold.transform.rotation);
+                if (proba > probabiliteSpawnGold)
+                {
+                    newPotEau = Instantiate(potEau, posEau[Random.Range(0, posEau.Length)].position, Quaternion.identity); // On fait apparaître un pot d'eau à une position aléatoire
+                }
+
+                else
+                {
+                    newGold = Instantiate(gold, posGold[Random.Range(0, posGold.Length)].position, gold.transform.rotation);
+                }
+
+
             }
-               
-                
         }
+       
     }
 
 

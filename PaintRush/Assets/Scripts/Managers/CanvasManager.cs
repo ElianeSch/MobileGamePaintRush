@@ -48,7 +48,8 @@ public class CanvasManager : MonoBehaviour
 
     public void UpdateTargetImage(Color targetColor)
     {
-        targetImage.color = targetColor;
+        Color color = new Color(targetColor.r, targetColor.g, targetColor.b, 1f);
+        targetImage.color = color;
     }
 
 
