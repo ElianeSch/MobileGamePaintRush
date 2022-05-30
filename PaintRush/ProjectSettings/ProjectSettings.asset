@@ -154,7 +154,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.ElianeS.HyperCasualTemplate
+    Android: com.ElianeS.PaintRush
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -271,7 +271,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 9876a6b129d5dab41965a629ce1a3bb1, type: 3}
+      m_Icon: {fileID: 2800000, guid: fda93d43e47946a408cc8d959d258798, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

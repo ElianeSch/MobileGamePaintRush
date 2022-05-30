@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class CanvasManager : MonoBehaviour
+
 {
     public List<ColorBar> listColorBar = new List<ColorBar>();
     public int indexSelectedColorBar=0;
@@ -13,7 +14,10 @@ public class CanvasManager : MonoBehaviour
 
     public TextMeshProUGUI textGoldCount;
 
- 
+
+    public GameObject[] life;
+
+
     public void UpdateColorBars(int currentColorKey)
     {
         foreach(ColorBar colorbar in listColorBar)
@@ -58,6 +62,19 @@ public class CanvasManager : MonoBehaviour
         textGoldCount.text = goldCount.ToString();
     }
 
+
+    public void CreateLifeCount(int maxLife)
+    {
+        for (int i = 0; i< maxLife; i++)
+        {
+            life[i].SetActive(true);
+        }
+    }
+
+    public void UpdateLifeCount(int lifeRemaining)
+    {
+        life[lifeRemaining].SetActive(false);
+    }
 
 
 }

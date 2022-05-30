@@ -19,6 +19,15 @@ public class MainManager : MonoBehaviour
     public int goldCount = 0;
     public GameObject numGold;
 
+    public ParticleSystem ps;
+    private ParticleSystem.MainModule ma;
+
+    public ParticleSystem psLoose;
+
+    public int maxLife;
+    public int lifeRemaining;
+
+
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
     {170.8500f, 114.4695f, 170.8500f}, {86.7000f, 58.0890f, 86.7000f}, {0, 0, 0}, {255.0000f, 170.8500f, 170.8500f}, {170.8500f, 114.4695f, 114.4695f}, {86.7000f, 58.0890f, 58.0890f}, {0, 0, 0}, {255.0000f, 170.8500f, 86.7000f}, {170.8500f, 114.4695f, 58.0890f},
@@ -65,16 +74,22 @@ public class MainManager : MonoBehaviour
             paletteRGB[i, 2] = paletteRGB[i, 2] / 255;
 
         }
+
+        ma = ps.main;
     }
     private void Start()
     {
         winPanel.SetActive(false);
-        paintingManager.ReadTableau(GameManager.instance.currentLevel, GameManager.instance.difficulty);
+        paintingManager.ReadTableau(GameManager.instance.indexLevel, GameManager.instance.difficulty);
         paintingManager.CreatePixels();
         paintingManager.SelectTarget();
         canvasManager.UpdateColorBars(0);
         canvasManager.UpdateSizeColorBar();
         canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
+
+
+        maxLife = canvasManager.life.Length;
+        lifeRemaining = maxLife;
     }
 
     public Color GetColorFromKey(int colorKey)
@@ -101,6 +116,25 @@ public class MainManager : MonoBehaviour
         brush.AddColor(potId);
         CheckIfMatchingColors();
         canvasManager.UpdateColorBars(brush.currentColorKey);
+        //GameObject newSplashColor = Instantiate(ps.gameObject, new Vector3(brush.transform.position.x, brush.transform.position.y - 1, brush.transform.position.z), Quaternion.identity);
+        Color couleur;
+        if (potId == 1) // Si c'est du noir
+            couleur = new Color(0f, 0f, 0f);
+        else if (potId == 4) // Si c'est du jaune
+            couleur = new Color(1.0f, 1.0f, 0f);
+        else if (potId == 16) // Si c'est du magenta
+            couleur = new Color(1.0f, 0f, 1.0f);
+        else  // Si c'est du cyan
+            couleur = new Color(0f, 1.0f, 1.0f);
+
+        //couleur = new Color(Pinceau.instance.paletteRGB[potId, 0], Pinceau.instance.paletteRGB[potId, 1], Pinceau.instance.paletteRGB[potId, 2]);
+
+        ma.startColor = couleur;
+
+
+
+        ps.Play();
+        //Destroy(newSplashColor, 1f);
 
     }
     public void ManageCollisionWithWater()
@@ -141,6 +175,8 @@ public class MainManager : MonoBehaviour
     public void Win()
     {
         winPanel.SetActive(true);
+
+
         if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] <= 2)
         { 
             LoadAndSaveData.instance.unlocked.difficultyUnlocked[GameManager.instance.indexLevel]++;
@@ -151,6 +187,19 @@ public class MainManager : MonoBehaviour
 
     public void IfLoose()
     {
+        // Loose a life
+        lifeRemaining -= 1;
+        psLoose.gameObject.SetActive(true);
+        psLoose.Play();
+        canvasManager.UpdateLifeCount(lifeRemaining);
+        print("Life remaining = " + lifeRemaining);
+
+        // Update life canvas
+
+        if (lifeRemaining == 0)
+        {
+            print("Game over !");
+        }
 
     }
 

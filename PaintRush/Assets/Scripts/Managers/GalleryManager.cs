@@ -1,13 +1,12 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class GalleryManager : MonoBehaviour
 {
 
-
-    public Animator animatorScrollingPainting;
     public GameObject panelOpenPainting;
 
     public GameObject panelFrames;
@@ -20,6 +19,8 @@ public class GalleryManager : MonoBehaviour
 
     public int numberOfPaintingsFinished = 0;
     public List<int> listFinishedPaintings = new List<int>();
+
+    public TextMeshProUGUI description;
 
 
     private void Start()
@@ -40,38 +41,39 @@ public class GalleryManager : MonoBehaviour
 
     public void ClickButtonRight()
     {
-        if (indexScrollPreview < 3)
+       /* if (indexScrollPreview < 3)
         {
             indexScrollPreview += 1;
             animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
-        }
+        }*/
 
     }
 
     public void ClickButtonLeft()
     {
-        if (indexScrollPreview > 0)
+       /* if (indexScrollPreview > 0)
         {
             indexScrollPreview -= 1;
             animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
-        }
+        }*/
     }
 
 
     public void ClickOnPainting(int index)
     {
         panelOpenPainting.SetActive(true);
-        for(int i = 0;i < 3; i++)
+        for(int i = 0;i < 4; i++)
         {
-            listImages[i].sprite = PaintingsLibrary.instance.spritesList[index][i];
+            listImages[i].sprite = PaintingsLibrary.instance.paintingsList[index].spritesPainting[i];
         }
+        description.text = PaintingsLibrary.instance.paintingsList[index].description;
   
     }
 
     public void ClosePanelInfo()
     {
         indexScrollPreview = 0;
-        animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
+        //animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
         panelOpenPainting.SetActive(false);
     }
 
@@ -85,7 +87,6 @@ public class GalleryManager : MonoBehaviour
 
         }
     }
-
 
 
 

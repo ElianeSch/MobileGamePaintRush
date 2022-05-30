@@ -9,9 +9,7 @@ using System;
 public class PaintingsLibrary : MonoBehaviour
 {
 
-    public Dictionary<string, Painting> paintingsDict = new Dictionary<string, Painting> ();
-    public List<Sprite[]> spritesList = new List<Sprite[]>();
-    public List<string> namesList = new List<string>();
+    public List<PaintingSO> paintingsList = new List<PaintingSO>();
 
     public static PaintingsLibrary instance;
 
@@ -30,29 +28,34 @@ public class PaintingsLibrary : MonoBehaviour
         }
 
 
-
-        foreach (string name in namesList)
+        foreach(PaintingSO painting in paintingsList)
         {
-            Sprite[] spritesPainting = Resources.LoadAll<Sprite>("Paintings/" + name);
-            spritesList.Add(spritesPainting);
-
-            var jsonTextFile = Resources.Load<TextAsset>("PaintingsJson/" + name);
-            string jsonString = jsonTextFile.ToString();
-            Painting painting = JsonUtility.FromJson<Painting>(jsonString);
-            paintingsDict.Add(name, painting);
-
-
-
+            painting.GetPaintingInfo();
         }
+
+
+        
+
     }
-
-    private void Start()
-
+    public List<int> GetPainting(int PaintingID, int difficulty)
     {
+        List<int> painting = new List<int>();
+        if (difficulty == 0)
+        {
+            painting = paintingsList[PaintingID].painting.Easy;
+        }
 
-       
+        else if (difficulty == 1)
+        {
+            painting = paintingsList[PaintingID].painting.Medium;
+        }
+
+        else
+        {
+            painting = paintingsList[PaintingID].painting.Hard;
+        }
+        return painting;
     }
-
 
 }
 

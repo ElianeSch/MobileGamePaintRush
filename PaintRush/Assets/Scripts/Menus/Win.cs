@@ -7,7 +7,7 @@ public class Win : MonoBehaviour
 {
     public float animationTime;
 
-    private int numberGold;
+    private int savedGold;
     public TextMeshProUGUI numberGoldText;
 
     public GameObject animatedGoldPrefab;
@@ -18,17 +18,22 @@ public class Win : MonoBehaviour
     public int totalGoldInLevel;
     public TextMeshProUGUI numberGoldTextInLevel;
 
+    public Image endImage;
+    public int steps;
 
     private void Start()
     {
         PauseManager.gameIsPaused = true;
+        savedGold = GameManager.instance.GetCoinCount();
+        goldPickedUpInThisLevel = MainManager.instance.goldCount;
+        totalGoldInLevel = goldPickedUpInThisLevel;
+        GameManager.instance.SetandSaveCoinCount(savedGold+goldPickedUpInThisLevel);
 
-        numberGold = MainManager.instance.goldCount;
-        totalGoldInLevel = 8;
-        goldPickedUpInThisLevel = 8;
-        numberGoldText.text = numberGold.ToString();
+        numberGoldText.text = savedGold.ToString();
         numberGoldTextInLevel.text = goldPickedUpInThisLevel.ToString();
 
+        endImage.sprite = PaintingsLibrary.instance.paintingsList[GameManager.instance.indexLevel].spritesPainting[GameManager.instance.difficulty];
+        StartCoroutine(FadeImage(steps));
         StartCoroutine(UpdateGoldCount());
     }
 
@@ -37,8 +42,8 @@ public class Win : MonoBehaviour
     
     public void UpdateNumberGold()
     {
-        numberGold += 1;
-        numberGoldText.text = numberGold.ToString();
+        savedGold += 1;
+        numberGoldText.text = savedGold.ToString();
 
     }
 
@@ -68,7 +73,21 @@ public class Win : MonoBehaviour
             Destroy(coin);
         }
 
-
-
     }
+
+    public IEnumerator FadeImage(int steps)
+    {
+
+        Image image = endImage.GetComponent<Image>();
+        var tempColor = image.color;
+
+        for (int i = 0; i < steps+1; i++)
+        {
+            tempColor.a = i*1.0f/steps;
+            image.color = tempColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+
 }

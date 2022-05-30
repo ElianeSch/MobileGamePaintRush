@@ -47,3 +47,7 @@ MonoBehaviour:
   - nuitEtoilee
   - kanagawa
   - mondrian
+  paintingsList:
+  - {fileID: 11400000, guid: 67b73982d6c6e584c8fc15d670ab7f9f, type: 2}
+  - {fileID: 11400000, guid: 180aa7377b908e642927af1ddb65ab2a, type: 2}
+  - {fileID: 11400000, guid: 39bd072c499733649beeb5aff8864c74, type: 2}

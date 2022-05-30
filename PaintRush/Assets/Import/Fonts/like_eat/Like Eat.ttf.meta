@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: eef0c83d2cc908b46bf9715ce8d1837d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Like Eat
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 37075f3968793ab4c8a9a432037d06d1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

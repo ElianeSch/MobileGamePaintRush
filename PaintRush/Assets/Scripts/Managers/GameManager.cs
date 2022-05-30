@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool gameStarted = false;
     //public GameObject tuto;
-    public string currentLevel;
     public int indexLevel;
     public int difficulty;
     public int indexDoor;
     public List<int> difficultyUnlocked = new List<int>();
     public GameObject pausePanel;
+    public int totalGold;
 
     private void Awake()
     {
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     {
         
         SceneManager.LoadScene("MainMenu");
+        LoadAndSaveData.instance.SaveToJson();
+        LoadData();
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
 
     }
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadSelectLevel()
     {
-        SceneManager.LoadScene("SelectLevel");
+        SceneManager.LoadScene("LevelSelector");
     }
 
     public void LoadGalleryDoors()
@@ -78,7 +80,21 @@ public class GameManager : MonoBehaviour
     {
         LoadAndSaveData.instance.LoadFromJson();
         difficultyUnlocked = LoadAndSaveData.instance.unlocked.difficultyUnlocked;
+        totalGold = LoadAndSaveData.instance.gold.totalGoldCount;
 
+    }
+
+    public int GetCoinCount()
+    {
+        LoadData();
+        return totalGold;
+    }
+
+    public void SetandSaveCoinCount(int newGold)
+    {
+        totalGold = newGold;
+        LoadAndSaveData.instance.gold.totalGoldCount = totalGold;
+        LoadAndSaveData.instance.SaveToJson();
     }
 
 

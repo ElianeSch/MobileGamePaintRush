@@ -25,25 +25,10 @@ public class PaintingManager : MonoBehaviour
 
 
 
-    public void ReadTableau(string name, int difficulty)
+    public void ReadTableau(int PaintingID, int difficulty)
     {
 
-        List<int> painting = new List<int>();
-        if (difficulty == 0)
-        {
-            painting = PaintingsLibrary.instance.paintingsDict[name].Easy;
-        }
-
-        else if (difficulty == 1)
-        {
-            painting = PaintingsLibrary.instance.paintingsDict[name].Medium;
-        }
-
-        else
-        {
-            painting = PaintingsLibrary.instance.paintingsDict[name].Hard;
-        }
-        
+        List<int> painting = PaintingsLibrary.instance.GetPainting(PaintingID, difficulty);
        
 
         N = painting[0];
@@ -55,10 +40,10 @@ public class PaintingManager : MonoBehaviour
     {
         grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         grid.constraintCount = M;
-        float a = grid.GetComponent<RectTransform>().rect.width / M;
+        float a = Mathf.Min(grid.GetComponent<RectTransform>().rect.width / M, grid.GetComponent<RectTransform>().rect.height / N);
         grid.cellSize = new Vector2(a,a);
         RectTransform rt = grid.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(grid.GetComponent<RectTransform>().rect.width, N * a);
+        rt.sizeDelta = new Vector2(M * a, N * a);
 
         for (int i = 0; i < N * M; i++)
         {

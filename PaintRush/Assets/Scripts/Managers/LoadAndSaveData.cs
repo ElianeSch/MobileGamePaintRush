@@ -30,14 +30,23 @@ public class LoadAndSaveData : MonoBehaviour
     }
 
     public UnlockedPaintings unlocked = new UnlockedPaintings();
-
+    public Coin gold = new Coin();
 
     public void SaveToJson()
     {
         string unlockedData = JsonUtility.ToJson(unlocked);
+        string goldData = JsonUtility.ToJson(gold);
+
+
         string filePath = Application.persistentDataPath + "/UnlockedData.json";
-        Debug.Log(filePath);
+        string filePathGold = Application.persistentDataPath + "/GoldData.json";
+
+
         System.IO.File.WriteAllText(filePath, unlockedData);
+        System.IO.File.WriteAllText(filePathGold, goldData);
+
+
+
         Debug.Log("Sauvegarde effectuée");
     }
 
@@ -50,9 +59,20 @@ public class LoadAndSaveData : MonoBehaviour
             string unlockedData = System.IO.File.ReadAllText(filePath);
 
             unlocked = JsonUtility.FromJson<UnlockedPaintings>(unlockedData);
-            Debug.Log("Load data");
+
             }
-     
+
+        if (System.IO.File.Exists(Application.persistentDataPath + "/goldData.json"))
+        {
+            string filePathGold = Application.persistentDataPath + "/goldData.json";
+            string goldData = System.IO.File.ReadAllText(filePathGold);
+
+            gold = JsonUtility.FromJson<Coin>(goldData);
+
+        }
+
+
+
 
     }
 
@@ -66,3 +86,10 @@ public class UnlockedPaintings
 {
     public List<int> difficultyUnlocked = new List<int>();
 }
+
+[System.Serializable]
+public class Coin
+{
+    public int totalGoldCount;
+}
+

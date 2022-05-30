@@ -39,7 +39,7 @@ public class ShopManager : MonoBehaviour
             shopPanelsGOTab3[i].SetActive(true);
         }
         coins = 10;
-        coinUI.text = "Coins : " + coins.ToString();
+        coinUI.text = "x " + coins.ToString();
         LoadPanels();
     }
 
@@ -70,12 +70,6 @@ public class ShopManager : MonoBehaviour
             shopPanelsTab3[i].image.sprite = shopItemsSOTab3[i].sprite;
             shopPanelsTab3[i].costTxt.text = "Coins : " + shopItemsSOTab3[i].cost.ToString();
         }
-    }
-
-
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
 

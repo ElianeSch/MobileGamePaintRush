@@ -29,11 +29,11 @@ public class LevelSelector : MonoBehaviour
     void Start()
     {
         difficultyUnlocked  = GameManager.instance.difficultyUnlocked;
-        if(difficultyUnlocked.Count == 0)
+        if(difficultyUnlocked.Count == 0) // First time we start the game, no info saved
         {
             difficultyUnlocked = new List<int>();
-            foreach(string name in PaintingsLibrary.instance.namesList)
-             {
+            foreach(PaintingSO painting in PaintingsLibrary.instance.paintingsList)
+            {
                 difficultyUnlocked.Add(0);
             }
             LoadAndSaveData.instance.unlocked.difficultyUnlocked = difficultyUnlocked;
@@ -42,7 +42,7 @@ public class LevelSelector : MonoBehaviour
             GameManager.instance.LoadData();
         }
 
-        for (int i = 0; i < PaintingsLibrary.spritesList.Count; i++)
+        for (int i = 0; i < PaintingsLibrary.paintingsList.Count; i++)
         {
             int tmp = i;
             GameObject tempObj = Instantiate(panelLevel, Vector3.zero, Quaternion.identity);
@@ -68,7 +68,7 @@ public class LevelSelector : MonoBehaviour
             {
                // print(PaintingsLibrary.spritesList[i]);
                 //print(difficultyUnlocked[i - 1]);
-                tempObj.transform.GetChild(1).GetComponent<Image>().sprite = PaintingsLibrary.spritesList[i][difficultyUnlocked[i]-1];
+                tempObj.transform.GetChild(1).GetComponent<Image>().sprite = PaintingsLibrary.paintingsList[i].spritesPainting[difficultyUnlocked[i]-1];
             }
 
 
@@ -100,10 +100,7 @@ public class LevelSelector : MonoBehaviour
                 listButtons[i].interactable = true;
             }
         }
-
-        indexLevel = index;
-        GameManager.instance.currentLevel = PaintingsLibrary.namesList[indexLevel];
-        GameManager.instance.indexLevel = indexLevel;
+        GameManager.instance.indexLevel = index;
 
     }
 
