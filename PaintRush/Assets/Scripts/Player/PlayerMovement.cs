@@ -5,34 +5,58 @@ public class PlayerMovement : MonoBehaviour
 
     private Touch touch;
     public float speed;
-    public float posXmin; // Bornes pour le déplacement
+    public float posXmin; // Bornes pour le dï¿½placement
     public float posXmax;
+
+    public GameObject BrushBody;
+    private float currentspeed;
+    public float inertia;
+    private float theta;
+    public float thetaMax;
+
+ 
 
 
     private void Update()
     {
         transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * 1, Space.World);
         transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * 1, Space.World);
-        if (Input.touchCount > 0 && PauseManager.gameIsPaused == false) // Si le joueur a au moins un doigt sur l'écran
+        float x1 = transform.position.x;
+        if (Input.touchCount > 0 && PauseManager.gameIsPaused == false) // Si le joueur a au moins un doigt sur l'ï¿½cran
         {
-            touch = Input.GetTouch(0); // On récupère les infos du premier doigt posé sur l'écran
-            print("touch");
-            if (touch.phase == TouchPhase.Moved) // On regarde l'état du doigt qui touche l'écran : est-ce qu'il a bougé
+            touch = Input.GetTouch(0); // On rï¿½cupï¿½re les infos du premier doigt posï¿½ sur l'ï¿½cran
+            if (touch.phase == TouchPhase.Moved) // On regarde l'ï¿½tat du doigt qui touche l'ï¿½cran : est-ce qu'il a bougï¿½
             {
                 // On bouge le cube en suivant le mouvement du doigt
-                // Pour cela on ajoute à la position x la variation de la position du doigt multipliée par la vitesse
+                // Pour cela on ajoute ï¿½ la position x la variation de la position du doigt multipliï¿½e par la vitesse
 
-                // En vérifiant que le cube sera toujours entre nos deux bornes
+                // En vï¿½rifiant que le cube sera toujours entre nos deux bornes
                 float newX = transform.position.x + touch.deltaPosition.x * speed;
                 if (newX > posXmax)
                     newX = posXmax;
                 if (newX < posXmin)
                     newX = posXmin;
+                
 
                 transform.position = new Vector3(newX, transform.position.y, transform.position.z);
             }
 
         }
+        currentspeed += x1 - transform.position.x;;
+        float absolutespeed = Mathf.Abs(currentspeed);
+        if( absolutespeed > 0.001)
+        {
+            currentspeed -= inertia * absolutespeed * absolutespeed /currentspeed;
+            theta = -(absolutespeed /currentspeed) * (Mathf.Min(absolutespeed ,4.0f))*thetaMax/4.0f;
+        }
+        else
+        {
+            currentspeed = 0;
+            theta = 0;
+        }
+        
+        BrushBody.transform.rotation = Quaternion.Euler(0,0,theta);
+
     }
 
 
