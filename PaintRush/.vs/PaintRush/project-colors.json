@@ -15,7 +15,12 @@
       "ProjectGuid": "09fb9c70-2a4d-4569-d9c9-bf97f77019da",
       "DisplayName": "SimpleScrollSnap",
       "ColorIndex": 1
+    },
+    "c3e95661-0975-a823-e3d8-72ffd92f7c6d": {
+      "ProjectGuid": "c3e95661-0975-a823-e3d8-72ffd92f7c6d",
+      "DisplayName": "Assembly-CSharp-firstpass",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }
