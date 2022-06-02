@@ -8,6 +8,9 @@ public class Win : MonoBehaviour
     public float animationTime;
 
     private int savedGold;
+    private int savedStars;
+
+
     public TextMeshProUGUI numberGoldText;
 
     public GameObject animatedGoldPrefab;
@@ -24,15 +27,22 @@ public class Win : MonoBehaviour
     private void Start()
     {
         PauseManager.gameIsPaused = true;
+
         savedGold = GameManager.instance.GetCoinCount();
+        savedStars = GameManager.instance.GetStarsCount();
+
         goldPickedUpInThisLevel = MainManager.instance.goldCount;
         totalGoldInLevel = goldPickedUpInThisLevel;
+
         GameManager.instance.SetandSaveCoinCount(savedGold+goldPickedUpInThisLevel);
+        GameManager.instance.SetAndSaveStarCount(savedStars + GameManager.instance.difficulty + 1);
+
 
         numberGoldText.text = savedGold.ToString();
         numberGoldTextInLevel.text = goldPickedUpInThisLevel.ToString();
 
         endImage.sprite = PaintingsLibrary.instance.paintingsList[GameManager.instance.indexLevel].spritesPainting[GameManager.instance.difficulty];
+
         StartCoroutine(FadeImage(steps));
         StartCoroutine(UpdateGoldCount());
     }

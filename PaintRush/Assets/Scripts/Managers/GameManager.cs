@@ -10,9 +10,14 @@ public class GameManager : MonoBehaviour
     public int indexLevel;
     public int difficulty;
     public int indexDoor;
+
+
     public List<int> difficultyUnlocked = new List<int>();
     public GameObject pausePanel;
     public int totalGold;
+
+    public int totalStarCount;
+    public int starsToUnlockLevel;
 
     private void Awake()
     {
@@ -81,6 +86,8 @@ public class GameManager : MonoBehaviour
         LoadAndSaveData.instance.LoadFromJson();
         difficultyUnlocked = LoadAndSaveData.instance.unlocked.difficultyUnlocked;
         totalGold = LoadAndSaveData.instance.gold.totalGoldCount;
+        totalStarCount = LoadAndSaveData.instance.star.totalStarCount;
+        starsToUnlockLevel = LoadAndSaveData.instance.star.starsToUnlockLevel;
 
     }
 
@@ -90,6 +97,13 @@ public class GameManager : MonoBehaviour
         return totalGold;
     }
 
+
+    public int GetStarsCount()
+    {
+        LoadData();
+        return totalStarCount;
+    }
+
     public void SetandSaveCoinCount(int newGold)
     {
         totalGold = newGold;
@@ -97,6 +111,19 @@ public class GameManager : MonoBehaviour
         LoadAndSaveData.instance.SaveToJson();
     }
 
+    public void SetAndSaveStarCount(int starCount)
+    {
+        totalStarCount = starCount;
+        LoadAndSaveData.instance.star.totalStarCount = totalStarCount;
+        LoadAndSaveData.instance.SaveToJson();
+    }
+    
+    public void SetAndSaveStarsToUnlockLevel(int stars)
+    {
+        starsToUnlockLevel = stars;
+        LoadAndSaveData.instance.star.starsToUnlockLevel = starsToUnlockLevel;
+        LoadAndSaveData.instance.SaveToJson();
+    }
 
 
 }

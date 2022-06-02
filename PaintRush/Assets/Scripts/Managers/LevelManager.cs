@@ -16,6 +16,11 @@ public class LevelManager : MonoBehaviour
     public GameObject panelPreview;
     public List<Button> listButtons;
     public static LevelManager instance;
+
+
+    public GameObject panelUnlockConfirmation;
+    public GameObject panelUnlockNotEnoughStars;
+
     private void Start()
     {
         instance = this;
@@ -42,6 +47,7 @@ public class LevelManager : MonoBehaviour
             {
                 newLevel.locked = true;
                 newLevel.stars = 0;
+                newLevel.starsToUnlockThisLevel = GameManager.instance.starsToUnlockLevel;
             }
             else
             {
@@ -52,6 +58,9 @@ public class LevelManager : MonoBehaviour
             newLevel.levelIndex = i;
             newLevel.SetLevel();
         }
+
+        panelUnlockNotEnoughStars.SetActive(false);
+        panelUnlockConfirmation.SetActive(false);
 
     }
 

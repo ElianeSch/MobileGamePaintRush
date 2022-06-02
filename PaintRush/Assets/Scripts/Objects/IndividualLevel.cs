@@ -13,6 +13,7 @@ public class IndividualLevel : MonoBehaviour
     public int categoryIndex;
     public Sprite starVoid;
     public Sprite starCompleted;
+    public int starsToUnlockThisLevel;
 
     public void SetLevel()
 
@@ -24,26 +25,50 @@ public class IndividualLevel : MonoBehaviour
         {
             transform.Find("Lock").gameObject.SetActive(true);
             button.interactable = false;
+            GameObject starPanel = transform.Find("StarsPanel").gameObject;
+            starPanel.SetActive(false);
+
+            GameObject unlockPanel = transform.Find("UnlockPanel").gameObject;
+            unlockPanel.SetActive(true);
+            unlockPanel.GetComponentInChildren<TextMeshProUGUI>().text = starsToUnlockThisLevel.ToString();
+
 
         }
         else
         {
+
+            // Si on a déjà débloqué le niveau
+            // On enlève l'image du cadenas
+            // On peut appuyer sur le bouton pour lancer le niveau
             transform.Find("Lock").gameObject.SetActive(false);
             button.interactable = true;
+
+            // On désactive le panel unlock
+            GameObject unlockPanel = transform.Find("UnlockPanel").gameObject;
+            unlockPanel.SetActive(false);
+
+            // Et on affiche aussi le nombre d'étoiles
+            GameObject starPanel = transform.Find("StarsPanel").gameObject;
+            for (int i = 0; i < 3; i++)
+            {
+                if (i < stars)
+                {
+                    starPanel.transform.GetChild(i).GetComponent<Image>().sprite = starCompleted;
+                }
+                else
+                {
+                    starPanel.transform.GetChild(i).GetComponent<Image>().sprite = starVoid;
+                }
+            }
+
+
+
+
+
+
         }
 
-        GameObject starPanel = transform.Find("StarsPanel").gameObject;
-        for (int i = 0; i < 3; i++)
-        {
-            if (i < stars)
-            {
-                starPanel.transform.GetChild(i).GetComponent<Image>().sprite = starCompleted;
-            }
-            else
-            {
-                starPanel.transform.GetChild(i).GetComponent<Image>().sprite = starVoid;
-            }
-        }
+        
 
         
        
@@ -69,4 +94,14 @@ public class IndividualLevel : MonoBehaviour
         }
         LevelManager.instance.panelPreview.SetActive(true);
     }
+
+
+    public void UnlockLevel()
+    {
+        if (starsToUnlockThisLevel > GameManager.instance.totalStarCount)
+        {
+            LevelManager.instance.panelUnlockNotEnoughStars.SetActive(true);
+        }
+    }
+
 }

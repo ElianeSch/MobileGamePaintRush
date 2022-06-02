@@ -66,25 +66,13 @@ public class LevelSelector : MonoBehaviour
 
             else
             {
-               // print(PaintingsLibrary.spritesList[i]);
-                //print(difficultyUnlocked[i - 1]);
                 tempObj.transform.GetChild(1).GetComponent<Image>().sprite = PaintingsLibrary.paintingsList[i].spritesPainting[difficultyUnlocked[i]-1];
             }
-
-
-
-
 
             listPanels.Add(tempObj);
         }
 
         InactivateButtons();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
