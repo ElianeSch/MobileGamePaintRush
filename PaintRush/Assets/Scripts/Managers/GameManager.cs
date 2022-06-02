@@ -42,18 +42,13 @@ public class GameManager : MonoBehaviour
         SetAndSaveStarsToUnlockLevel();
     }
 
-    private void Update()
-    {
-       
-    }
 
     public void LoadMenu()
     {
-        
         SceneManager.LoadScene("MainMenu");
         LoadAndSaveData.instance.SaveToJson();
         LoadData();
-        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+      
 
     }
 

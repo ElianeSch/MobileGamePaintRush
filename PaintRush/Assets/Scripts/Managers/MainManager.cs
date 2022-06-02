@@ -15,6 +15,7 @@ public class MainManager : MonoBehaviour
     public PaintingManager paintingManager;
     public CanvasManager canvasManager;
     public GameObject winPanel;
+    public GameObject loosePanel;
 
     public int goldCount = 0;
     public GameObject numGold;
@@ -199,6 +200,8 @@ public class MainManager : MonoBehaviour
         if (lifeRemaining == 0)
         {
             print("Game over !");
+            PauseManager.gameIsPaused = true;
+            loosePanel.SetActive(true);
         }
 
     }
@@ -214,7 +217,10 @@ public class MainManager : MonoBehaviour
         GameManager.instance.LoadMenu();
     }
 
-
+    public void LoadMainScene()
+    {
+        GameManager.instance.LoadMainScene();
+    }
 
 
 
