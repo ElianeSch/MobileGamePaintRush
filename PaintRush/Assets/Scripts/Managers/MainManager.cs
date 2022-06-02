@@ -189,6 +189,8 @@ public class MainManager : MonoBehaviour
     public void IfLoose()
     {
         // Loose a life
+        brush.ResetBrushColor();
+        canvasManager.UpdateColorBars(0);
         lifeRemaining -= 1;
         psLoose.gameObject.SetActive(true);
         psLoose.Play();

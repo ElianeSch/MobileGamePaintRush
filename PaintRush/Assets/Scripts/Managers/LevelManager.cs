@@ -31,11 +31,15 @@ public class LevelManager : MonoBehaviour
         instance = this;
         List<int> difficultyUnlocked = GameManager.instance.difficultyUnlocked;
         int starsToUnlockLevel = GameManager.instance.starsToUnlockLevel;
-
+        int totalStarCount = GameManager.instance.totalStarCount;
+        GameManager.instance.SetAndSaveStarCount(totalStarCount);
         if (difficultyUnlocked.Count == 0) // First time we start the game, no info saved
         {
             starsToUnlockLevel = 2;
+            totalStarCount = 0;
             LoadAndSaveData.instance.star.starsToUnlockLevel = starsToUnlockLevel;
+            LoadAndSaveData.instance.star.totalStarCount = totalStarCount;
+            GameManager.instance.SetAndSaveStarCount(totalStarCount);
             difficultyUnlocked = new List<int>();
             foreach (PaintingSO painting in PaintingsLibrary.instance.paintingsList)
             {

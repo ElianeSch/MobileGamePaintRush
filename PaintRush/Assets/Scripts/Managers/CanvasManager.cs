@@ -7,7 +7,7 @@ public class CanvasManager : MonoBehaviour
 
 {
     public List<ColorBar> listColorBar = new List<ColorBar>();
-    public int indexSelectedColorBar=0;
+    public int indexSelectedColorBar = 0;
 
     public Image targetImage;
 
