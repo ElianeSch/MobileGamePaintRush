@@ -1660,6 +1660,9 @@ MonoBehaviour:
   loopType: 2
   moveAmount: {x: 5, y: 20, z: 0}
   isDestroyOnComplete: 0
+  moveBackToInitial: 0
+  isDesactivateOnComplete: 0
+  delayBeforeMovingBack: 0
 --- !u!114 &1249101463
 MonoBehaviour:
   m_ObjectHideFlags: 0

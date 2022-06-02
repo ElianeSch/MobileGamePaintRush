@@ -14,6 +14,7 @@ public class IndividualLevel : MonoBehaviour
     public Sprite starVoid;
     public Sprite starCompleted;
     public int starsToUnlockThisLevel;
+    public GameObject starPanel;
 
     public void SetLevel()
 
@@ -25,7 +26,6 @@ public class IndividualLevel : MonoBehaviour
         {
             transform.Find("Lock").gameObject.SetActive(true);
             button.interactable = false;
-            GameObject starPanel = transform.Find("StarsPanel").gameObject;
             starPanel.SetActive(false);
 
             GameObject unlockPanel = transform.Find("UnlockPanel").gameObject;
@@ -48,7 +48,7 @@ public class IndividualLevel : MonoBehaviour
             unlockPanel.SetActive(false);
 
             // Et on affiche aussi le nombre d'étoiles
-            GameObject starPanel = transform.Find("StarsPanel").gameObject;
+            starPanel.SetActive(true);
             for (int i = 0; i < 3; i++)
             {
                 if (i < stars)
@@ -61,17 +61,8 @@ public class IndividualLevel : MonoBehaviour
                 }
             }
 
-
-
-
-
-
         }
 
-        
-
-        
-       
     }
 
     public void ClickOnLevel()
@@ -101,6 +92,12 @@ public class IndividualLevel : MonoBehaviour
         if (starsToUnlockThisLevel > GameManager.instance.totalStarCount)
         {
             LevelManager.instance.panelUnlockNotEnoughStars.SetActive(true);
+        }
+
+        else
+        {
+            locked = false;
+            SetLevel();
         }
     }
 
