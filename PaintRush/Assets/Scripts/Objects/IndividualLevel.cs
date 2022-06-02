@@ -60,21 +60,17 @@ public class IndividualLevel : MonoBehaviour
                     starPanel.transform.GetChild(i).GetComponent<Image>().sprite = starVoid;
                 }
             }
-
         }
-
     }
 
     public void ClickOnLevel()
     {
         GameManager.instance.indexLevel = levelIndex;
 
-
         for (int i = 0; i < 3; i++)
         {
             if (i <= stars)
             {
-                print(stars);
                 LevelManager.instance.listButtons[i].interactable = true;
             }
             else
@@ -99,8 +95,18 @@ public class IndividualLevel : MonoBehaviour
             locked = false;
             LoadAndSaveData.instance.unlocked.difficultyUnlocked[levelIndex] = 0;
             LoadAndSaveData.instance.SaveToJson();
+            GameManager.instance.SetAndSaveStarsToUnlockLevel();
             SetLevel();
+            LevelManager.instance.UpdateStarsToUnlockLevels();
+
         }
     }
 
+    public void ChangeNumberOfStarsToUnlockLevel()
+    {
+
+        GameObject unlockPanel = transform.Find("UnlockPanel").gameObject;
+        unlockPanel.SetActive(true);
+        unlockPanel.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = starsToUnlockThisLevel.ToString();
+    }
 }

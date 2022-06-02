@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int totalStarCount;
     public int starsToUnlockLevel;
 
+    public int numberLevelUnlocked;
+
     private void Awake()
     {
         
@@ -34,6 +36,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadData();
+
+
+
+        SetAndSaveStarsToUnlockLevel();
     }
 
     private void Update()
@@ -118,11 +124,20 @@ public class GameManager : MonoBehaviour
         LoadAndSaveData.instance.SaveToJson();
     }
     
-    public void SetAndSaveStarsToUnlockLevel(int stars)
+    public void SetAndSaveStarsToUnlockLevel()
     {
-        starsToUnlockLevel = stars;
+        numberLevelUnlocked = 0;
+
+        for (int i = 0; i < difficultyUnlocked.Count; i++)
+        {
+            if (difficultyUnlocked[i] != -1)
+                numberLevelUnlocked += 1;
+        }
+
+        starsToUnlockLevel = numberLevelUnlocked * 2;
         LoadAndSaveData.instance.star.starsToUnlockLevel = starsToUnlockLevel;
         LoadAndSaveData.instance.SaveToJson();
+       
     }
 
 

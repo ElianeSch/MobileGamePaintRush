@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
                 newLevel.locked = true;
                 newLevel.stars = 0;
                 newLevel.starsToUnlockThisLevel = GameManager.instance.starsToUnlockLevel;
+
             }
             else
             {
@@ -75,4 +76,21 @@ public class LevelManager : MonoBehaviour
     {
         panelPreview.SetActive(false);
     }
+
+
+    public void UpdateStarsToUnlockLevels()
+    {
+        for (int i = 0; i < PaintingsLibrary.instance.paintingsList.Count; i++)
+        {
+            GameObject level = panel.transform.GetChild(i).gameObject;
+            if (level.GetComponent<IndividualLevel>().locked)
+            {
+                level.GetComponent<IndividualLevel>().starsToUnlockThisLevel = GameManager.instance.starsToUnlockLevel;
+                level.GetComponent<IndividualLevel>().ChangeNumberOfStarsToUnlockLevel();
+            }
+
+        }
+    }
+
+
 }
