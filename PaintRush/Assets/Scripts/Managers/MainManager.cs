@@ -84,6 +84,7 @@ public class MainManager : MonoBehaviour
         paintingManager.ReadTableau(GameManager.instance.indexLevel, GameManager.instance.difficulty);
         paintingManager.CreatePixels();
         paintingManager.SelectTarget();
+        paintingManager.UnveilPixelsOfSameColor(GetColorFromKey(0));
         canvasManager.UpdateColorBars(0);
         canvasManager.UpdateSizeColorBar();
         canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);

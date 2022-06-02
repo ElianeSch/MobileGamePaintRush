@@ -24,7 +24,6 @@ public class PaintingManager : MonoBehaviour
     public string paintingName;
 
 
-
     public void ReadTableau(int PaintingID, int difficulty)
     {
 
