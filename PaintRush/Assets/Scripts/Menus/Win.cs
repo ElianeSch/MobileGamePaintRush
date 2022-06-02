@@ -35,8 +35,17 @@ public class Win : MonoBehaviour
         totalGoldInLevel = goldPickedUpInThisLevel;
 
         GameManager.instance.SetandSaveCoinCount(savedGold+goldPickedUpInThisLevel);
-        GameManager.instance.SetAndSaveStarCount(savedStars + GameManager.instance.difficulty + 1);
 
+
+        if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] == GameManager.instance.difficulty) // Si on vient de finir pour la première fois cette difficulté
+        {
+            GameManager.instance.SetAndSaveStarCount(savedStars + GameManager.instance.difficulty + 1);
+        }
+
+        else
+        {
+            GameManager.instance.SetAndSaveStarCount(savedStars);
+        }
 
         numberGoldText.text = savedGold.ToString();
         numberGoldTextInLevel.text = goldPickedUpInThisLevel.ToString();

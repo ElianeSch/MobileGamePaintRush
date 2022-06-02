@@ -97,6 +97,8 @@ public class IndividualLevel : MonoBehaviour
         else
         {
             locked = false;
+            LoadAndSaveData.instance.unlocked.difficultyUnlocked[levelIndex] = 0;
+            LoadAndSaveData.instance.SaveToJson();
             SetLevel();
         }
     }
