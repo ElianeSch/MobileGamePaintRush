@@ -1,0 +1,233 @@
+{
+    "m_SelectedDeviceId": "3066768165005VP",
+    "m_SelectedPackage": {
+        "deviceId": "3066768165005VP",
+        "name": "com.ElianeS.PaintRush",
+        "processId": 5508,
+        "exited": false
+    },
+    "m_SelectedPriority": 0,
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 16888,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 28178,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 6421,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 7590,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 9584,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.sec.android.app.launcher",
+            "processId": 9492,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 12465,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 25609,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 25498,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 28066,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 2459,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 4331,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 7282,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 10422,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 15116,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 29771,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 15926,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 18616,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 22942,
+            "exited": false
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 7170,
+            "exited": true
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 18582,
+            "exited": true
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 31359,
+            "exited": true
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.facebook.katana",
+            "processId": 10113,
+            "exited": true
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 14130,
+            "exited": true
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.HyperCasualTemplate",
+            "processId": 26170,
+            "exited": false
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 14889,
+            "exited": false
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 4565,
+            "exited": false
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 5508,
+            "exited": false
+        }
+    ],
+    "m_Tags": {
+        "m_Entries": [
+            {
+                "m_Name": "Filter by all listed tags",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "No Filter",
+                "m_Selected": true
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Tag Control...",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Unity",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "CRASH",
+                "m_Selected": false
+            }
+        ]
+    },
+    "m_MemoryViewerState": {
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "MemoryGroup": 2,
+        "Behavior": 0
+    },
+    "m_Filter": "",
+    "m_FilterIsRegularExpression": false,
+    "m_SymbolPaths": []
+}
