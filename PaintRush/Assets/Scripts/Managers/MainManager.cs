@@ -178,12 +178,14 @@ public class MainManager : MonoBehaviour
         winPanel.SetActive(true);
 
 
-        if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] <= 2)
+      /*  if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] <= 2)
         { 
             LoadAndSaveData.instance.unlocked.difficultyUnlocked[GameManager.instance.indexLevel]++;
+
         }
+       
         LoadAndSaveData.instance.SaveToJson();
-        GameManager.instance.LoadData();
+        GameManager.instance.LoadData();*/
     }
 
     public void IfLoose()

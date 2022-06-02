@@ -28,6 +28,7 @@ public class Win : MonoBehaviour
 
     private void Start()
     {
+        print("coucou");
         PauseManager.gameIsPaused = true;
 
         savedGold = GameManager.instance.GetCoinCount();
@@ -42,9 +43,10 @@ public class Win : MonoBehaviour
         if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] == GameManager.instance.difficulty) // Si on vient de finir pour la première fois cette difficulté
         {
             GameManager.instance.SetAndSaveStarCount(savedStars + 1);
-
+            print("savedStars + 1 " + savedStars + 1);
             GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] += 1;
             LoadAndSaveData.instance.SaveToJson();
+            print("totalStarcount : " + GameManager.instance.totalStarCount);
         }
 
         else
