@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
     public GameObject panelUnlockConfirmation;
     public GameObject panelUnlockNotEnoughStars;
 
+    public TextMeshProUGUI totalNumberOfStarsText;
+
     private void Start()
     {
         instance = this;
@@ -59,7 +61,7 @@ public class LevelManager : MonoBehaviour
             newLevel.levelIndex = i;
             newLevel.SetLevel();
         }
-
+        totalNumberOfStarsText.text = GameManager.instance.GetStarsCount().ToString();
         panelUnlockNotEnoughStars.SetActive(false);
         panelUnlockConfirmation.SetActive(false);
 
