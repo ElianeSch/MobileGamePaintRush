@@ -30,7 +30,7 @@ public class IndividualLevel : MonoBehaviour
 
             GameObject unlockPanel = transform.Find("UnlockPanel").gameObject;
             unlockPanel.SetActive(true);
-            unlockPanel.GetComponentInChildren<TextMeshProUGUI>().text = starsToUnlockThisLevel.ToString();
+            unlockPanel.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = starsToUnlockThisLevel.ToString();
 
 
         }
