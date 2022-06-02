@@ -24,6 +24,8 @@ public class Win : MonoBehaviour
     public Image endImage;
     public int steps;
 
+    public PaintingManager paintingManager;
+
     private void Start()
     {
         PauseManager.gameIsPaused = true;
@@ -39,7 +41,10 @@ public class Win : MonoBehaviour
 
         if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] == GameManager.instance.difficulty) // Si on vient de finir pour la première fois cette difficulté
         {
-            GameManager.instance.SetAndSaveStarCount(savedStars + GameManager.instance.difficulty + 1);
+            GameManager.instance.SetAndSaveStarCount(savedStars + 1);
+            print("coucou");
+            GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] += 1;
+            LoadAndSaveData.instance.SaveToJson();
         }
 
         else
@@ -98,6 +103,13 @@ public class Win : MonoBehaviour
     {
 
         Image image = endImage.GetComponent<Image>();
+        int M = paintingManager.M;
+        int N = paintingManager.N;
+        float a = Mathf.Min(image.GetComponent<RectTransform>().rect.width / M, image.GetComponent<RectTransform>().rect.height / N);
+       
+        RectTransform rt = image.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(M * a, N * a);
+
         var tempColor = image.color;
 
         for (int i = 0; i < steps+1; i++)

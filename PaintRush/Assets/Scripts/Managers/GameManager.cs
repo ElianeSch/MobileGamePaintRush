@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
 
-
+        print("ici !");
 
         SetAndSaveStarsToUnlockLevel();
     }
@@ -83,8 +83,12 @@ public class GameManager : MonoBehaviour
         if(difficulty<2)
         {
             difficulty = difficulty+1;
+            LoadAndSaveData.instance.SaveToJson();
+            LoadData();
+            SceneManager.LoadScene("MainScene");
+
         }
-        SceneManager.LoadScene("MainScene");
+
     }
 
     public void LoadData()
