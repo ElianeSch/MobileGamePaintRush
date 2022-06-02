@@ -12,6 +12,9 @@ public class LevelSelector : MonoBehaviour
     public GameObject content;
     public GameObject panelLevel;
 
+    public Image imagePreview;
+
+
     public List<GameObject> listPanels = new List<GameObject>();
 
     public int indexLevel;
@@ -80,6 +83,23 @@ public class LevelSelector : MonoBehaviour
     {
         levelPreviewPanel.SetActive(true);
         int maxDifficulty = difficultyUnlocked[index];
+        
+        if (maxDifficulty == -1)
+        {
+            imagePreview.sprite = lockedSprite;
+        }
+
+        else if (maxDifficulty == 0)
+        {
+            imagePreview.sprite = questionSprite;
+        }
+
+        else
+        {
+            imagePreview.sprite = PaintingsLibrary.instance.paintingsList[GameManager.instance.indexLevel].spritesPainting[maxDifficulty - 1];
+        }
+
+
 
         for (int i=0;i<3;i++)
         {

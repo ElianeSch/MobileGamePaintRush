@@ -15,10 +15,13 @@ public class LevelManager : MonoBehaviour
     public int numberCategories;
     public GameObject panelPreview;
     public List<Button> listButtons;
+
+    public Image levelPreviewImage;
+    public Sprite lockedSprite;
+    public Sprite questionSprite;
+
     public static LevelManager instance;
 
-
-    public GameObject panelUnlockConfirmation;
     public GameObject panelUnlockNotEnoughStars;
 
     public TextMeshProUGUI totalNumberOfStarsText;
@@ -61,9 +64,8 @@ public class LevelManager : MonoBehaviour
             newLevel.levelIndex = i;
             newLevel.SetLevel();
         }
+
         totalNumberOfStarsText.text = GameManager.instance.GetStarsCount().ToString();
-        panelUnlockNotEnoughStars.SetActive(false);
-        panelUnlockConfirmation.SetActive(false);
 
     }
 

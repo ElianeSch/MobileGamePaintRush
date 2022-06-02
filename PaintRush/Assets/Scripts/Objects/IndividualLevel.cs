@@ -80,6 +80,25 @@ public class IndividualLevel : MonoBehaviour
                  
         }
         LevelManager.instance.panelPreview.SetActive(true);
+
+        if (this.locked == true)
+        {
+            LevelManager.instance.levelPreviewImage.sprite = LevelManager.instance.lockedSprite;
+        }
+
+        else if (stars == 0)
+        {
+            LevelManager.instance.levelPreviewImage.sprite = LevelManager.instance.questionSprite;
+        }
+        else
+        {
+            LevelManager.instance.levelPreviewImage.sprite = PaintingsLibrary.instance.paintingsList[levelIndex].spritesPainting[stars - 1];
+        }
+
+
+
+       
+
     }
 
 
