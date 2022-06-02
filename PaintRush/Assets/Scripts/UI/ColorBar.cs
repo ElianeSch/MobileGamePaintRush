@@ -13,7 +13,7 @@ public class ColorBar : MonoBehaviour
     public int currentZone;
     private RectTransform arrowRectTransform;
     private RectTransform rainbowRectTransform;
-    public float offset;
+    public float offsetY;
     public int colorBarColorKey;
 
 
@@ -21,7 +21,7 @@ public class ColorBar : MonoBehaviour
     {
         arrowRectTransform = arrow.GetComponent<RectTransform>();
         rainbowRectTransform = rainbow.GetComponent<RectTransform>();
-        offset = listZones[0].GetComponent<RectTransform>().rect.height / 2;
+        offsetY = listZones[0].transform.parent.gameObject.GetComponent<RectTransform>().rect.height / 2 - 50f;
         colorBarColorKey = (85 & mask);
 
     }
@@ -48,7 +48,7 @@ public class ColorBar : MonoBehaviour
 
     public void UpdateArrow()
     {
-        Vector2 newPos = new Vector2(listZones[currentZone].rectTransform.anchoredPosition.x, listZones[currentZone].rectTransform.anchoredPosition.y + offset);
+        Vector2 newPos = new Vector2(listZones[currentZone].rectTransform.anchoredPosition.x, listZones[currentZone].rectTransform.anchoredPosition.y + offsetY);
         arrowRectTransform.anchoredPosition = newPos;
     }
 

@@ -40,12 +40,12 @@ public class CanvasManager : MonoBehaviour
         {
             if (i == indexSelectedColorBar)
             {
-                listColorBar[i].GetComponent<RectTransform>().localScale = new Vector2(1.1f, 0.6f);
+                listColorBar[i].transform.parent.gameObject.GetComponent<RectTransform>().localScale = new Vector2(1.7f, 1.6f);
             }
 
             else
             {
-                listColorBar[i].GetComponent<RectTransform>().localScale = new Vector2(1f, 0.5f);
+                listColorBar[i].transform.parent.gameObject.GetComponent<RectTransform>().localScale = new Vector2(1.5f, 1.5f);
             }
         }
     }
