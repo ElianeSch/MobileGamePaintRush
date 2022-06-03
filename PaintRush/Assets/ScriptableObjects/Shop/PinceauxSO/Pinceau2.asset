@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pinceau2
   m_EditorClassIdentifier: 
   title: Pinceau 2
-  description: Un pinceau scriptable object
+  description: Un autre pinceau
   sprite: {fileID: 21300000, guid: 93e0129d62e3eb84ca68af36411d479d, type: 3}
   cost: 5
   inertia: 1

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public int numberLevelUnlocked;
 
+    public List<ShopItemSO> items = new List<ShopItemSO>();
+
     private void Awake()
     {
         
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
         totalGold = LoadAndSaveData.instance.gold.totalGoldCount;
         totalStarCount = LoadAndSaveData.instance.star.totalStarCount;
         starsToUnlockLevel = LoadAndSaveData.instance.star.starsToUnlockLevel;
+        items = LoadAndSaveData.instance.unlockedItems.items;
 
     }
 
@@ -137,6 +140,12 @@ public class GameManager : MonoBehaviour
         LoadAndSaveData.instance.star.starsToUnlockLevel = starsToUnlockLevel;
         LoadAndSaveData.instance.SaveToJson();
        
+    }
+
+    public void AddUnlockedItemAndSave(ShopItemSO item)
+    {
+        LoadAndSaveData.instance.unlockedItems.items.Add(item);
+        LoadAndSaveData.instance.SaveToJson();
     }
 
 

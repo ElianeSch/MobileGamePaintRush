@@ -101,6 +101,8 @@ public class ShopManager : MonoBehaviour
             coins = coins - shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j].cost;
             coinUI.text = "Coins : " + coins.ToString();
             GameManager.instance.SetandSaveCoinCount(coins);
+            GameManager.instance.AddUnlockedItemAndSave(shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j]);
+
         }
     }
 

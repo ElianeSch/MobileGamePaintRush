@@ -24,7 +24,17 @@ public class LevelManager : MonoBehaviour
 
     public GameObject panelUnlockNotEnoughStars;
 
+
+
+
     public GameObject panelSkin;
+    public GameObject skinBrushPanel;
+
+   /* public TextMeshProUGUI titreSkin;
+    public TextMeshProUGUI descriptionSkin;
+    public Image imageSkin;*/
+
+    public GameObject panelItemPrefab;
 
     public TextMeshProUGUI totalNumberOfStarsText;
 
@@ -79,6 +89,7 @@ public class LevelManager : MonoBehaviour
 
         totalNumberOfStarsText.text = GameManager.instance.GetStarsCount().ToString();
 
+
     }
 
     public void LunchLevel(int difficulty)
@@ -110,6 +121,16 @@ public class LevelManager : MonoBehaviour
 
     public void OpenSkinPanel()
     {
+        for (int i = 0; i < GameManager.instance.items.Count; i++)
+        {
+            GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
+            newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].title;
+            newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
+            newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
+
+        }
+
+
         panelSkin.SetActive(true);
     }
 

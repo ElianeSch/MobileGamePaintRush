@@ -32,21 +32,25 @@ public class LoadAndSaveData : MonoBehaviour
     public UnlockedPaintings unlocked = new UnlockedPaintings();
     public Coin gold = new Coin();
     public Stars star = new Stars();
+    public UnlockedItems unlockedItems = new UnlockedItems();
 
     public void SaveToJson()
     {
         string unlockedData = JsonUtility.ToJson(unlocked);
         string goldData = JsonUtility.ToJson(gold);
         string starData = JsonUtility.ToJson(star);
+        string itemsData = JsonUtility.ToJson(unlockedItems);
 
 
         string filePath = Application.persistentDataPath + "/UnlockedData.json";
         string filePathGold = Application.persistentDataPath + "/GoldData.json";
         string filePathStar = Application.persistentDataPath + "/StarData.json";
+        string filePathItem = Application.persistentDataPath + "/ItemData.json";
 
         System.IO.File.WriteAllText(filePath, unlockedData);
         System.IO.File.WriteAllText(filePathGold, goldData);
         System.IO.File.WriteAllText(filePathStar, starData);
+        System.IO.File.WriteAllText(filePathItem, itemsData);
 
 
         Debug.Log("Sauvegarde effectuée");
@@ -83,7 +87,14 @@ public class LoadAndSaveData : MonoBehaviour
 
         }
 
+        if (System.IO.File.Exists(Application.persistentDataPath + "/ItemData.json"))
+        {
+            string filePathItem = Application.persistentDataPath + "/ItemData.json";
+            string itemsData = System.IO.File.ReadAllText(filePathItem);
 
+            unlockedItems = JsonUtility.FromJson<UnlockedItems>(itemsData);
+
+        }
 
 
     }
@@ -112,5 +123,14 @@ public class Stars
     public int totalStarCount = 0;
     public int starsToUnlockLevel;
 }
+
+[System.Serializable]
+
+public class UnlockedItems
+{
+    public List<ShopItemSO> items = new List<ShopItemSO>();
+}
+
+
 
 
