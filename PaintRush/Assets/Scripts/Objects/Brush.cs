@@ -8,6 +8,8 @@ public class Brush : MonoBehaviour
     public int currentColorKey;
     public LineRenderer trailEffect;
 
+    public GameObject colorBrush;
+
     private void Start()
     {
         ResetBrushColor();
@@ -118,7 +120,7 @@ public class Brush : MonoBehaviour
         StartCoroutine(ChangeGradient(colorKey));
         
         currentColorKey = colorKey;
-        gameObject.transform.GetChild(2).GetComponent<Renderer>().material.color = MainManager.instance.GetColorFromKey(colorKey);
+        colorBrush.GetComponent<Renderer>().material.color = MainManager.instance.GetColorFromKey(colorKey);
         //trailEffect.material.color = GetBrushColor();
 
     }
@@ -135,7 +137,7 @@ public class Brush : MonoBehaviour
 
         StartCoroutine(ChangeGradient(color));
 
-        gameObject.transform.GetChild(2).GetComponent<Renderer>().material.color = color;
+        colorBrush.GetComponent<Renderer>().material.color = color;
         //trailEffect.material.color = GetBrushColor();
 
     }
@@ -143,7 +145,7 @@ public class Brush : MonoBehaviour
 
     public Color GetBrushColor()
     {
-        return gameObject.transform.GetChild(2).GetComponent<Renderer>().material.color;
+        return colorBrush.GetComponent<Renderer>().material.color;
     }
 
     public void ResetBrushColor()
