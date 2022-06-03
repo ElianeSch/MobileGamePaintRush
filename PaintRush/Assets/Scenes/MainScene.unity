@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18042013, g: 0.22587752, b: 0.30700004, a: 1}
+  m_IndirectSpecularColor: {r: 0.18042055, g: 0.22587813, b: 0.30700094, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7137,7 +7137,7 @@ RectTransform:
   m_SizeDelta: {x: 408.29102, y: 363.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312760460
-MonoBehaviour:sudo python3.8 setup.py install
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11584,7 +11584,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0<Merge Conflict>
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2109911560
 Transform:
@@ -11769,7 +11769,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6991992185863517051}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4251956395376805441
 Transform:
@@ -11896,7 +11896,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6991992185863517051}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &5571484087315117902
 GameObject:
@@ -16661,7 +16661,9 @@ Transform:
   m_LocalScale: {x: 0.025000002, y: 0.75, z: 0.00027272728}
   m_Children:
   - {fileID: 5571484087315117901}
-  - {fileID: 1352337085}
+  - {fileID: 4251956395376805441}
+  - {fileID: 4903505721644659592}
+  - {fileID: 4231280483617066657}
   - {fileID: 1682402234}
   m_Father: {fileID: 595176303}
   m_RootOrder: 3
@@ -16744,7 +16746,7 @@ MonoBehaviour:
   speed: 0.005
   posXmin: -2.3
   posXmax: 2.3
-  BrushBody: {fileID: 1352337084}
+  BrushBody: {fileID: 6069472672629512848}
   inertia: 0.2
   thetaMax: 45
 --- !u!1001 &9032969743868886734
