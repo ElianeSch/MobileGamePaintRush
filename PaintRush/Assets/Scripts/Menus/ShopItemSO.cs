@@ -11,6 +11,4 @@ public class ShopItemSO : ScriptableObject
     public Sprite sprite;
     public int cost;
 
-
-
 }

@@ -1,75 +1,134 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System;
+
+
+[Serializable]
+public class ShopItemTabsList
+{
+    public ShopItemSO[] shopItemSOTab;
+}
+
+[Serializable]
+public class GameObjectTabsList
+{
+    public GameObject[] shopPanelGOTab;
+}
+
+[Serializable]
+public class ShopTemplateTabsList
+{
+    public ShopTemplate[] shopPanelTab;
+}
+
+
 
 public class ShopManager : MonoBehaviour
 {
 
     public int coins;
-
     public TextMeshProUGUI coinUI;
 
-    public ShopItemSO[] shopItemsSOTab1;
-    public ShopItemSO[] shopItemsSOTab2;
-    public ShopItemSO[] shopItemsSOTab3;
+    public List<GameObject> listTabs;
 
-    public ShopTemplate[] shopPanelsTab1;
-    public ShopTemplate[] shopPanelsTab2;
-    public ShopTemplate[] shopPanelsTab3;
+    int numberTabs;
 
-    public GameObject[] shopPanelsGOTab1;
-    public GameObject[] shopPanelsGOTab2;
-    public GameObject[] shopPanelsGOTab3;
+    public ShopItemTabsList[] shopItemSOTabsList;
+    public GameObjectTabsList[] shopPanelGOTabsList;
+    public ShopTemplateTabsList[] shopPanelTabsList;
+
+    private List<List<Button>> purchaseButtonsList = new List<List<Button>>();
 
 
 
-    private void Start()
+    void Awake()
     {
+        numberTabs = listTabs.Count;
 
-        for (int i = 0; i < shopItemsSOTab1.Length; i++)
+        for (int i = 0; i < numberTabs; i++)
         {
-            shopPanelsGOTab1[i].SetActive(true);
+            purchaseButtonsList.Add(new List<Button>());
+            for (int j = 0; j < shopPanelGOTabsList[i].shopPanelGOTab.Length; j++)
+            {
+                shopPanelGOTabsList[i].shopPanelGOTab[j].SetActive(false);
+                Button button = shopPanelGOTabsList[i].shopPanelGOTab[j].GetComponentInChildren<Button>();
+                AddButtonListener(button,i,j);
+                purchaseButtonsList[i].Add(button);
+               
+            }
         }
-        for (int i = 0; i < shopItemsSOTab2.Length; i++)
-        {
-            shopPanelsGOTab2[i].SetActive(true);
-        }
-        for (int i = 0; i < shopItemsSOTab3.Length; i++)
-        {
-            shopPanelsGOTab3[i].SetActive(true);
-        }
-        coins = 10;
-        coinUI.text = "x " + coins.ToString();
-        LoadPanels();
     }
 
+    void Start()
+    {
+        for (int i = 0; i < numberTabs; i++)
+        {
+            for (int j = 0; j < shopItemSOTabsList[i].shopItemSOTab.Length; j++)
+            {
+                shopPanelGOTabsList[i].shopPanelGOTab[j].SetActive(true);
+            }
+        }
 
+        coins = GameManager.instance.GetCoinCount();
+        coinUI.text = "x " + coins.ToString();
 
+        LoadPanels();
+
+    }
 
 
     public void LoadPanels()
     {
-        for (int i = 0; i < shopItemsSOTab1.Length; i++)
+        for (int i = 0; i < numberTabs; i++)
         {
-            shopPanelsTab1[i].titleTxt.text = shopItemsSOTab1[i].title;
-            shopPanelsTab1[i].descriptionTxt.text = shopItemsSOTab1[i].description;
-            shopPanelsTab1[i].image.sprite = shopItemsSOTab1[i].sprite;
-            shopPanelsTab1[i].costTxt.text = "Coins : " + shopItemsSOTab1[i].cost.ToString();
+            for (int j = 0; j < shopItemSOTabsList[i].shopItemSOTab.Length; j++)
+            {
+                shopPanelTabsList[i].shopPanelTab[j].titleTxt.text = shopItemSOTabsList[i].shopItemSOTab[j].title;
+                shopPanelTabsList[i].shopPanelTab[j].descriptionTxt.text = shopItemSOTabsList[i].shopItemSOTab[j].description;
+                shopPanelTabsList[i].shopPanelTab[j].image.sprite = shopItemSOTabsList[i].shopItemSOTab[j].sprite;
+                shopPanelTabsList[i].shopPanelTab[j].costTxt.text = "Coins : " + shopItemSOTabsList[i].shopItemSOTab[j].cost.ToString();
+            }
         }
-        for (int i = 0; i < shopItemsSOTab2.Length; i++)
+
+        CheckPurchasable();
+    }
+
+
+    public void CheckPurchasable()
+    {
+        for (int i = 0; i < numberTabs; i++)
         {
-            shopPanelsTab2[i].titleTxt.text = shopItemsSOTab2[i].title;
-            shopPanelsTab2[i].descriptionTxt.text = shopItemsSOTab2[i].description;
-            shopPanelsTab2[i].image.sprite = shopItemsSOTab2[i].sprite;
-            shopPanelsTab2[i].costTxt.text = "Coins : " + shopItemsSOTab2[i].cost.ToString();
+            for (int j = 0; j < shopItemSOTabsList[i].shopItemSOTab.Length; j++)
+            {
+                if (coins >= shopItemSOTabsList[i].shopItemSOTab[j].cost)
+                {
+                    purchaseButtonsList[i][j].interactable = true ;
+                }
+                else
+                {
+                    purchaseButtonsList[i][j].interactable = false;
+                }
+            }
         }
-        for (int i = 0; i < shopItemsSOTab3.Length; i++)
+    }
+
+
+    public void PurchaseItem(int indexButton_i, int indexButton_j)
+    {
+       if (coins >= shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j].cost)
         {
-            shopPanelsTab3[i].titleTxt.text = shopItemsSOTab3[i].title;
-            shopPanelsTab3[i].descriptionTxt.text = shopItemsSOTab3[i].description;
-            shopPanelsTab3[i].image.sprite = shopItemsSOTab3[i].sprite;
-            shopPanelsTab3[i].costTxt.text = "Coins : " + shopItemsSOTab3[i].cost.ToString();
+            coins = coins - shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j].cost;
+            coinUI.text = "Coins : " + coins.ToString();
+            CheckPurchasable();
+            GameManager.instance.SetandSaveCoinCount(coins);
         }
+    }
+
+    void AddButtonListener(Button b, int index_i, int index_j)
+    {
+        b.onClick.AddListener(() => { PurchaseItem(index_i, index_j); });
     }
 
 
