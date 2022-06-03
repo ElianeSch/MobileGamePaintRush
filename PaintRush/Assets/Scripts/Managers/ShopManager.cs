@@ -91,27 +91,6 @@ public class ShopManager : MonoBehaviour
                 shopPanelTabsList[i].shopPanelTab[j].costTxt.text = "Coins : " + shopItemSOTabsList[i].shopItemSOTab[j].cost.ToString();
             }
         }
-
-        CheckPurchasable();
-    }
-
-
-    public void CheckPurchasable()
-    {
-        for (int i = 0; i < numberTabs; i++)
-        {
-            for (int j = 0; j < shopItemSOTabsList[i].shopItemSOTab.Length; j++)
-            {
-                if (coins >= shopItemSOTabsList[i].shopItemSOTab[j].cost)
-                {
-                    purchaseButtonsList[i][j].interactable = true ;
-                }
-                else
-                {
-                    purchaseButtonsList[i][j].interactable = false;
-                }
-            }
-        }
     }
 
 
@@ -121,7 +100,6 @@ public class ShopManager : MonoBehaviour
         {
             coins = coins - shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j].cost;
             coinUI.text = "Coins : " + coins.ToString();
-            CheckPurchasable();
             GameManager.instance.SetandSaveCoinCount(coins);
         }
     }

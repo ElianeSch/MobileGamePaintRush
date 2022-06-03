@@ -24,6 +24,8 @@ public class LevelManager : MonoBehaviour
 
     public GameObject panelUnlockNotEnoughStars;
 
+    public GameObject panelSkin;
+
     public TextMeshProUGUI totalNumberOfStarsText;
 
     private void Start()
@@ -104,6 +106,16 @@ public class LevelManager : MonoBehaviour
             }
 
         }
+    }
+
+    public void OpenSkinPanel()
+    {
+        panelSkin.SetActive(true);
+    }
+
+    public void CloseSkinPanel()
+    {
+        panelSkin.SetActive(false);
     }
 
 
