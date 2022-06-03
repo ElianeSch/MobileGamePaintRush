@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Pinceau  bleu
   description: Un pinceau bleu comme le ciel
-  sprite: {fileID: 21300000, guid: 68df3d14d63a38f4e9e2a122cb56ca07, type: 3}
+  sprite: {fileID: 21300000, guid: e6abc2902a89bff4d975fdcabf895637, type: 3}
   cost: 3
