@@ -8,7 +8,7 @@ using System;
 [Serializable]
 public class ShopItemTabsList
 {
-    public ShopItemSO[] shopItemSOTab;
+    public PinceauSO[] shopItemSOTab;
 }
 
 [Serializable]

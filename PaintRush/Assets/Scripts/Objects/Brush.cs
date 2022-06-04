@@ -10,8 +10,14 @@ public class Brush : MonoBehaviour
 
     public GameObject colorBrush;
 
+    public MeshFilter meshBrush;
+
     private void Start()
     {
+        GameManager.instance.LoadData();
+        PinceauSO currentBrush = GameManager.instance.currentBrush;
+        meshBrush.mesh = currentBrush.mesh;
+
         ResetBrushColor();
 
     }
@@ -108,37 +114,19 @@ public class Brush : MonoBehaviour
 
     public void ChangeBrushColor(int colorKey)
     {
-        /*float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(MainManager.instance.GetColorFromKey(colorKey), 0.0f), new GradientColorKey(GetBrushColor(), 0.3f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        trailEffect.colorGradient = gradient;*/
-
 
         StartCoroutine(ChangeGradient(colorKey));
         
         currentColorKey = colorKey;
         colorBrush.GetComponent<Renderer>().material.color = MainManager.instance.GetColorFromKey(colorKey);
-        //trailEffect.material.color = GetBrushColor();
 
     }
 
     public void ChangeBrushColor(Color color)
     {
-        /*float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(color, 0.0f), new GradientColorKey(GetBrushColor(), 0.3f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        trailEffect.colorGradient = gradient;*/
-
         StartCoroutine(ChangeGradient(color));
 
         colorBrush.GetComponent<Renderer>().material.color = color;
-        //trailEffect.material.color = GetBrushColor();
 
     }
 

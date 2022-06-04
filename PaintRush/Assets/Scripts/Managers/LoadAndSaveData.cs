@@ -5,14 +5,6 @@ using System.Collections.Generic;
 public class LoadAndSaveData : MonoBehaviour
 {
 
-
-    // On veut sauvegarder :
-    /* la liste des noms des tableaux débloqués, -1 si pas débloqué, 3 si fini
-     * la liste des la dernière difficulté débloquée pour chaque tableau
-     * ("kanagawa", 0)
-     * 
-     * */
-
     public static LoadAndSaveData instance;
 
 
@@ -128,7 +120,8 @@ public class Stars
 
 public class UnlockedItems
 {
-    public List<ShopItemSO> items = new List<ShopItemSO>();
+    public List<PinceauSO> items = new List<PinceauSO>();
+    public PinceauSO currentBrush;
 }
 
 

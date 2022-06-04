@@ -30,13 +30,13 @@ public class LevelManager : MonoBehaviour
     public GameObject panelSkin;
     public GameObject skinBrushPanel;
 
-   /* public TextMeshProUGUI titreSkin;
-    public TextMeshProUGUI descriptionSkin;
-    public Image imageSkin;*/
+    public PinceauSO itemBrush;
 
     public GameObject panelItemPrefab;
 
     public TextMeshProUGUI totalNumberOfStarsText;
+
+    private List<Button> listEquipButtons = new List<Button>();
 
     private void Start()
     {
@@ -53,16 +53,24 @@ public class LevelManager : MonoBehaviour
         {
             starsToUnlockLevel = 2;
             totalStarCount = 0;
+
             LoadAndSaveData.instance.star.starsToUnlockLevel = starsToUnlockLevel;
             LoadAndSaveData.instance.star.totalStarCount = totalStarCount;
+
+
+
             GameManager.instance.SetAndSaveStarCount(totalStarCount);
+            GameManager.instance.SetAndSaveCurentBrush(itemBrush);
+
             difficultyUnlocked = new List<int>();
+
             foreach (PaintingSO painting in PaintingsLibrary.instance.paintingsList)
             {
                 difficultyUnlocked.Add(0);
             }
 
             difficultyUnlocked[2] = -1;
+
             LoadAndSaveData.instance.unlocked.difficultyUnlocked = difficultyUnlocked;
             LoadAndSaveData.instance.SaveToJson();
 
@@ -101,6 +109,10 @@ public class LevelManager : MonoBehaviour
             newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
             newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
 
+            Button button = newPanelItem.GetComponentInChildren<Button>();
+            AddButtonListener(button, i);
+            listButtons.Add(button);
+
         }
 
 
@@ -135,16 +147,6 @@ public class LevelManager : MonoBehaviour
 
     public void OpenSkinPanel()
     {
-      /*  for (int i = 0; i < GameManager.instance.items.Count; i++)
-        {
-            GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
-
-            newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].title;
-            newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
-            newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
-
-        }*/
-
 
         panelSkin.SetActive(true);
     }
@@ -154,5 +156,16 @@ public class LevelManager : MonoBehaviour
         panelSkin.SetActive(false);
     }
 
+
+    public void EquipBrush(int indexSkinPanel)
+    {
+        GameManager.instance.SetAndSaveCurentBrush(GameManager.instance.items[indexSkinPanel]);
+    }
+
+
+    void AddButtonListener(Button b, int index)
+    {
+        b.onClick.AddListener(() => { EquipBrush(index); });
+    }
 
 }

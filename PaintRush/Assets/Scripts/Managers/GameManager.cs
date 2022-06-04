@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     public int numberLevelUnlocked;
 
-    public List<ShopItemSO> items = new List<ShopItemSO>();
+    public List<PinceauSO> items = new List<PinceauSO>();
+    public PinceauSO currentBrush;
 
     private void Awake()
     {
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
         totalStarCount = LoadAndSaveData.instance.star.totalStarCount;
         starsToUnlockLevel = LoadAndSaveData.instance.star.starsToUnlockLevel;
         items = LoadAndSaveData.instance.unlockedItems.items;
+        currentBrush = LoadAndSaveData.instance.unlockedItems.currentBrush;
 
     }
 
@@ -142,11 +144,17 @@ public class GameManager : MonoBehaviour
        
     }
 
-    public void AddUnlockedItemAndSave(ShopItemSO item)
+    public void AddUnlockedItemAndSave(PinceauSO item)
     {
         LoadAndSaveData.instance.unlockedItems.items.Add(item);
         LoadAndSaveData.instance.SaveToJson();
     }
 
+
+    public void SetAndSaveCurentBrush(PinceauSO brush)
+    {
+        LoadAndSaveData.instance.unlockedItems.currentBrush = brush;
+        LoadAndSaveData.instance.SaveToJson();
+    }
 
 }

@@ -9089,7 +9089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
       propertyPath: m_LocalScale.x
@@ -16452,6 +16452,7 @@ MonoBehaviour:
   currentColorKey: 0
   trailEffect: {fileID: 878760851}
   colorBrush: {fileID: 4903505721644659590}
+  meshBrush: {fileID: 3241007572013329621}
 --- !u!114 &7657064352012560837
 MonoBehaviour:
   m_ObjectHideFlags: 0

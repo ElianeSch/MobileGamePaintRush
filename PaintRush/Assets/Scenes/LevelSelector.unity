@@ -1514,6 +1514,7 @@ MonoBehaviour:
     type: 3}
   panelSkin: {fileID: 926849848}
   skinBrushPanel: {fileID: 1986097366}
+  itemBrush: {fileID: 11400000, guid: 4c71b1c3e4d11e54da9915138ad1bc8b, type: 2}
   panelItemPrefab: {fileID: 3805257360196801147, guid: 64c9619d45512b840bddcb09e1a0a206,
     type: 3}
   totalNumberOfStarsText: {fileID: 138009323}
