@@ -16,6 +16,7 @@ public class IndividualLevel : MonoBehaviour
     public int starsToUnlockThisLevel;
     public GameObject starPanel;
 
+
     public void SetLevel()
 
     {
@@ -117,7 +118,8 @@ public class IndividualLevel : MonoBehaviour
             GameManager.instance.SetAndSaveStarsToUnlockLevel();
             SetLevel();
             LevelManager.instance.UpdateStarsToUnlockLevels();
-
+            //Destroy(Instantiate(LevelManager.instance.unlockParticles, gameObject.transform, Quaternion.identity), 2f);
+            Destroy(Instantiate(LevelManager.instance.unlockParticles, gameObject.transform),2);
         }
     }
 

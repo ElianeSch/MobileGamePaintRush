@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject panelUnlockNotEnoughStars;
 
-
+    public ParticleSystem unlockParticles;
 
 
     public GameObject panelSkin;
