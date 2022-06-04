@@ -41,10 +41,14 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         instance = this;
+
+
         List<int> difficultyUnlocked = GameManager.instance.difficultyUnlocked;
         int starsToUnlockLevel = GameManager.instance.starsToUnlockLevel;
         int totalStarCount = GameManager.instance.totalStarCount;
         GameManager.instance.SetAndSaveStarCount(totalStarCount);
+
+
         if (difficultyUnlocked.Count == 0) // First time we start the game, no info saved
         {
             starsToUnlockLevel = 2;
@@ -89,6 +93,16 @@ public class LevelManager : MonoBehaviour
 
         totalNumberOfStarsText.text = GameManager.instance.GetStarsCount().ToString();
 
+        for (int i = 0; i < GameManager.instance.items.Count; i++)
+        {
+            GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
+
+            newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].title;
+            newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
+            newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
+
+        }
+
 
     }
 
@@ -121,14 +135,15 @@ public class LevelManager : MonoBehaviour
 
     public void OpenSkinPanel()
     {
-        for (int i = 0; i < GameManager.instance.items.Count; i++)
+      /*  for (int i = 0; i < GameManager.instance.items.Count; i++)
         {
             GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
+
             newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].title;
             newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
             newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
 
-        }
+        }*/
 
 
         panelSkin.SetActive(true);
