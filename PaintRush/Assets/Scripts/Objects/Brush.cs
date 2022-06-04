@@ -10,14 +10,15 @@ public class Brush : MonoBehaviour
 
     public GameObject colorBrush;
 
-    public MeshFilter meshBrush;
+    public GameObject meshBrush;
 
     private void Start()
     {
         GameManager.instance.LoadData();
         PinceauSO currentBrush = GameManager.instance.currentBrush;
-        meshBrush.mesh = currentBrush.mesh;
-
+        Instantiate(currentBrush.mesh, gameObject.transform);
+        meshBrush = currentBrush.mesh;
+        colorBrush = meshBrush.transform.Find("PaintBrush").gameObject;
         ResetBrushColor();
 
     }
@@ -118,7 +119,7 @@ public class Brush : MonoBehaviour
         StartCoroutine(ChangeGradient(colorKey));
         
         currentColorKey = colorKey;
-        colorBrush.GetComponent<Renderer>().material.color = MainManager.instance.GetColorFromKey(colorKey);
+        colorBrush.GetComponent<Renderer>().sharedMaterial.color = MainManager.instance.GetColorFromKey(colorKey);
 
     }
 
@@ -126,14 +127,14 @@ public class Brush : MonoBehaviour
     {
         StartCoroutine(ChangeGradient(color));
 
-        colorBrush.GetComponent<Renderer>().material.color = color;
+        colorBrush.GetComponent<Renderer>().sharedMaterial.color = color;
 
     }
 
 
     public Color GetBrushColor()
     {
-        return colorBrush.GetComponent<Renderer>().material.color;
+        return colorBrush.GetComponent<Renderer>().sharedMaterial.color;
     }
 
     public void ResetBrushColor()

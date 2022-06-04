@@ -2972,7 +2972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &565678552
 Transform:
   m_ObjectHideFlags: 0
@@ -9089,7 +9089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
       propertyPath: m_LocalScale.x
@@ -11488,7 +11488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6069472672629512848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8900008, z: 0}
+  m_LocalPosition: {x: 0, y: -2.8000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 565678552}
@@ -16451,8 +16451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentColorKey: 0
   trailEffect: {fileID: 878760851}
-  colorBrush: {fileID: 4903505721644659590}
-  meshBrush: {fileID: 3241007572013329621}
+  colorBrush: {fileID: 0}
+  meshBrush: {fileID: 0}
 --- !u!114 &7657064352012560837
 MonoBehaviour:
   m_ObjectHideFlags: 0

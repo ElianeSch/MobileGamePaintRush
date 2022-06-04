@@ -8,7 +8,7 @@ public class PinceauSO : ShopItemSO
 
     public float inertia;
     public float thetaMax;
-    public Mesh mesh;
+    public GameObject mesh;
 
 
 

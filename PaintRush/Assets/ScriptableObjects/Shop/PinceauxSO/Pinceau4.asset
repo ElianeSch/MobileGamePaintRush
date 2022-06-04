@@ -18,4 +18,4 @@ MonoBehaviour:
   cost: 1
   inertia: 1
   thetaMax: 25
-  mesh: {fileID: 8691780276856062721, guid: 0fbe41ea4292c4f44881a7c446dce843, type: 3}
+  mesh: {fileID: 4459532792003070792, guid: be9cfa3366adf914db0734a38195ceb6, type: 3}

@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         print("ici !");
 
         SetAndSaveStarsToUnlockLevel();
+
     }
 
 
