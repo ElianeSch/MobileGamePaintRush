@@ -88,7 +88,7 @@ public class MainManager : MonoBehaviour
         canvasManager.UpdateColorBars(0);
         canvasManager.UpdateSizeColorBar();
         canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
-
+        canvasManager.SetBackground(GameManager.instance.currentBackground);
 
         maxLife = canvasManager.life.Length;
         lifeRemaining = maxLife;

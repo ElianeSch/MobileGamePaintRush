@@ -16,7 +16,7 @@ public class CanvasManager : MonoBehaviour
 
 
     public GameObject[] life;
-
+    public Image backgroundImage;
 
     public void UpdateColorBars(int currentColorKey)
     {
@@ -76,5 +76,9 @@ public class CanvasManager : MonoBehaviour
         life[lifeRemaining].SetActive(false);
     }
 
+    public void SetBackground(BackgroundSO background)
+    {
+        backgroundImage.sprite = background.spriteBackground;
+    }
 
 }

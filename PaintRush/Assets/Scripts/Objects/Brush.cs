@@ -12,6 +12,7 @@ public class Brush : MonoBehaviour
 
     public GameObject meshBrush;
 
+
     private void Start()
     {
 
@@ -35,6 +36,7 @@ public class Brush : MonoBehaviour
 
         colorBrush = brushObject.transform.Find("PaintBrush").gameObject;
         ResetBrushColor();
+
 
     }
 
