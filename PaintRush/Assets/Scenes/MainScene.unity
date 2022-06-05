@@ -16452,7 +16452,8 @@ MonoBehaviour:
   currentColorKey: 0
   trailEffect: {fileID: 878760851}
   colorBrush: {fileID: 0}
-  meshBrush: {fileID: 0}
+  meshBrush: {fileID: 7528473019201622496, guid: 853913e34c53c7145af1fa754cf2dae8,
+    type: 3}
 --- !u!114 &7657064352012560837
 MonoBehaviour:
   m_ObjectHideFlags: 0

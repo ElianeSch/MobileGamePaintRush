@@ -14,11 +14,26 @@ public class Brush : MonoBehaviour
 
     private void Start()
     {
+
+        GameObject brushObject;
+        
         GameManager.instance.LoadData();
-        PinceauSO currentBrush = GameManager.instance.currentBrush;
-        Instantiate(currentBrush.mesh, gameObject.transform);
-        meshBrush = currentBrush.mesh;
-        colorBrush = meshBrush.transform.Find("PaintBrush").gameObject;
+
+        if (GameManager.instance.currentBrush != null)
+        {
+            brushObject =  GameManager.instance.currentBrush.mesh;
+        }
+
+        else
+        {
+            print("null");
+            brushObject = meshBrush;
+        }
+
+        
+        Instantiate(brushObject, gameObject.transform);
+
+        colorBrush = brushObject.transform.Find("PaintBrush").gameObject;
         ResetBrushColor();
 
     }
