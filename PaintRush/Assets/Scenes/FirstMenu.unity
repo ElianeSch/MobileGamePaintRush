@@ -1357,6 +1357,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: defaultBackground
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d85c7b1415c5a4459e345c7f5998ac4,
+        type: 2}
     - target: {fileID: 2506180585873385215, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
         type: 3}
       propertyPath: m_RootOrder

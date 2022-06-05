@@ -77,6 +77,8 @@ public class MainManager : MonoBehaviour
         }
 
         ma = ps.main;
+
+
     }
     private void Start()
     {
@@ -88,10 +90,12 @@ public class MainManager : MonoBehaviour
         canvasManager.UpdateColorBars(0);
         canvasManager.UpdateSizeColorBar();
         canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
-        canvasManager.SetBackground(GameManager.instance.currentBackground);
+      
 
         maxLife = canvasManager.life.Length;
         lifeRemaining = maxLife;
+
+        canvasManager.SetBackground(GameManager.instance.currentBackground);
     }
 
     public Color GetColorFromKey(int colorKey)

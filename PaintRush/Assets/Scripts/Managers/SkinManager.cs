@@ -24,6 +24,7 @@ public class SkinManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (GameManager.instance.difficultyUnlocked.Count == 0)
         {
             GameManager.instance.SetAndSaveCurentBrush(itemBrush);
@@ -32,6 +33,9 @@ public class SkinManager : MonoBehaviour
         LoadAndSaveData.instance.SaveToJson();
 
         GameManager.instance.LoadData();
+
+
+
 
 
         // Brush

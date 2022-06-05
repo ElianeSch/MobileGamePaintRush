@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public List<BackgroundSO> unlockedBackground = new List<BackgroundSO>();
     public BackgroundSO currentBackground;
 
+    public BackgroundSO defaultBackground;
+
     private void Awake()
     {
         
@@ -43,6 +45,10 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
         SetAndSaveStarsToUnlockLevel();
+        if (currentBackground == null)
+        {
+            currentBackground = defaultBackground;
+        }
 
     }
 

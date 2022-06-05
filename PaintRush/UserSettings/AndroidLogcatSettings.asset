@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RZ8R80B1Z4B",
         "name": "com.ElianeS.PaintRush",
-        "processId": 21971,
+        "processId": 14710,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -216,6 +216,12 @@
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
             "processId": 21971,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 14710,
             "exited": false
         },
         {
