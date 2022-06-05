@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Pinceau 4
   description: Un autre !
-  sprite: {fileID: 21300000, guid: 93e0129d62e3eb84ca68af36411d479d, type: 3}
+  sprite: {fileID: 21300000, guid: e6abc2902a89bff4d975fdcabf895637, type: 3}
   cost: 1
   inertia: 1
   thetaMax: 25

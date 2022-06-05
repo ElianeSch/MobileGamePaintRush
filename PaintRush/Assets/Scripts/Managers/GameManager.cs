@@ -21,8 +21,11 @@ public class GameManager : MonoBehaviour
 
     public int numberLevelUnlocked;
 
-    public List<PinceauSO> items = new List<PinceauSO>();
+    public List<PinceauSO> unlockedBrush = new List<PinceauSO>();
     public PinceauSO currentBrush;
+
+    public List<BackgroundSO> unlockedBackground = new List<BackgroundSO>();
+    public BackgroundSO currentBackground;
 
     private void Awake()
     {
@@ -39,9 +42,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadData();
-
-        print("ici !");
-
         SetAndSaveStarsToUnlockLevel();
 
     }
@@ -97,8 +97,12 @@ public class GameManager : MonoBehaviour
         totalGold = LoadAndSaveData.instance.gold.totalGoldCount;
         totalStarCount = LoadAndSaveData.instance.star.totalStarCount;
         starsToUnlockLevel = LoadAndSaveData.instance.star.starsToUnlockLevel;
-        items = LoadAndSaveData.instance.unlockedItems.items;
+
+        unlockedBrush = LoadAndSaveData.instance.unlockedItems.unlockedBrush;
         currentBrush = LoadAndSaveData.instance.unlockedItems.currentBrush;
+
+        unlockedBackground = LoadAndSaveData.instance.unlockedItems.unlockedBackground;
+        currentBackground = LoadAndSaveData.instance.unlockedItems.currentBackground;
 
     }
 
@@ -145,9 +149,15 @@ public class GameManager : MonoBehaviour
        
     }
 
-    public void AddUnlockedItemAndSave(PinceauSO item)
+    public void AddUnlockedBrushAndSave(PinceauSO item)
     {
-        LoadAndSaveData.instance.unlockedItems.items.Add(item);
+        LoadAndSaveData.instance.unlockedItems.unlockedBrush.Add(item);
+        LoadAndSaveData.instance.SaveToJson();
+    }
+
+    public void AddUnlockedBackgroundAndSave(BackgroundSO item)
+    {
+        LoadAndSaveData.instance.unlockedItems.unlockedBackground.Add(item);
         LoadAndSaveData.instance.SaveToJson();
     }
 
@@ -155,6 +165,12 @@ public class GameManager : MonoBehaviour
     public void SetAndSaveCurentBrush(PinceauSO brush)
     {
         LoadAndSaveData.instance.unlockedItems.currentBrush = brush;
+        LoadAndSaveData.instance.SaveToJson();
+    }
+
+    public void SetAndSaveCurrentBackground(BackgroundSO background)
+    {
+        LoadAndSaveData.instance.unlockedItems.currentBackground = background;
         LoadAndSaveData.instance.SaveToJson();
     }
 

@@ -8,7 +8,7 @@ using System;
 [Serializable]
 public class ShopItemTabsList
 {
-    public PinceauSO[] shopItemSOTab;
+    public ShopItemSO[] shopItemSOTab;
 }
 
 [Serializable]
@@ -39,7 +39,7 @@ public class ShopManager : MonoBehaviour
     public GameObjectTabsList[] shopPanelGOTabsList;
     public ShopTemplateTabsList[] shopPanelTabsList;
 
-    private List<List<Button>> purchaseButtonsList = new List<List<Button>>();
+    //private List<List<Button>> purchaseButtonsList = new List<List<Button>>();
 
 
 
@@ -49,13 +49,13 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < numberTabs; i++)
         {
-            purchaseButtonsList.Add(new List<Button>());
+            //purchaseButtonsList.Add(new List<Button>());
             for (int j = 0; j < shopPanelGOTabsList[i].shopPanelGOTab.Length; j++)
             {
                 shopPanelGOTabsList[i].shopPanelGOTab[j].SetActive(false);
                 Button button = shopPanelGOTabsList[i].shopPanelGOTab[j].GetComponentInChildren<Button>();
                 AddButtonListener(button,i,j);
-                purchaseButtonsList[i].Add(button);
+                //purchaseButtonsList[i].Add(button);
                
             }
         }
@@ -96,12 +96,25 @@ public class ShopManager : MonoBehaviour
 
     public void PurchaseItem(int indexButton_i, int indexButton_j)
     {
-       if (coins >= shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j].cost)
+        ShopItemSO itemToBuy = shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j];
+       if (coins >= itemToBuy.cost)
         {
-            coins = coins - shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j].cost;
+            coins = coins - itemToBuy.cost;
             coinUI.text = "Coins : " + coins.ToString();
             GameManager.instance.SetandSaveCoinCount(coins);
-            GameManager.instance.AddUnlockedItemAndSave(shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j]);
+
+            // Check which type is the item
+
+            if (itemToBuy is PinceauSO)
+            {
+                GameManager.instance.AddUnlockedBrushAndSave(itemToBuy as PinceauSO);
+            }
+
+            else if (itemToBuy is BackgroundSO)
+            {
+                GameManager.instance.AddUnlockedBackgroundAndSave(itemToBuy as BackgroundSO);
+            }
+
 
         }
     }

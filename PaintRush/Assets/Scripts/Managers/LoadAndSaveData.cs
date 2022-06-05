@@ -120,8 +120,10 @@ public class Stars
 
 public class UnlockedItems
 {
-    public List<PinceauSO> items = new List<PinceauSO>();
+    public List<PinceauSO> unlockedBrush = new List<PinceauSO>();
+    public List<BackgroundSO> unlockedBackground = new List<BackgroundSO>();
     public PinceauSO currentBrush;
+    public BackgroundSO currentBackground;
 }
 
 
