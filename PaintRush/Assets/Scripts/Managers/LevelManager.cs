@@ -27,16 +27,11 @@ public class LevelManager : MonoBehaviour
     public ParticleSystem unlockParticles;
 
 
-    public GameObject panelSkin;
-    public GameObject skinBrushPanel;
-
-    public PinceauSO itemBrush;
-
-    public GameObject panelItemPrefab;
+   
 
     public TextMeshProUGUI totalNumberOfStarsText;
 
-    private List<Button> listEquipButtons = new List<Button>();
+  
 
     private void Start()
     {
@@ -60,7 +55,7 @@ public class LevelManager : MonoBehaviour
 
 
             GameManager.instance.SetAndSaveStarCount(totalStarCount);
-            GameManager.instance.SetAndSaveCurentBrush(itemBrush);
+
 
             difficultyUnlocked = new List<int>();
 
@@ -101,20 +96,6 @@ public class LevelManager : MonoBehaviour
 
         totalNumberOfStarsText.text = GameManager.instance.GetStarsCount().ToString();
 
-        for (int i = 0; i < GameManager.instance.items.Count; i++)
-        {
-            GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
-
-            newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].title;
-            newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
-            newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
-
-            Button button = newPanelItem.GetComponentInChildren<Button>();
-            AddButtonListener(button, i);
-            listButtons.Add(button);
-
-        }
-
 
     }
 
@@ -145,27 +126,5 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void OpenSkinPanel()
-    {
-
-        panelSkin.SetActive(true);
-    }
-
-    public void CloseSkinPanel()
-    {
-        panelSkin.SetActive(false);
-    }
-
-
-    public void EquipBrush(int indexSkinPanel)
-    {
-        GameManager.instance.SetAndSaveCurentBrush(GameManager.instance.items[indexSkinPanel]);
-    }
-
-
-    void AddButtonListener(Button b, int index)
-    {
-        b.onClick.AddListener(() => { EquipBrush(index); });
-    }
-
+   
 }

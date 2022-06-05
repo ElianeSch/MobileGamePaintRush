@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GalleryDoors.unity
     guid: be70729aa0a06fa49948e010cfb6e775
   - enabled: 0
-    path: Assets/Scenes/SelectLevel.unity
+    path: 
     guid: fd153cace6cab6646bce2ba1d036ef03
   - enabled: 1
     path: Assets/Scenes/Gallery.unity
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelector.unity
     guid: 72d383495784f9843a8d570a785001b9
+  - enabled: 1
+    path: Assets/Scenes/Personnalisation.unity
+    guid: 8359bbac3e74f5d4f9bca304ca715c7a
   m_configObjects: {}

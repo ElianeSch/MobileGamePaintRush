@@ -31,4 +31,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void LoadSkin()
+    {
+        SceneManager.LoadScene("Personnalisation");
+    }
+
 }
