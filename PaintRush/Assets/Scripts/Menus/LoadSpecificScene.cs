@@ -9,5 +9,10 @@ public class LoadSpecificScene : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 
-
+    public void ReturnToFirstMenu()
+    {
+        GameObject GameManager = GameObject.Find("GameManager");
+        SceneManager.MoveGameObjectToScene(GameManager, SceneManager.GetActiveScene());
+        SceneManager.LoadScene("FirstMenu");
+    }
 }

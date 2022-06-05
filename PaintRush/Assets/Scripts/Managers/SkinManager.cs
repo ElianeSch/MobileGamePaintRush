@@ -16,7 +16,10 @@ public class SkinManager : MonoBehaviour
 
     private List<Button> listEquipButtons = new List<Button>();
 
-    private void Start()
+
+
+
+    private void Awake()
     {
         if (GameManager.instance.difficultyUnlocked.Count == 0)
         {
@@ -31,10 +34,10 @@ public class SkinManager : MonoBehaviour
         for (int i = 0; i < GameManager.instance.items.Count; i++)
         {
             GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
-
+            newPanelItem.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.items[i].sprite;
             newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].title;
             newPanelItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.instance.items[i].description;
-            newPanelItem.GetComponentInChildren<Image>().sprite = GameManager.instance.items[i].sprite;
+
 
             Button button = newPanelItem.GetComponentInChildren<Button>();
             AddButtonListener(button, i);
@@ -43,17 +46,6 @@ public class SkinManager : MonoBehaviour
         }
 
 
-    }
-
-    public void OpenSkinPanel()
-    {
-
-        panelSkin.SetActive(true);
-    }
-
-    public void CloseSkinPanel()
-    {
-        panelSkin.SetActive(false);
     }
 
 
