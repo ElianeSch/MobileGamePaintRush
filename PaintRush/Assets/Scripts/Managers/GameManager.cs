@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        LoadData();
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -45,10 +48,6 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
         SetAndSaveStarsToUnlockLevel();
-        if (currentBackground == null)
-        {
-            currentBackground = defaultBackground;
-        }
 
     }
 
@@ -99,6 +98,7 @@ public class GameManager : MonoBehaviour
     public void LoadData()
     {
         LoadAndSaveData.instance.LoadFromJson();
+
         difficultyUnlocked = LoadAndSaveData.instance.unlocked.difficultyUnlocked;
         totalGold = LoadAndSaveData.instance.gold.totalGoldCount;
         totalStarCount = LoadAndSaveData.instance.star.totalStarCount;
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void SetAndSaveCurentBrush(PinceauSO brush)
+    public void SetAndSaveCurrentBrush(PinceauSO brush)
     {
         LoadAndSaveData.instance.unlockedItems.currentBrush = brush;
         LoadAndSaveData.instance.SaveToJson();

@@ -12,7 +12,7 @@ public class SkinManager : MonoBehaviour
 
     public GameObject skinBackgroundPanel;
 
-    public PinceauSO itemBrush;
+    public PinceauSO defaultBrush;
     public BackgroundSO defaultBackground;
 
     public GameObject panelItemPrefab;
@@ -24,24 +24,30 @@ public class SkinManager : MonoBehaviour
 
     private void Awake()
     {
-
-        if (GameManager.instance.difficultyUnlocked.Count == 0)
-        {
-            GameManager.instance.SetAndSaveCurentBrush(itemBrush);
-            GameManager.instance.SetAndSaveCurrentBackground(defaultBackground);
-        }
-        LoadAndSaveData.instance.SaveToJson();
-
         GameManager.instance.LoadData();
 
+        if (GameManager.instance.currentBrush == null)
+        {
+            GameManager.instance.currentBrush = defaultBrush;
+            GameManager.instance.SetAndSaveCurrentBrush(defaultBrush);
+            GameManager.instance.AddUnlockedBrushAndSave(defaultBrush);
+        }
 
+        if (GameManager.instance.currentBackground == null)
+        {
+            GameManager.instance.currentBackground = defaultBackground;
+            GameManager.instance.SetAndSaveCurrentBackground(defaultBackground);
+            GameManager.instance.AddUnlockedBackgroundAndSave(defaultBackground);
+        }
 
+        
+        LoadAndSaveData.instance.SaveToJson();
 
 
         // Brush
         for (int i = 0; i < GameManager.instance.unlockedBrush.Count; i++)
         {
-            print("bonjour");
+            print(GameManager.instance.unlockedBrush[i]);
             GameObject newPanelItem = Instantiate(panelItemPrefab, skinBrushPanel.transform);
             newPanelItem.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.unlockedBrush[i].sprite;
             newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.unlockedBrush[i].title;
@@ -53,12 +59,10 @@ public class SkinManager : MonoBehaviour
             //listEquipButtons.Add(button);
 
         }
-
         // Background
 
         for (int i = 0; i < GameManager.instance.unlockedBackground.Count; i++)
         {
-            print(i);
             GameObject newPanelItem = Instantiate(panelItemPrefab, skinBackgroundPanel.transform);
             newPanelItem.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.unlockedBackground[i].sprite;
             newPanelItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.unlockedBackground[i].title;
@@ -69,16 +73,22 @@ public class SkinManager : MonoBehaviour
             //listEquipButtons.Add(button);
         }
 
+
+
     }
+
+
 
 
     public void EquipBrush(int index)
     {
-        GameManager.instance.SetAndSaveCurentBrush(GameManager.instance.unlockedBrush[index]);
+        GameManager.instance.currentBrush = GameManager.instance.unlockedBrush[index];
+        GameManager.instance.SetAndSaveCurrentBrush(GameManager.instance.unlockedBrush[index]);
     }
     
     public void EquipBackground(int index)
     {
+        GameManager.instance.currentBackground = GameManager.instance.unlockedBackground[index];
         GameManager.instance.SetAndSaveCurrentBackground(GameManager.instance.unlockedBackground[index]);
     }
 
