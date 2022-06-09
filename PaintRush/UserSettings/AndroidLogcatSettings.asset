@@ -3,225 +3,63 @@
     "m_SelectedPackage": {
         "deviceId": "RZ8R80B1Z4B",
         "name": "com.ElianeS.PaintRush",
-        "processId": 14710,
+        "processId": 27119,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 16888,
+            "name": "com.ElianeS.PaintRush",
+            "processId": 14641,
             "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 28178,
+            "name": "com.ElianeS.PaintRush",
+            "processId": 16037,
             "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 6421,
+            "name": "com.ElianeS.PaintRush",
+            "processId": 18955,
             "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 7590,
+            "name": "com.ElianeS.PaintRush",
+            "processId": 19083,
             "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 9584,
+            "name": "com.ElianeS.PaintRush",
+            "processId": 19665,
             "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
-            "name": "com.sec.android.app.launcher",
-            "processId": 9492,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 12465,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 25609,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 25498,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 28066,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 2459,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 4331,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 7282,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 10422,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 15116,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.HyperCasualTemplate",
-            "processId": 29771,
+            "name": "com.ElianeS.PaintRush",
+            "processId": 19969,
             "exited": false
         },
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
-            "processId": 15926,
+            "processId": 22067,
             "exited": false
         },
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
-            "processId": 18616,
+            "processId": 24319,
             "exited": false
         },
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
-            "processId": 22942,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 8820,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 12152,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 14117,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 15329,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 15477,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 19514,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 20983,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 25776,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 29132,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 30348,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 10071,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 10172,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 15903,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 16775,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 21036,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 21971,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 14710,
+            "processId": 27119,
             "exited": false
         },
         {

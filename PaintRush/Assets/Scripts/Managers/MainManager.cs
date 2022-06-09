@@ -31,6 +31,11 @@ public class MainManager : MonoBehaviour
     public bool tuto;
 
 
+    // publicit�
+
+
+
+
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
     {170.8500f, 114.4695f, 170.8500f}, {86.7000f, 58.0890f, 86.7000f}, {0, 0, 0}, {255.0000f, 170.8500f, 170.8500f}, {170.8500f, 114.4695f, 114.4695f}, {86.7000f, 58.0890f, 58.0890f}, {0, 0, 0}, {255.0000f, 170.8500f, 86.7000f}, {170.8500f, 114.4695f, 58.0890f},
@@ -103,6 +108,10 @@ public class MainManager : MonoBehaviour
             lifeRemaining = maxLife;
         //}
         
+
+
+
+
     }
 
     public Color GetColorFromKey(int colorKey)
@@ -189,15 +198,6 @@ public class MainManager : MonoBehaviour
     {
         winPanel.SetActive(true);
 
-
-      /*  if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] <= 2)
-        { 
-            LoadAndSaveData.instance.unlocked.difficultyUnlocked[GameManager.instance.indexLevel]++;
-
-        }
-       
-        LoadAndSaveData.instance.SaveToJson();
-        GameManager.instance.LoadData();*/
     }
 
     public void IfLoose()
@@ -209,13 +209,11 @@ public class MainManager : MonoBehaviour
         psLoose.gameObject.SetActive(true);
         psLoose.Play();
         canvasManager.UpdateLifeCount(lifeRemaining);
-        print("Life remaining = " + lifeRemaining);
 
         // Update life canvas
 
         if (lifeRemaining == 0)
         {
-            print("Game over !");
             PauseManager.gameIsPaused = true;
             loosePanel.SetActive(true);
         }

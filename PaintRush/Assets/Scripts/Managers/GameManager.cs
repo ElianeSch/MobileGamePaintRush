@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        LoadData();
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -48,9 +51,7 @@ public class GameManager : MonoBehaviour
         LoadData();
         SetAndSaveStarsToUnlockLevel();
         if (currentBackgroundIndex == -1)
-        {
             currentBackgroundIndex = 0;
-        }
 
     }
 
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
     public void LoadData()
     {
         LoadAndSaveData.instance.LoadFromJson();
+
         difficultyUnlocked = LoadAndSaveData.instance.unlocked.difficultyUnlocked;
         totalGold = LoadAndSaveData.instance.gold.totalGoldCount;
         totalStarCount = LoadAndSaveData.instance.star.totalStarCount;

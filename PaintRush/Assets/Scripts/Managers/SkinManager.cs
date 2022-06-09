@@ -58,7 +58,6 @@ public class SkinManager : MonoBehaviour
             //listEquipButtons.Add(button);
 
         }
-
         // Background
 
         for (int i = 0; i < GameManager.instance.unlockedBackgroundIndex.Count; i++)
