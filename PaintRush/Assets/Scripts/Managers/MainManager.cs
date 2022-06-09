@@ -28,6 +28,8 @@ public class MainManager : MonoBehaviour
     public int maxLife;
     public int lifeRemaining;
 
+    public bool tuto;
+
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
     {86.7000f, 86.7000f, 58.0890f}, {0, 0, 0}, {255.0000f, 255.0000f, 86.7000f}, {170.8500f, 170.8500f, 58.0890f}, {86.7000f, 86.7000f, 29.4780f}, {0, 0, 0}, {255.0000f, 255.0000f, 0}, {170.8500f, 170.8500f, 0}, {86.7000f, 86.7000f, 0}, {0, 0, 0}, {255.0000f, 170.8500f, 255.0000f},
@@ -62,7 +64,7 @@ public class MainManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.Log("Il y a plus d'une instance de MainManager dans la scène !!!");
+            Debug.Log("Il y a plus d'une instance de MainManager dans la scï¿½ne !!!");
         }
 
         instance = this;
@@ -77,25 +79,30 @@ public class MainManager : MonoBehaviour
         }
 
         ma = ps.main;
-
-
     }
     private void Start()
     {
-        winPanel.SetActive(false);
-        paintingManager.ReadTableau(GameManager.instance.indexLevel, GameManager.instance.difficulty);
-        paintingManager.CreatePixels();
-        paintingManager.SelectTarget();
-        paintingManager.UnveilPixelsOfSameColor(GetColorFromKey(0));
-        canvasManager.UpdateColorBars(0);
-        canvasManager.UpdateSizeColorBar();
-        canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
-      
+        /*if(GameManager.instance.indexLevel == 0)
+        {
+            tuto = true;
+            Tuto();
+        }
+        else
+        {*/
+            winPanel.SetActive(false);
+            paintingManager.ReadTableau(GameManager.instance.indexLevel, GameManager.instance.difficulty);
+            paintingManager.CreatePixels();
+            paintingManager.SelectTarget();
+            paintingManager.UnveilPixelsOfSameColor(GetColorFromKey(0));
+            canvasManager.UpdateColorBars(0);
+            canvasManager.UpdateSizeColorBar();
+            canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
 
-        maxLife = canvasManager.life.Length;
-        lifeRemaining = maxLife;
 
-        canvasManager.SetBackground(GameManager.instance.currentBackground);
+            maxLife = canvasManager.life.Length;
+            lifeRemaining = maxLife;
+        //}
+        
     }
 
     public Color GetColorFromKey(int colorKey)
@@ -230,9 +237,24 @@ public class MainManager : MonoBehaviour
     {
         GameManager.instance.LoadMainScene();
     }
+/*
+    public void Tuto()
+    {
+            winPanel.SetActive(false);
+            paintingManager.ReadTableau(GameManager.instance.indexLevel, GameManager.instance.difficulty);
+            paintingManager.CreatePixels();
+            paintingManager.SelectTarget(0);
+            paintingManager.UnveilPixelsOfSameColor(GetColorFromKey(0));
+            canvasManager.UpdateColorBars(0);
+            canvasManager.UpdateSizeColorBar();
+            canvasManager.UpdateTargetImage(paintingManager.pixelTarget.GetComponent<Image>().color);
 
+            maxLife = canvasManager.life.Length;
+            lifeRemaining = maxLife;
+            PauseManager.gameIsPaused = true;
+    }
 
-
+*/
 
 
 

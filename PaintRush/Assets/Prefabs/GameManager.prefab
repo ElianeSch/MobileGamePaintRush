@@ -45,13 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStarted: 0
-  currentLevel: 
   indexLevel: 0
   difficulty: 0
   indexDoor: 0
   difficultyUnlocked: 
   pausePanel: {fileID: 9032969744558731645, guid: 6c503085d1549c44a9fcd58a3b65e0c6,
     type: 3}
+  totalGold: 0
+  totalStarCount: 0
+  starsToUnlockLevel: 0
+  numberLevelUnlocked: 0
+  unlockedBrush: []
+  currentBrush: {fileID: 0}
+  unlockedBackground: []
+  currentBackground: {fileID: 0}
+  defaultBackground: {fileID: 0}
 --- !u!114 &1085866694321388924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +74,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked:
     difficultyUnlocked: 000000000100000002000000
+  gold:
+    totalGoldCount: 0
+  star:
+    totalStarCount: 0
+    starsToUnlockLevel: 0
+  unlockedItems:
+    unlockedBrush: []
+    unlockedBackground: []
+    currentBrush: {fileID: 0}
+    currentBackground: {fileID: 0}

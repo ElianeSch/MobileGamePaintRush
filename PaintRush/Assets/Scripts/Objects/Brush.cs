@@ -20,9 +20,9 @@ public class Brush : MonoBehaviour
         
         GameManager.instance.LoadData();
 
-        if (GameManager.instance.currentBrush != null)
+        if (GameManager.instance.currentBrushIndex != -1)
         {
-            brushObject =  GameManager.instance.currentBrush.mesh;
+            brushObject =  GameManager.instance.allBrush[GameManager.instance.currentBrushIndex].mesh;
         }
 
         else

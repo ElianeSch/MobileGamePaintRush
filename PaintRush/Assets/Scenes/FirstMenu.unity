@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731707, g: 0.13414726, b: 0.12107857, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1362,6 +1362,52 @@ PrefabInstance:
       propertyPath: defaultBackground
       value: 
       objectReference: {fileID: 11400000, guid: 0d85c7b1415c5a4459e345c7f5998ac4,
+        type: 2}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBrush.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBrush.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c71b1c3e4d11e54da9915138ad1bc8b,
+        type: 2}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBrush.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: add10df9cf854954da69fb2c1a0c5342,
+        type: 2}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBrush.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee71fb47a4825894c9a5da67bbb06c9c,
+        type: 2}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBrush.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3549ee67c2786234f89b50a32cb02958,
+        type: 2}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBackground.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBackground.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d85c7b1415c5a4459e345c7f5998ac4,
+        type: 2}
+    - target: {fileID: 2506180585873385214, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
+        type: 3}
+      propertyPath: allBackground.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 48fa9361a4e0dea45bdbb4b183cd82b5,
         type: 2}
     - target: {fileID: 2506180585873385215, guid: 434e0d8167400b84aa6d01fc61ef9fcc,
         type: 3}

@@ -12,7 +12,7 @@ public class LoadAndSaveData : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.Log("Plus d'une instance de LoadAndSaveData dans la scène");
+            Debug.Log("Plus d'une instance de LoadAndSaveData dans la scï¿½ne");
         }
 
         else
@@ -34,6 +34,7 @@ public class LoadAndSaveData : MonoBehaviour
         string itemsData = JsonUtility.ToJson(unlockedItems);
 
 
+
         string filePath = Application.persistentDataPath + "/UnlockedData.json";
         string filePathGold = Application.persistentDataPath + "/GoldData.json";
         string filePathStar = Application.persistentDataPath + "/StarData.json";
@@ -45,7 +46,7 @@ public class LoadAndSaveData : MonoBehaviour
         System.IO.File.WriteAllText(filePathItem, itemsData);
 
 
-        Debug.Log("Sauvegarde effectuée");
+        Debug.Log("Sauvegarde effectuï¿½e");
     }
 
 
@@ -120,10 +121,10 @@ public class Stars
 
 public class UnlockedItems
 {
-    public List<PinceauSO> unlockedBrush = new List<PinceauSO>();
-    public List<BackgroundSO> unlockedBackground = new List<BackgroundSO>();
-    public PinceauSO currentBrush;
-    public BackgroundSO currentBackground;
+    public List<int> unlockedBrushIndex = new List<int>();
+    public List<int> unlockedBackgroundIndex = new List<int>();
+    public int currentBrushIndex;
+    public int currentBackgroundIndex;
 }
 
 

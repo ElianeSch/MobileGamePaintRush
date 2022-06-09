@@ -21,20 +21,22 @@ public class GameManager : MonoBehaviour
 
     public int numberLevelUnlocked;
 
-    public List<PinceauSO> unlockedBrush = new List<PinceauSO>();
-    public PinceauSO currentBrush;
+    public List<PinceauSO> allBrush = new List<PinceauSO>();
+    public List<int> unlockedBrushIndex = new List<int>();
+    public int currentBrushIndex = -1;
 
-    public List<BackgroundSO> unlockedBackground = new List<BackgroundSO>();
-    public BackgroundSO currentBackground;
+    public List<BackgroundSO> allBackground = new List<BackgroundSO>();
+    public List<int> unlockedBackgroundIndex = new List<int>();
 
-    public BackgroundSO defaultBackground;
+    public int currentBackgroundIndex=-1;
+
 
     private void Awake()
     {
         
         if (instance != null)
         {
-            Debug.Log("Plus d'une instance de GameManager dans la scène !");
+            Debug.Log("Plus d'une instance de GameManager dans la scï¿½ne !");
             return;
         }
         instance = this;
@@ -45,9 +47,9 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
         SetAndSaveStarsToUnlockLevel();
-        if (currentBackground == null)
+        if (currentBackgroundIndex == -1)
         {
-            currentBackground = defaultBackground;
+            currentBackgroundIndex = 0;
         }
 
     }
@@ -104,11 +106,11 @@ public class GameManager : MonoBehaviour
         totalStarCount = LoadAndSaveData.instance.star.totalStarCount;
         starsToUnlockLevel = LoadAndSaveData.instance.star.starsToUnlockLevel;
 
-        unlockedBrush = LoadAndSaveData.instance.unlockedItems.unlockedBrush;
-        currentBrush = LoadAndSaveData.instance.unlockedItems.currentBrush;
+        unlockedBrushIndex = LoadAndSaveData.instance.unlockedItems.unlockedBrushIndex;
+        currentBrushIndex = LoadAndSaveData.instance.unlockedItems.currentBrushIndex;
 
-        unlockedBackground = LoadAndSaveData.instance.unlockedItems.unlockedBackground;
-        currentBackground = LoadAndSaveData.instance.unlockedItems.currentBackground;
+        unlockedBackgroundIndex = LoadAndSaveData.instance.unlockedItems.unlockedBackgroundIndex;
+        currentBackgroundIndex = LoadAndSaveData.instance.unlockedItems.currentBackgroundIndex;
 
     }
 
@@ -155,29 +157,41 @@ public class GameManager : MonoBehaviour
        
     }
 
-    public void AddUnlockedBrushAndSave(PinceauSO item)
+    public void AddUnlockedBrushAndSave(int brushIndex)
     {
-        LoadAndSaveData.instance.unlockedItems.unlockedBrush.Add(item);
+        LoadAndSaveData.instance.unlockedItems.unlockedBrushIndex.Add(brushIndex);
         LoadAndSaveData.instance.SaveToJson();
     }
 
-    public void AddUnlockedBackgroundAndSave(BackgroundSO item)
+    public void AddUnlockedBackgroundAndSave(int backgroundIndex)
     {
-        LoadAndSaveData.instance.unlockedItems.unlockedBackground.Add(item);
+        LoadAndSaveData.instance.unlockedItems.unlockedBackgroundIndex.Add(backgroundIndex);
         LoadAndSaveData.instance.SaveToJson();
     }
 
 
-    public void SetAndSaveCurentBrush(PinceauSO brush)
+    public void SetAndSaveCurentBrush(int brushIndex)
     {
-        LoadAndSaveData.instance.unlockedItems.currentBrush = brush;
+        LoadAndSaveData.instance.unlockedItems.currentBrushIndex = brushIndex;
         LoadAndSaveData.instance.SaveToJson();
     }
 
-    public void SetAndSaveCurrentBackground(BackgroundSO background)
+    public void SetAndSaveCurrentBackground(int backgroundIndex)
     {
-        LoadAndSaveData.instance.unlockedItems.currentBackground = background;
+        LoadAndSaveData.instance.unlockedItems.currentBackgroundIndex = backgroundIndex;
         LoadAndSaveData.instance.SaveToJson();
+    }
+
+    public int GetBackgroundIndex(BackgroundSO background)
+    {
+        int backgroundIndex = allBackground.IndexOf(background);
+        return backgroundIndex;
+    }
+
+     public int GetBrushIndex(PinceauSO brush)
+    {
+        int brushIndex = allBrush.IndexOf(brush);
+        return brushIndex;
     }
 
 }

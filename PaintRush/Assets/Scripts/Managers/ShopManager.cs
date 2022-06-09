@@ -107,12 +107,14 @@ public class ShopManager : MonoBehaviour
 
             if (itemToBuy is PinceauSO)
             {
-                GameManager.instance.AddUnlockedBrushAndSave(itemToBuy as PinceauSO);
+                int brushIndex = GameManager.instance.GetBrushIndex(itemToBuy as PinceauSO);
+                GameManager.instance.AddUnlockedBrushAndSave(brushIndex);
             }
 
             else if (itemToBuy is BackgroundSO)
             {
-                GameManager.instance.AddUnlockedBackgroundAndSave(itemToBuy as BackgroundSO);
+                int backgroundIndex = GameManager.instance.GetBackgroundIndex(itemToBuy as BackgroundSO);
+                GameManager.instance.AddUnlockedBackgroundAndSave(backgroundIndex);
             }
 
 
