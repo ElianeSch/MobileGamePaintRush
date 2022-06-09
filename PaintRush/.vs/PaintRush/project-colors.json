@@ -25,7 +25,12 @@
       "ProjectGuid": "3a454745-ee46-58d8-3574-c543172265e9",
       "DisplayName": "SimpleInspectorAttributes",
       "ColorIndex": 3
+    },
+    "b2ff5c8d-dc91-3fb8-1e01-483b60c9724b": {
+      "ProjectGuid": "b2ff5c8d-dc91-3fb8-1e01-483b60c9724b",
+      "DisplayName": "SimpleScrollSnapEditor",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }

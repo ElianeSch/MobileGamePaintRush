@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
+
 public class MainManager : MonoBehaviour
 {
 
@@ -27,6 +28,11 @@ public class MainManager : MonoBehaviour
 
     public int maxLife;
     public int lifeRemaining;
+
+
+    // publicité
+
+
 
 
     public float[,] paletteRGB = new float[,] { { 255.0000f, 255.0000f, 255.0000f}, { 170.8500f, 170.8500f, 170.8500f }, { 86.7000f, 86.7000f, 86.7000f }, { 0, 0, 0 }, { 255.0000f, 255.0000f, 170.8500f }, { 170.8500f, 170.8500f, 114.4695f},
@@ -96,6 +102,10 @@ public class MainManager : MonoBehaviour
         lifeRemaining = maxLife;
 
         canvasManager.SetBackground(GameManager.instance.currentBackground);
+
+
+
+
     }
 
     public Color GetColorFromKey(int colorKey)
@@ -182,15 +192,6 @@ public class MainManager : MonoBehaviour
     {
         winPanel.SetActive(true);
 
-
-      /*  if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] <= 2)
-        { 
-            LoadAndSaveData.instance.unlocked.difficultyUnlocked[GameManager.instance.indexLevel]++;
-
-        }
-       
-        LoadAndSaveData.instance.SaveToJson();
-        GameManager.instance.LoadData();*/
     }
 
     public void IfLoose()
@@ -202,13 +203,11 @@ public class MainManager : MonoBehaviour
         psLoose.gameObject.SetActive(true);
         psLoose.Play();
         canvasManager.UpdateLifeCount(lifeRemaining);
-        print("Life remaining = " + lifeRemaining);
 
         // Update life canvas
 
         if (lifeRemaining == 0)
         {
-            print("Game over !");
             PauseManager.gameIsPaused = true;
             loosePanel.SetActive(true);
         }
