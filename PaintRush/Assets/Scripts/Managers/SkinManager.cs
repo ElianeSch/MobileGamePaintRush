@@ -93,4 +93,9 @@ public class SkinManager : MonoBehaviour
         b.onClick.AddListener(() => { EquipBackground(index); });
     }
 
+    public void ButtonColorBackground(Button button)
+    {
+        GameManager.instance.SetAndSaveColorBackground(button.GetComponent<Image>().color);
+    }
+
 }

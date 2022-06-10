@@ -25,6 +25,7 @@ public class LoadAndSaveData : MonoBehaviour
     public Coin gold = new Coin();
     public Stars star = new Stars();
     public UnlockedItems unlockedItems = new UnlockedItems();
+    public BackgroundColor backgroundColor = new BackgroundColor();
 
     public void SaveToJson()
     {
@@ -32,21 +33,23 @@ public class LoadAndSaveData : MonoBehaviour
         string goldData = JsonUtility.ToJson(gold);
         string starData = JsonUtility.ToJson(star);
         string itemsData = JsonUtility.ToJson(unlockedItems);
-
+        string colorBackgroundData = JsonUtility.ToJson(backgroundColor);
 
 
         string filePath = Application.persistentDataPath + "/UnlockedData.json";
         string filePathGold = Application.persistentDataPath + "/GoldData.json";
         string filePathStar = Application.persistentDataPath + "/StarData.json";
         string filePathItem = Application.persistentDataPath + "/ItemData.json";
+        string filePathColorBackground = Application.persistentDataPath + "/ColorBackgroundData.json";
 
         System.IO.File.WriteAllText(filePath, unlockedData);
         System.IO.File.WriteAllText(filePathGold, goldData);
         System.IO.File.WriteAllText(filePathStar, starData);
         System.IO.File.WriteAllText(filePathItem, itemsData);
+        System.IO.File.WriteAllText(filePathColorBackground, colorBackgroundData);
 
 
-        Debug.Log("Sauvegarde effectu�e");
+        Debug.Log("Sauvegarde effectuée");
     }
 
 
@@ -89,7 +92,14 @@ public class LoadAndSaveData : MonoBehaviour
 
         }
 
+        if (System.IO.File.Exists(Application.persistentDataPath + "/ColorBackgroundData.json"))
+        {
+            string filePathColorBackground = Application.persistentDataPath + "/ColorBackgroundData.json";
+            string colorBackgroundData = System.IO.File.ReadAllText(filePathColorBackground);
 
+            backgroundColor = JsonUtility.FromJson<BackgroundColor>(colorBackgroundData);
+
+        }
     }
 
 
@@ -127,6 +137,10 @@ public class UnlockedItems
     public int currentBackgroundIndex;
 }
 
+public class BackgroundColor
+{
+    public Color colorBackground;
+}
 
 
 

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public int currentBackgroundIndex=-1;
 
+    public Color colorBackground = Color.black;
 
     private void Awake()
     {
@@ -194,6 +195,13 @@ public class GameManager : MonoBehaviour
     {
         int brushIndex = allBrush.IndexOf(brush);
         return brushIndex;
+    }
+
+    public void SetAndSaveColorBackground(Color color)
+    {
+        colorBackground = color;
+        LoadAndSaveData.instance.backgroundColor.colorBackground = color;
+        LoadAndSaveData.instance.SaveToJson();
     }
 
 }

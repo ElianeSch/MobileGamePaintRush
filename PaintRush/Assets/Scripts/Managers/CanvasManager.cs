@@ -21,7 +21,8 @@ public class CanvasManager : MonoBehaviour
 
     void Start()
     {
-        backgroundImage.sprite = GameManager.instance.allBackground[LoadAndSaveData.instance.unlockedItems.currentBackgroundIndex].spriteBackground;
+        Camera.main.backgroundColor = GameManager.instance.colorBackground;
+        //backgroundImage.sprite = GameManager.instance.allBackground[LoadAndSaveData.instance.unlockedItems.currentBackgroundIndex].spriteBackground;
     }
 
     public void UpdateColorBars(int currentColorKey)
