@@ -14,11 +14,6 @@ public class SkinManager : MonoBehaviour
     public GameObject panelItemPrefab;
 
 
-    //private List<Button> listEquipButtons = new List<Button>();
-
-
-
-
     private void Awake()
     {
 

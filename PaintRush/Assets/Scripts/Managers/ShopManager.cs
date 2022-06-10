@@ -97,28 +97,38 @@ public class ShopManager : MonoBehaviour
     public void PurchaseItem(int indexButton_i, int indexButton_j)
     {
         ShopItemSO itemToBuy = shopItemSOTabsList[indexButton_i].shopItemSOTab[indexButton_j];
-       if (coins >= itemToBuy.cost)
+
+        if (itemToBuy is PinceauSO && coins >= itemToBuy.cost)
         {
-            coins = coins - itemToBuy.cost;
-            coinUI.text = "Coins : " + coins.ToString();
-            GameManager.instance.SetandSaveCoinCount(coins);
-
-            // Check which type is the item
-
-            if (itemToBuy is PinceauSO)
+            int brushIndex = GameManager.instance.GetBrushIndex(itemToBuy as PinceauSO);
+            if (LoadAndSaveData.instance.unlockedItems.unlockedBrushIndex.Contains(brushIndex) == false)
             {
-                int brushIndex = GameManager.instance.GetBrushIndex(itemToBuy as PinceauSO);
                 GameManager.instance.AddUnlockedBrushAndSave(brushIndex);
-            }
+                coins = coins - itemToBuy.cost;
+                coinUI.text = coins.ToString();
+                GameManager.instance.SetandSaveCoinCount(coins);
 
-            else if (itemToBuy is BackgroundSO)
-            {
-                int backgroundIndex = GameManager.instance.GetBackgroundIndex(itemToBuy as BackgroundSO);
-                GameManager.instance.AddUnlockedBackgroundAndSave(backgroundIndex);
             }
-
 
         }
+
+
+        else if (itemToBuy is BackgroundSO && coins >= itemToBuy.cost)
+        
+        {
+            int backgroundIndex = GameManager.instance.GetBackgroundIndex(itemToBuy as BackgroundSO);
+
+            if (LoadAndSaveData.instance.unlockedItems.unlockedBackgroundIndex.Contains(backgroundIndex) == false)
+            {
+                GameManager.instance.AddUnlockedBackgroundAndSave(backgroundIndex);
+                coins = coins - itemToBuy.cost;
+                coinUI.text = coins.ToString();
+                GameManager.instance.SetandSaveCoinCount(coins);
+            }
+
+        }
+
+
     }
 
     void AddButtonListener(Button b, int index_i, int index_j)
