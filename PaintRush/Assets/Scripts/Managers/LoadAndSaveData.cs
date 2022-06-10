@@ -140,6 +140,7 @@ public class UnlockedItems
 public class BackgroundColor
 {
     public Color colorBackground;
+    public bool backgroundIsColored;
 }
 
 

@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public int currentBackgroundIndex=-1;
 
     public Color colorBackground = Color.black;
+    public bool backgroundIsColored = true;
 
     private void Awake()
     {
@@ -182,6 +183,8 @@ public class GameManager : MonoBehaviour
     public void SetAndSaveCurrentBackground(int backgroundIndex)
     {
         LoadAndSaveData.instance.unlockedItems.currentBackgroundIndex = backgroundIndex;
+        LoadAndSaveData.instance.backgroundColor.backgroundIsColored = false;
+        backgroundIsColored = false;
         LoadAndSaveData.instance.SaveToJson();
     }
 
@@ -201,6 +204,8 @@ public class GameManager : MonoBehaviour
     {
         colorBackground = color;
         LoadAndSaveData.instance.backgroundColor.colorBackground = color;
+        LoadAndSaveData.instance.backgroundColor.backgroundIsColored = true;
+        backgroundIsColored = true;
         LoadAndSaveData.instance.SaveToJson();
     }
 
