@@ -18,6 +18,12 @@ public class CanvasManager : MonoBehaviour
     public GameObject[] life;
     public Image backgroundImage;
 
+
+    void Start()
+    {
+        backgroundImage.sprite = GameManager.instance.allBackground[LoadAndSaveData.instance.unlockedItems.currentBackgroundIndex].spriteBackground;
+    }
+
     public void UpdateColorBars(int currentColorKey)
     {
         foreach(ColorBar colorbar in listColorBar)
