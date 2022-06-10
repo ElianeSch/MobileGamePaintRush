@@ -22,8 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * 1, Space.World);
-        transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * 1, Space.World);
+
         float x1 = transform.position.x;
         if (Input.touchCount > 0 && PauseManager.gameIsPaused == false) // Si le joueur a au moins un doigt sur l'�cran
         {
