@@ -13,10 +13,12 @@ public class SkinManager : MonoBehaviour
 
     public GameObject panelItemPrefab;
 
+    public GameObject panelColorBackground;
+
 
     private void Awake()
     {
-
+        panelColorBackground.SetActive(false);
 
         if (GameManager.instance.unlockedBackgroundIndex.Count == 0)
         {
@@ -96,6 +98,11 @@ public class SkinManager : MonoBehaviour
     public void ButtonColorBackground(Button button)
     {
         GameManager.instance.SetAndSaveColorBackground(button.GetComponent<Image>().color);
+        panelColorBackground.SetActive(false);
     }
 
+    public void OpenColorBackground()
+    {
+        panelColorBackground.SetActive(true);
+    }
 }
