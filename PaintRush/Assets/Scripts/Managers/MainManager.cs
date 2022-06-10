@@ -21,8 +21,8 @@ public class MainManager : MonoBehaviour
     public GameObject numGold;
 
     public ParticleSystem ps;
-    private ParticleSystem.MainModule ma;
-
+    //public ParticleSystem.MainModule ma;
+   
     public ParticleSystem psLoose;
 
     public int maxLife;
@@ -83,7 +83,7 @@ public class MainManager : MonoBehaviour
 
         }
 
-        ma = ps.main;
+
     }
     private void Start()
     {
@@ -106,8 +106,10 @@ public class MainManager : MonoBehaviour
 
             maxLife = canvasManager.life.Length;
             lifeRemaining = maxLife;
+
+
         //}
-        
+
 
 
 
@@ -138,7 +140,7 @@ public class MainManager : MonoBehaviour
         brush.AddColor(potId);
         CheckIfMatchingColors();
         canvasManager.UpdateColorBars(brush.currentColorKey);
-        //GameObject newSplashColor = Instantiate(ps.gameObject, new Vector3(brush.transform.position.x, brush.transform.position.y - 1, brush.transform.position.z), Quaternion.identity);
+     
         Color couleur;
         if (potId == 1) // Si c'est du noir
             couleur = new Color(0f, 0f, 0f);
@@ -149,14 +151,12 @@ public class MainManager : MonoBehaviour
         else  // Si c'est du cyan
             couleur = new Color(0f, 1.0f, 1.0f);
 
-        //couleur = new Color(Pinceau.instance.paletteRGB[potId, 0], Pinceau.instance.paletteRGB[potId, 1], Pinceau.instance.paletteRGB[potId, 2]);
-
+        var ma = ps.main;
         ma.startColor = couleur;
 
 
 
         ps.Play();
-        //Destroy(newSplashColor, 1f);
 
     }
     public void ManageCollisionWithWater()

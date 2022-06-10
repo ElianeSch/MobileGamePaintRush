@@ -12,11 +12,12 @@ public class Brush : MonoBehaviour
 
     public GameObject meshBrush;
 
+    public GameObject brushObject;
+    public GameObject newBrush;
 
-    private void Start()
+    private void Awake()
     {
 
-        GameObject brushObject;
         
         GameManager.instance.LoadData();
 
@@ -32,9 +33,12 @@ public class Brush : MonoBehaviour
         }
 
         
-        Instantiate(brushObject, gameObject.transform);
+        newBrush = Instantiate(brushObject, gameObject.transform);
 
-        colorBrush = brushObject.transform.Find("PaintBrush").gameObject;
+        colorBrush = newBrush.transform.Find("PaintBrush").gameObject;
+        trailEffect = newBrush.GetComponentInChildren<LineRenderer>();
+
+
         ResetBrushColor();
 
 
@@ -169,7 +173,7 @@ public class Brush : MonoBehaviour
         while (elapsedTime < totalTime)
         {
             elapsedTime += Time.deltaTime;
-            trailEffect.material.color = Color.Lerp(brushColor, color, elapsedTime / totalTime);
+            trailEffect.sharedMaterial.color = Color.Lerp(brushColor, color, elapsedTime / totalTime);
             yield return null;
         }
     }
@@ -185,7 +189,7 @@ public class Brush : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             Color color = MainManager.instance.GetColorFromKey(colorKey);
-            trailEffect.material.color = Color.Lerp(brushColor, color, elapsedTime / totalTime);
+            trailEffect.sharedMaterial.color = Color.Lerp(brushColor, color, elapsedTime / totalTime);
             yield return new WaitForEndOfFrame();
         }
     }

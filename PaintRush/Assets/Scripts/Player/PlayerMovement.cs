@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private float theta;
     public float thetaMax;
 
- 
-
+    public Brush brush;
+    private void Start()
+    {
+        BrushBody = brush.newBrush;
+    }
 
     private void Update()
     {
