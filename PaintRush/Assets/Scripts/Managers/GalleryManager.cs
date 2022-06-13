@@ -32,11 +32,10 @@ public class GalleryManager : MonoBehaviour
                 listFinishedPaintings.Add(i);
             }
         }
-        print(numberOfPaintingsFinished);
         //numberOfPaintingsFinished = 2;
         //listFinishedPaintings.Add(0);
         //listFinishedPaintings.Add(2);
-        CreateAllFrames(numberOfPaintingsFinished);
+        CreateAllFrames();
     }
 
 
@@ -58,13 +57,15 @@ public class GalleryManager : MonoBehaviour
         panelOpenPainting.SetActive(false);
     }
 
-    public void CreateAllFrames(int numberOfPaintingsFinished)
+    public void CreateAllFrames()
     {
+        int indexPos = 0;
         foreach(int index in listFinishedPaintings)
         { 
-            GameObject newFrame = Instantiate(prefabFrame, listFramesPositions[index], Quaternion.identity);
-            newFrame.transform.parent = panelFrames.transform;
+            GameObject newFrame = Instantiate(prefabFrame, listFramesPositions[indexPos], Quaternion.identity);
+            newFrame.transform.SetParent(panelFrames.transform);
             newFrame.GetComponent<Button>().onClick.AddListener(() => {ClickOnPainting(index); });
+            indexPos += 1;
 
         }
     }
