@@ -32,9 +32,7 @@ public class GalleryManager : MonoBehaviour
                 listFinishedPaintings.Add(i);
             }
         }
-        //numberOfPaintingsFinished = 2;
-        //listFinishedPaintings.Add(0);
-        //listFinishedPaintings.Add(2);
+
         CreateAllFrames();
     }
 
