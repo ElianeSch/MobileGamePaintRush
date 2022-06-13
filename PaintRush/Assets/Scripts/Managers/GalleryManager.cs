@@ -10,7 +10,6 @@ public class GalleryManager : MonoBehaviour
     public GameObject panelOpenPainting;
 
     public GameObject panelFrames;
-    public int indexScrollPreview = 0;
 
     public GameObject prefabFrame;
     public List<Vector3> listFramesPositions;
@@ -27,41 +26,25 @@ public class GalleryManager : MonoBehaviour
     {
         for (int i = 0; i < GameManager.instance.difficultyUnlocked.Count; i++)
         {
-            if (GameManager.instance.difficultyUnlocked[i] == 3)
+            if (GameManager.instance.difficultyUnlocked[i] == 3 && PaintingsLibrary.instance.paintingsList[i].movement == GameManager.instance.movement)
             {
                 numberOfPaintingsFinished += 1;
                 listFinishedPaintings.Add(i);
             }
         }
-        numberOfPaintingsFinished = 2;
-        listFinishedPaintings.Add(0);
-        listFinishedPaintings.Add(2);
+        print(numberOfPaintingsFinished);
+        //numberOfPaintingsFinished = 2;
+        //listFinishedPaintings.Add(0);
+        //listFinishedPaintings.Add(2);
         CreateAllFrames(numberOfPaintingsFinished);
     }
 
-    public void ClickButtonRight()
-    {
-       /* if (indexScrollPreview < 3)
-        {
-            indexScrollPreview += 1;
-            animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
-        }*/
-
-    }
-
-    public void ClickButtonLeft()
-    {
-       /* if (indexScrollPreview > 0)
-        {
-            indexScrollPreview -= 1;
-            animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
-        }*/
-    }
 
 
     public void ClickOnPainting(int index)
     {
         panelOpenPainting.SetActive(true);
+
         for(int i = 0;i < 4; i++)
         {
             listImages[i].sprite = PaintingsLibrary.instance.paintingsList[index].spritesPainting[i];
@@ -72,8 +55,6 @@ public class GalleryManager : MonoBehaviour
 
     public void ClosePanelInfo()
     {
-        indexScrollPreview = 0;
-        //animatorScrollingPainting.SetInteger("indexPreview", indexScrollPreview);
         panelOpenPainting.SetActive(false);
     }
 

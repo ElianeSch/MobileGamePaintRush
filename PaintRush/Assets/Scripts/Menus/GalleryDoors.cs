@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class GalleryDoors : MonoBehaviour
 {
-    public void LoadGalllery(int index)
+    public void LoadGalllery(string movement)
     {
-        GameManager.instance.LoadGallery(index);
+        GameManager.instance.LoadGallery(movement);
     }
 
     public void LoadMainMenu()

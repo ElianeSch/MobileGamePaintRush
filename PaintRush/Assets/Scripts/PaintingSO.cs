@@ -12,6 +12,7 @@ public class PaintingSO : ScriptableObject
     public string description;
     public Sprite[] spritesPainting ;
     public Painting painting;
+    public string movement;
 
     public void GetPaintingInfo()
     {

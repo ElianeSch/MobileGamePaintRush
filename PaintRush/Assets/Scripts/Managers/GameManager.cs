@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     //public GameObject tuto;
     public int indexLevel;
     public int difficulty;
-    public int indexDoor;
+    public string movement;
 
 
     public List<int> difficultyUnlocked = new List<int>();
@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GalleryDoors");
     }
 
-    public void LoadGallery(int index)
+    public void LoadGallery(string paintingMovement)
     {
-        indexDoor = index;
+        movement = paintingMovement;
         SceneManager.LoadScene("Gallery");
     }
 

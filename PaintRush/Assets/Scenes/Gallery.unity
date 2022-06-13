@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &455494129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1524,6 +1524,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7746759591679495099}
+    - target: {fileID: 7048061261960468696, guid: 65daead9b70024f43a1eb1c40ed87112,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7048061261960468702, guid: 65daead9b70024f43a1eb1c40ed87112,
         type: 3}
       propertyPath: m_Name
@@ -1532,7 +1537,7 @@ PrefabInstance:
     - target: {fileID: 7048061261960468702, guid: 65daead9b70024f43a1eb1c40ed87112,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7048061261960468703, guid: 65daead9b70024f43a1eb1c40ed87112,
         type: 3}
@@ -1698,14 +1703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The Great Wave of Kanagawa is the best-known work of Japanese painter
-    Hokusai. This is a woodcut made in 1830. The landscape is made up of three elements
-    : the stormy sea, three boats and Mount Fuji, the highest mountain in Japan.
-    The great wave, at this moment, makes a perfect spiral whose center passes through
-    the center of the drawing. The wave crashes down in the shape of a destructive
-    hand.
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c839fbd12acea54d8b971b3fe599fac, type: 2}
   m_sharedMaterial: {fileID: -4626234940491790611, guid: 4c839fbd12acea54d8b971b3fe599fac,
@@ -2529,7 +2527,7 @@ PrefabInstance:
     - target: {fileID: 7629682060869076398, guid: 2f06992ce561c6f419e6792e2b2dd597,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 713
+      value: 925
       objectReference: {fileID: 0}
     - target: {fileID: 7629682060869076398, guid: 2f06992ce561c6f419e6792e2b2dd597,
         type: 3}
@@ -2844,7 +2842,7 @@ PrefabInstance:
     - target: {fileID: 7048061261960468702, guid: 65daead9b70024f43a1eb1c40ed87112,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7048061261960468703, guid: 65daead9b70024f43a1eb1c40ed87112,
         type: 3}
@@ -2969,7 +2967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7746759591679495098
 Transform:
   m_ObjectHideFlags: 0
@@ -2998,7 +2996,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelOpenPainting: {fileID: 455494128}
   panelFrames: {fileID: 1624903406}
-  indexScrollPreview: 0
   prefabFrame: {fileID: 7048061261960468702, guid: 65daead9b70024f43a1eb1c40ed87112,
     type: 3}
   listFramesPositions:
