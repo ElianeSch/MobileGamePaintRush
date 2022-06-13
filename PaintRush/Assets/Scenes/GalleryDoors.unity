@@ -1586,7 +1586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RENAISSANCE
+  m_text: CONTEMPORAIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6d49649c2ace1c7488b3568ba9fcc08a, type: 2}
