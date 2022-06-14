@@ -19,10 +19,7 @@ public class PaintingSO : ScriptableObject
 
     public string questionQuiz;
 
-    public string answerQuiz1;
-    public string answerQuiz2;
-    public string answerQuiz3;
-    public string answerQuiz4;
+    public string[] answers = new string[4];
 
 
     public void GetPaintingInfo()

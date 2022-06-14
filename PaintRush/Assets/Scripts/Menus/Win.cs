@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Win : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class Win : MonoBehaviour
 
     public GameObject tableauPanel;
 
+    public GameObject quizPanel;
+    private bool quiz = false;
+
     public PaintingManager paintingManager;
 
     private void Start()
@@ -44,6 +48,12 @@ public class Win : MonoBehaviour
 
         if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] == GameManager.instance.difficulty) // Si on vient de finir pour la première fois cette difficulté
         {
+            if (GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] == 2)
+            {
+                quiz = true;
+            }
+
+
             GameManager.instance.SetAndSaveStarCount(savedStars + 1);
             print("savedStars + 1 " + savedStars + 1);
             GameManager.instance.difficultyUnlocked[GameManager.instance.indexLevel] += 1;
@@ -107,6 +117,11 @@ public class Win : MonoBehaviour
             Destroy(coin);
         }
 
+        if (quiz) // Si on a débloqué le tableau
+        {
+            QuizPanel();
+        }
+
     }
 
     public IEnumerator FadeImage(int steps)
@@ -130,5 +145,62 @@ public class Win : MonoBehaviour
         }
     }
 
+
+
+    public void QuizPanel()
+    {
+        print("quiz !");
+        quizPanel.SetActive(true);
+
+
+        // Gérer le quiz : récupérer la question et les 4 réponses
+        // Afficher les réponses à des boutons aléatoires
+
+        Button[] buttonsAnswers = quizPanel.GetComponentsInChildren<Button>();
+
+        PaintingSO painting = PaintingsLibrary.instance.paintingsList[GameManager.instance.indexLevel];
+
+       
+        List<int> usedValues = new List<int>();
+
+        for (int i = 0; i<4; i++)
+        {
+            int index = Random.Range(0, 4);
+
+            while (usedValues.Contains(index))
+            {
+                index = Random.Range(0, 4);
+            }
+
+            usedValues.Add(index);
+
+            AddButtonListener(buttonsAnswers[i], index);
+
+            buttonsAnswers[i].GetComponentInChildren<TextMeshProUGUI>().text = painting.answers[index];
+
+        }
+
+
+
+    }
+
+    void AddButtonListener(Button b, int index)
+    {
+        if (index == 0)
+            b.onClick.AddListener(() => { ClickOnGoodAnswer(); });
+        else
+            b.onClick.AddListener(() => { ClickOnBadAnswer(); });
+    }
+
+
+    public void ClickOnGoodAnswer()
+    {
+        print("Good Answer !");
+    }
+
+    public void ClickOnBadAnswer()
+    {
+        print("Bad answer !");
+    }
 
 }
