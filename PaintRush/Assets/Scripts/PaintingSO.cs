@@ -8,11 +8,22 @@ using System.Collections.Generic;
 public class PaintingSO : ScriptableObject
 {
     public string paintingName;
+
     [TextArea(3, 10)]
     public string description;
+
     public Sprite[] spritesPainting ;
     public Painting painting;
+
     public string movement;
+
+    public string questionQuiz;
+
+    public string answerQuiz1;
+    public string answerQuiz2;
+    public string answerQuiz3;
+    public string answerQuiz4;
+
 
     public void GetPaintingInfo()
     {
