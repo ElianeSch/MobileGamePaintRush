@@ -24,11 +24,13 @@ public class Win : MonoBehaviour
     public Image endImage;
     public int steps;
 
+    public GameObject tableauPanel;
+
     public PaintingManager paintingManager;
 
     private void Start()
     {
-        print("coucou");
+
         PauseManager.gameIsPaused = true;
 
         savedGold = GameManager.instance.GetCoinCount();
@@ -58,6 +60,9 @@ public class Win : MonoBehaviour
         numberGoldTextInLevel.text = goldPickedUpInThisLevel.ToString();
 
         endImage.sprite = PaintingsLibrary.instance.paintingsList[GameManager.instance.indexLevel].spritesPainting[GameManager.instance.difficulty];
+
+        tableauPanel.transform.SetParent(gameObject.transform);
+        tableauPanel.transform.SetAsFirstSibling();
 
         StartCoroutine(FadeImage(steps));
         StartCoroutine(UpdateGoldCount());

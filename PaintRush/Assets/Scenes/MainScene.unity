@@ -565,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 895}
+  m_AnchoredPosition: {x: 0, y: 271}
   m_SizeDelta: {x: 975.4424, y: 246.70447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57082292
@@ -662,8 +662,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: 495}
-  m_SizeDelta: {x: 814.1182, y: 448.7685}
+  m_AnchoredPosition: {x: -14.211006, y: 640.72186}
+  m_SizeDelta: {x: 761.7971, y: 389.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64345065
 MonoBehaviour:
@@ -1255,11 +1255,11 @@ RectTransform:
   - {fileID: 1867021679}
   - {fileID: 772283464}
   m_Father: {fileID: 554956418}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0024261475, y: -24}
+  m_AnchoredPosition: {x: -0.0024261475, y: -38}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &208384524
@@ -2787,11 +2787,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1031984555}
-  - {fileID: 198917189}
   - {fileID: 1735621826}
   - {fileID: 1309313844}
   - {fileID: 812178290}
   - {fileID: 1605767111}
+  - {fileID: 198917189}
   - {fileID: 1426020448}
   - {fileID: 40363745}
   - {fileID: 694276020}
@@ -4549,7 +4549,7 @@ RectTransform:
   - {fileID: 1375205392}
   - {fileID: 429568941}
   m_Father: {fileID: 554956418}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11476,7 +11476,7 @@ RectTransform:
   m_Children:
   - {fileID: 1750119765}
   m_Father: {fileID: 554956418}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12164,6 +12164,7 @@ MonoBehaviour:
   numberGoldTextInLevel: {fileID: 349020094}
   endImage: {fileID: 64345065}
   steps: 20
+  tableauPanel: {fileID: 198917188}
   paintingManager: {fileID: 820045552}
 --- !u!1 &1427502837
 GameObject:
@@ -13315,7 +13316,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 554956418}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14229,7 +14230,7 @@ RectTransform:
   - {fileID: 1503185783}
   - {fileID: 22079064}
   m_Father: {fileID: 554956418}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
