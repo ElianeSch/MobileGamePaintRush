@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        currentspeed += x1 - transform.position.x;;
+        currentspeed += x1 - transform.position.x;
         float absolutespeed = Mathf.Abs(currentspeed);
         if( absolutespeed > 0.001)
         {

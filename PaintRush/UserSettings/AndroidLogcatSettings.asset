@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "RZ8R80B1Z4B",
     "m_SelectedPackage": {
-        "deviceId": "RZ8R80B1Z4B",
-        "name": "com.ElianeS.PaintRush",
-        "processId": 26341,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,62 +11,32 @@
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
-            "processId": 14641,
-            "exited": true
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 16037,
-            "exited": true
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 18955,
-            "exited": true
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 19083,
-            "exited": true
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 19665,
-            "exited": true
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
-            "processId": 19969,
-            "exited": false
-        },
-        {
-            "deviceId": "RZ8R80B1Z4B",
-            "name": "com.ElianeS.PaintRush",
             "processId": 22067,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
             "processId": 24319,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
             "processId": 27119,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RZ8R80B1Z4B",
             "name": "com.ElianeS.PaintRush",
             "processId": 26341,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 6982,
+            "exited": true
         },
         {
             "deviceId": "3066768165005VP",
