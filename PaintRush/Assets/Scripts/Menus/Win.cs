@@ -161,18 +161,12 @@ public class Win : MonoBehaviour
         PaintingSO painting = PaintingsLibrary.instance.paintingsList[GameManager.instance.indexLevel];
 
        
-        List<int> usedValues = new List<int>();
+        List<int> usedValues = new List<int> {0,1,2,3};
 
         for (int i = 0; i<4; i++)
         {
-            int index = Random.Range(0, 4);
-
-            while (usedValues.Contains(index))
-            {
-                index = Random.Range(0, 4);
-            }
-
-            usedValues.Add(index);
+            int index = usedValues[Random.Range(0, usedValues.Count)];
+            usedValues.Remove(index);
 
             AddButtonListener(buttonsAnswers[i], index);
 
