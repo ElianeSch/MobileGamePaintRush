@@ -986,7 +986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3/30
+  m_text: '***'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: -1906597888988298201, guid: 54c77bc834e57934c8f9c3b32ec99075,
@@ -1814,6 +1814,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674b946667077bc42a2045a401fd72cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberStars: {fileID: 0}
+  numberPaintings: {fileID: 0}
+  numberCoins: {fileID: 0}
+  numberSkins: {fileID: 0}
 --- !u!1 &572847549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,7 +2758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3/30
+  m_text: '***'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: -1906597888988298201, guid: 54c77bc834e57934c8f9c3b32ec99075,
@@ -3916,7 +3920,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 150
+  m_text: '***'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: -1906597888988298201, guid: 54c77bc834e57934c8f9c3b32ec99075,
@@ -4006,7 +4010,7 @@ GameObject:
   - component: {fileID: 1390698816}
   - component: {fileID: 1390698815}
   m_Layer: 5
-  m_Name: StarImage
+  m_Name: QuestImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4537,7 +4541,7 @@ GameObject:
   - component: {fileID: 1508282344}
   - component: {fileID: 1508282343}
   m_Layer: 5
-  m_Name: NumberOfStars
+  m_Name: NumberOfQuests
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4582,7 +4586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2/50
+  m_text: '***'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: -1906597888988298201, guid: 54c77bc834e57934c8f9c3b32ec99075,
@@ -4852,7 +4856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5000
+  m_text: '***'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: -1906597888988298201, guid: 54c77bc834e57934c8f9c3b32ec99075,
@@ -5293,7 +5297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2/50
+  m_text: '***'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54c77bc834e57934c8f9c3b32ec99075, type: 2}
   m_sharedMaterial: {fileID: -1906597888988298201, guid: 54c77bc834e57934c8f9c3b32ec99075,
@@ -6309,6 +6313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674b946667077bc42a2045a401fd72cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberStars: {fileID: 857923657}
+  numberPaintings: {fileID: 1675161134}
+  numberCoins: {fileID: 1537184400}
+  numberSkins: {fileID: 267298314}
 --- !u!1 &2054839643
 GameObject:
   m_ObjectHideFlags: 0

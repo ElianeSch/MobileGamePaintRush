@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "RZ8R80B1Z4B",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "RZ8R80B1Z4B",
+        "name": "com.ElianeS.PaintRush",
+        "processId": 12535,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -37,6 +37,12 @@
             "name": "com.ElianeS.PaintRush",
             "processId": 6982,
             "exited": true
+        },
+        {
+            "deviceId": "RZ8R80B1Z4B",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 12535,
+            "exited": false
         },
         {
             "deviceId": "3066768165005VP",
@@ -90,6 +96,12 @@
             "deviceId": "3066768165005VP",
             "name": "com.ElianeS.PaintRush",
             "processId": 5508,
+            "exited": false
+        },
+        {
+            "deviceId": "3066768165005VP",
+            "name": "com.ElianeS.PaintRush",
+            "processId": 12991,
             "exited": false
         }
     ],

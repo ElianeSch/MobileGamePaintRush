@@ -131,6 +131,29 @@ public class GameManager : MonoBehaviour
         return totalStarCount;
     }
 
+    public int GetUnlockedSkinsCount()
+    {
+        LoadData();
+        return LoadAndSaveData.instance.unlockedItems.unlockedBrushIndex.Count;
+    }
+
+    public int GetFinishedPaintingsCount()
+    {
+        int numberOfPaintingsFinished = 0;
+
+        LoadData();
+
+        for (int i = 0; i < difficultyUnlocked.Count; i++)
+        {
+            if (difficultyUnlocked[i] == 3)
+            {
+                numberOfPaintingsFinished += 1;
+            }
+        }
+
+        return numberOfPaintingsFinished;
+    }
+
     public void SetandSaveCoinCount(int newGold)
     {
         totalGold = newGold;
